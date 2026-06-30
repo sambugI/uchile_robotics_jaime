@@ -1,0 +1,62 @@
+services:
+  jaime_core:
+    image: uchile_robotics/jaime_core
+    build:
+      context: ./core/
+      dockerfile: Dockerfile
+    container_name: jaime_core
+    network_mode: host
+   
+    devices:
+      - /dev/rplidar:/dev/rplidar
+      - /dev/kobuki:/dev/kobuki
+      - /dev/joy:/dev/joy
+      - /dev/event_joy:/dev/event_joy
+      - /dev/dri:/dev/dri
+      - /dev/dynamixel:/dev/dynamixel
+      - /dev/head_ino:/dev/head_ino
+     
+    volumes:
+      - /home/jaime/uchile_robotics/jaime_bringup:/home/jaime_ws/src/jaime_bringup
+      - /home/jaime/uchile_robotics/jaime_core:/home/jaime_ws/src/jaime_core
+      - /home/jaime/uchile_robotics/uchile_high:/home/jaime_ws/src/uchile_high
+      - /home/jaime/uchile_robotics/jaime_manipulation:/home/jaime_ws/src/jaime_manipulation
+      - /home/jaime/uchile_robotics/jaime_highlevel:/home/jaime_ws/src/jaime_highlevel
+      - /tmp/.X11-unix:/tmp/.X11-unix
+
+    working_dir: /home/jaime_ws
+    environment:
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - CYCLONEDDS_URI=file:///cyclonedds.xml
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    stdin_open: true
+    tty: true
+  skills:
+    image: uchile_robotics/skills
+    build:
+      context: ./skills/
+      dockerfile: Dockerfile
+    container_name: skills
+    network_mode: host
+    working_dir: /home/jaime_ws
+    volumes:
+      # /home/robotica/uchile_robotics/jaime_knowledge:/home/jaime_ws/src/jaime_knowledge
+      - /home/jaime/uchile_robotics/uchile_common:/home/jaime_ws/src/uchile_common
+      - /home/jaime/uchile_robotics/uchile_high:/home/jaime_ws/src/uchile_high
+      # Ubuntu 26 no permite usar X11 al parecer.
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true
+    environment:
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - CYCLONEDDS_URI=file:///cyclonedds.xml
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    devices:
+      - /dev/dri:/dev/dri
+   # devices:
+      # - host:container
+    # volumes:
+      # - hostPath:containerPath:ro
+    

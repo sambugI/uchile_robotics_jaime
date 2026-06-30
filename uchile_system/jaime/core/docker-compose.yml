@@ -1,0 +1,26 @@
+services:
+  jaime_core:
+    image: uchile_robotics/jaime_core
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jaime_core
+    network_mode: host
+    devices:
+      - /dev/rplidar:/dev/rplidar
+      - /dev/kobuki:/dev/kobuki
+      #- /dev/dynamixel:/dev/dynamixel
+      - /dev/head_ino:/dev/encoders
+      - /dev/input/js0:/dev/input/js0
+      - /dev/input/event28:/dev/input/event28
+    volumes:
+      - /home/jaime/uchile_robotics/jaime_bringup:/home/jaime_ws/src/jaime_bringup
+      - /home/jaime/uchile_robotics/jaime_core:/home/jaime_ws/src/jaime_core
+      - /home/jaime/uchile_robotics/uchile_high:/home/jaime_ws/src/uchile_high
+      - /home/jaime/uchile_robotics/jaime_manipulation:/home/jaime_ws/src/jaime_manipulation
+      - /home/jaime/uchile_robotics/jaime_highlevel:/home/jaime_ws/src/jaime_highlevel
+    environment:
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - CYCLONEDDS_URI=file:///cyclonedds.xml
+    stdin_open: true
+    tty: true
