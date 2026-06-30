@@ -1,0 +1,4 @@
+source;share/jaime_manipulation/local_setup.bash
+source;share/jaime_manipulation/local_setup.dsv
+source;share/jaime_manipulation/local_setup.sh
+source;share/jaime_manipulation/local_setup.zsh

@@ -1,0 +1,35 @@
+[0.020s] Invoking command in '/home/samuel/uchile_robotics/jaime_manipulation/build/jaime_manipulation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake /home/samuel/uchile_robotics/jaime_manipulation -DCMAKE_INSTALL_PREFIX=/home/samuel/uchile_robotics/jaime_manipulation/install/jaime_manipulation
+[0.133s] -- The C compiler identification is GNU 13.3.0
+[0.250s] -- The CXX compiler identification is GNU 13.3.0
+[0.284s] -- Detecting C compiler ABI info
+[0.466s] -- Detecting C compiler ABI info - done
+[0.486s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.486s] -- Detecting C compile features
+[0.487s] -- Detecting C compile features - done
+[0.506s] -- Detecting CXX compiler ABI info
+[0.713s] -- Detecting CXX compiler ABI info - done
+[0.735s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.736s] -- Detecting CXX compile features
+[0.737s] -- Detecting CXX compile features - done
+[0.746s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.989s] -- Found Python3: /home/samuel/uchile_robotics/jaime_manipulation/scripts/venv/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.282s] -- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.327s] Traceback (most recent call last):
+[1.327s]   File "/opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 22, in <module>
+[1.328s]     from catkin_pkg.package import parse_package_string
+[1.328s] ModuleNotFoundError: No module named 'catkin_pkg'
+[1.334s] [31mCMake Error at /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:95 (message):
+[1.334s]   
+[1.334s]   execute_process(/home/samuel/uchile_robotics/jaime_manipulation/scripts/venv/bin/python3
+[1.335s]   /opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py
+[1.335s]   /home/samuel/uchile_robotics/jaime_manipulation/package.xml
+[1.335s]   /home/samuel/uchile_robotics/jaime_manipulation/build/jaime_manipulation/ament_cmake_core/package.cmake)
+[1.335s]   returned error code 1
+[1.335s] Call Stack (most recent call first):
+[1.335s]   /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)
+[1.336s]   /opt/ros/jazzy/share/ament_lint_auto/cmake/ament_lint_auto_find_test_dependencies.cmake:31 (ament_package_xml)
+[1.336s]   CMakeLists.txt:23 (ament_lint_auto_find_test_dependencies)
+[1.336s] 
+[1.336s] [0m
+[1.336s] -- Configuring incomplete, errors occurred!
+[1.344s] Invoked command in '/home/samuel/uchile_robotics/jaime_manipulation/build/jaime_manipulation' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake /home/samuel/uchile_robotics/jaime_manipulation -DCMAKE_INSTALL_PREFIX=/home/samuel/uchile_robotics/jaime_manipulation/install/jaime_manipulation

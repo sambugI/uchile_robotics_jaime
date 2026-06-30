@@ -1,0 +1,19 @@
+protocol_version: 1.0
+baudrate: 57600
+device_name: "/dev/dynamixel"
+
+motors:
+  - id: 1
+    limits: []
+    offset: 0
+    type: MX-106
+
+  - id: 2
+    limits: []
+    offset: 0
+    type: MX-106
+
+  - id: 3
+    limits: [50,900]
+    offset: 310
+    type: RX-28
