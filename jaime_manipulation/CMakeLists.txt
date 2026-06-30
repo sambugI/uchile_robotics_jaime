@@ -27,11 +27,13 @@ install(
   DIRECTORY launch scripts config
   DESTINATION share/${PROJECT_NAME}
 )
-
 install(
   PROGRAMS
-    scripts/dynamixel_node.py 
+    scripts/dynamixel_publish.py
     scripts/local_planner.py
+    scripts/read_encoders.py
+    scripts/sim_node.py
   DESTINATION lib/${PROJECT_NAME}
 )
+
 ament_package()
