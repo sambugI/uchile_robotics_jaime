@@ -1,0 +1,11 @@
+{
+  "package_name": "jaime_interfaces",
+  "output_dir": "/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces/rosidl_generator_type_description/jaime_interfaces",
+  "idl_tuples": [
+    "/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces/rosidl_adapter/jaime_interfaces:srv/IsReady.idl"
+  ],
+  "include_paths": [
+    "service_msgs:/opt/ros/jazzy/share/service_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces"
+  ]
+}

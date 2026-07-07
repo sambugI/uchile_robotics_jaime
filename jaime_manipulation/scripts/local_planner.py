@@ -9,6 +9,7 @@ import tf_transformations as tf
 from utils import jaime_solution
 import numpy as np
 from scipy.spatial.transform import Rotation as R
+from jaime_interfaces.srv import IsReady
 
 class LocalPlanner(Node):
     def __init__(self):
@@ -36,7 +37,12 @@ class LocalPlanner(Node):
             '/goal_pos',
             self.goal_pos_callback,
             1)
-        
+        self.received_joint_states = False
+        self.ready_service = self.create_service(
+            IsReady,
+            "/manipulation/is_ready",
+            self.is_ready_callback
+        )
 
         self.update = self.create_timer(0.1, self.update_velocity)
 
@@ -50,8 +56,20 @@ class LocalPlanner(Node):
         self.goal_velocity = [0,0,0]
         self.cmd = None
 
+    def is_ready_callback(self, request, response):
+
+        if not self.received_joint_states:
+            response.ready = False
+            response.message = "Waiting for joint states"
+            return response
+
+        response.ready = True
+        response.message = "Manipulation ready"
+
+        return response
     def _joint_states_callback(self, msg):
-        
+
+        self.received_joint_states = True
         self._joint_states = msg.position.tolist()
         self.jaime.update(self._joint_states)
         self.pub_pose()

@@ -1,0 +1,255 @@
+[0.030s] Invoking command in '/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/samuel/uchile_robotics_jaime/jaime_interfaces -DCMAKE_INSTALL_PREFIX=/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces
+[0.306s] -- The C compiler identification is GNU 13.3.0
+[0.511s] -- The CXX compiler identification is GNU 13.3.0
+[0.554s] -- Detecting C compiler ABI info
+[0.756s] -- Detecting C compiler ABI info - done
+[0.778s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.779s] -- Detecting C compile features
+[0.780s] -- Detecting C compile features - done
+[0.801s] -- Detecting CXX compiler ABI info
+[1.018s] -- Detecting CXX compiler ABI info - done
+[1.041s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.042s] -- Detecting CXX compile features
+[1.043s] -- Detecting CXX compile features - done
+[1.063s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[2.169s] -- Found Python3: /home/samuel/.pyenv/shims/python3 (found version "3.12.3") found components: Interpreter 
+[2.601s] -- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[2.627s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.824s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.004s] -- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[6.786s] -- Found ament_cmake_ros: 0.12.1 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[9.859s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[13.982s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[13.999s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[14.982s] -- Found PythonExtra: /home/samuel/.pyenv/shims/python3  
+[17.363s] -- Found Python3: /home/samuel/.pyenv/shims/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[17.711s] -- Found Python3: /home/samuel/.pyenv/shims/python3 (found version "3.12.3") found components: Interpreter 
+[17.727s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[17.834s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[17.836s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces/rosidl_generator_c>;$<BUILD_INTERFACE:/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces/rosidl_typesupport_fastrtps_c>;$<BUILD_INTERFACE:/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces/rosidl_typesupport_introspection_c>;$<BUILD_INTERFACE:/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces/rosidl_generator_cpp>;$<BUILD_INTERFACE:/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces/rosidl_typesupport_fastrtps_cpp>;$<BUILD_INTERFACE:/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces/rosidl_typesupport_introspection_cpp>;/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces/rosidl_generator_c;/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces/rosidl_generator_py
+[17.836s] -- Configured cppcheck exclude dirs and/or files: 
+[17.840s] -- Added test 'flake8' to check Python code syntax and style conventions
+[17.840s] -- Configured 'flake8' exclude dirs and/or files: 
+[17.846s] -- Added test 'lint_cmake' to check CMake code style
+[17.850s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[17.867s] -- Added test 'uncrustify' to check C / C++ code style
+[17.867s] -- Configured uncrustify additional arguments: 
+[17.872s] -- Added test 'xmllint' to check XML markup files
+[17.880s] -- Configuring done (17.8s)
+[17.965s] -- Generating done (0.1s)
+[17.992s] -- Build files have been written to: /home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces
+[18.010s] Invoked command in '/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/samuel/uchile_robotics_jaime/jaime_interfaces -DCMAKE_INSTALL_PREFIX=/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces
+[18.012s] Invoking command in '/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces -- -j8 -l8
+[18.122s] [  2%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[18.122s] [  5%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[18.148s] [  5%] Built target ament_cmake_python_copy_jaime_interfaces
+[18.697s] [  5%] Built target jaime_interfaces__rosidl_generator_type_description
+[18.722s] [  8%] [34m[1mGenerating C code for ROS interfaces[0m
+[18.745s] [ 11%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[18.759s] [ 11%] Built target jaime_interfaces__rs
+[18.859s] running egg_info
+[18.861s] creating jaime_interfaces.egg-info
+[18.919s] writing jaime_interfaces.egg-info/PKG-INFO
+[18.920s] writing dependency_links to jaime_interfaces.egg-info/dependency_links.txt
+[18.920s] writing top-level names to jaime_interfaces.egg-info/top_level.txt
+[18.921s] writing manifest file 'jaime_interfaces.egg-info/SOURCES.txt'
+[19.083s] reading manifest file 'jaime_interfaces.egg-info/SOURCES.txt'
+[19.084s] writing manifest file 'jaime_interfaces.egg-info/SOURCES.txt'
+[19.139s] [ 11%] Built target ament_cmake_python_build_jaime_interfaces_egg
+[19.457s] [ 11%] Built target jaime_interfaces__cpp
+[19.506s] [ 20%] [32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_generator_c.dir/rosidl_generator_c/jaime_interfaces/srv/detail/is_ready__functions.c.o[0m
+[19.506s] [ 20%] [32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_generator_c.dir/rosidl_generator_c/jaime_interfaces/srv/detail/is_ready__description.c.o[0m
+[19.506s] [ 20%] [32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_generator_c.dir/rosidl_generator_c/jaime_interfaces/srv/detail/is_ready__type_support.c.o[0m
+[19.688s] [ 22%] [32m[1mLinking C shared library libjaime_interfaces__rosidl_generator_c.so[0m
+[19.765s] [ 22%] Built target jaime_interfaces__rosidl_generator_c
+[19.793s] [ 28%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[19.793s] [ 31%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[19.794s] [ 31%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[19.794s] [ 34%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[19.794s] [ 37%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[19.795s] [ 40%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[20.489s] [ 42%] [32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaime_interfaces/srv/is_ready__type_support.cpp.o[0m
+[20.711s] [ 45%] [32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaime_interfaces/srv/detail/is_ready__type_support_c.cpp.o[0m
+[20.757s] [ 48%] [32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaime_interfaces/srv/is_ready__type_support.cpp.o[0m
+[20.892s] [ 51%] [32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaime_interfaces/srv/detail/is_ready__type_support.cpp.o[0m
+[20.910s] [ 54%] [32m[1mLinking CXX shared library libjaime_interfaces__rosidl_typesupport_c.so[0m
+[20.918s] [ 57%] [32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaime_interfaces/srv/detail/is_ready__type_support.c.o[0m
+[21.026s] [ 60%] [32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaime_interfaces/srv/detail/dds_fastrtps/is_ready__type_support.cpp.o[0m
+[21.046s] [ 60%] Built target jaime_interfaces__rosidl_typesupport_c
+[21.056s] [ 62%] [32m[1mLinking C shared library libjaime_interfaces__rosidl_typesupport_introspection_c.so[0m
+[21.158s] [ 62%] Built target jaime_interfaces__rosidl_typesupport_introspection_c
+[21.538s] [ 65%] [32m[1mLinking CXX shared library libjaime_interfaces__rosidl_typesupport_cpp.so[0m
+[21.717s] [ 65%] Built target jaime_interfaces__rosidl_typesupport_cpp
+[21.893s] [ 68%] [32m[1mLinking CXX shared library libjaime_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[21.937s] [ 71%] [32m[1mLinking CXX shared library libjaime_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[22.066s] [ 71%] Built target jaime_interfaces__rosidl_typesupport_introspection_cpp
+[22.111s] [ 71%] Built target jaime_interfaces__rosidl_typesupport_fastrtps_c
+[22.397s] [ 74%] [32m[1mLinking CXX shared library libjaime_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[22.561s] [ 74%] Built target jaime_interfaces__rosidl_typesupport_fastrtps_cpp
+[22.605s] [ 74%] Built target jaime_interfaces
+[22.649s] [ 77%] [34m[1mGenerating Python code for ROS interfaces[0m
+[23.467s] [ 77%] Built target jaime_interfaces__py
+[23.512s] [ 80%] [32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_generator_py.dir/rosidl_generator_py/jaime_interfaces/srv/_is_ready_s.c.o[0m
+[23.847s] [ 82%] [32m[1mLinking C shared library libjaime_interfaces__rosidl_generator_py.so[0m
+[23.940s] [ 82%] Built target jaime_interfaces__rosidl_generator_py
+[23.988s] [ 85%] [32mBuilding C object CMakeFiles/jaime_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/jaime_interfaces/_jaime_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[23.989s] [ 91%] [32mBuilding C object CMakeFiles/jaime_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/jaime_interfaces/_jaime_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[23.989s] [ 91%] [32mBuilding C object CMakeFiles/jaime_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/jaime_interfaces/_jaime_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[24.239s] [ 94%] [32m[1mLinking C shared module rosidl_generator_py/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_introspection_c.so[0m
+[24.246s] [ 97%] [32m[1mLinking C shared module rosidl_generator_py/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_c.so[0m
+[24.259s] [100%] [32m[1mLinking C shared module rosidl_generator_py/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_fastrtps_c.so[0m
+[24.314s] [100%] Built target jaime_interfaces_s__rosidl_typesupport_introspection_c
+[24.325s] [100%] Built target jaime_interfaces_s__rosidl_typesupport_c
+[24.340s] [100%] Built target jaime_interfaces_s__rosidl_typesupport_fastrtps_c
+[24.365s] Invoked command in '/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces -- -j8 -l8
+[24.386s] Invoking command in '/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces
+[24.406s] -- Install configuration: ""
+[24.406s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/ament_index/resource_index/rosidl_interfaces/jaime_interfaces
+[24.406s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/srv/IsReady.json
+[24.407s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces
+[24.407s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv
+[24.407s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail
+[24.407s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__type_support.c
+[24.407s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__functions.c
+[24.408s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__struct.h
+[24.408s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__type_support.h
+[24.408s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__description.c
+[24.408s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__functions.h
+[24.408s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/is_ready.h
+[24.409s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg
+[24.409s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg/rosidl_generator_c__visibility_control.h
+[24.409s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/environment/library_path.sh
+[24.409s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/environment/library_path.dsv
+[24.410s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_generator_c.so
+[24.411s] -- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_generator_c.so" to ""
+[24.411s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces
+[24.411s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv
+[24.411s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail
+[24.411s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__rosidl_typesupport_fastrtps_c.h
+[24.412s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg
+[24.412s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[24.412s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_fastrtps_c.so
+[24.413s] -- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[24.413s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces
+[24.413s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv
+[24.413s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail
+[24.413s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__type_support.c
+[24.414s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__rosidl_typesupport_introspection_c.h
+[24.414s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg
+[24.414s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[24.414s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_introspection_c.so
+[24.415s] -- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[24.415s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_c.so
+[24.416s] -- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_c.so" to ""
+[24.417s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces
+[24.417s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv
+[24.417s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail
+[24.417s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__struct.hpp
+[24.417s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__type_support.hpp
+[24.418s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__traits.hpp
+[24.418s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__builder.hpp
+[24.418s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/is_ready.hpp
+[24.418s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg
+[24.418s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[24.419s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces
+[24.419s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv
+[24.419s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail
+[24.419s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__rosidl_typesupport_fastrtps_cpp.hpp
+[24.419s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/dds_fastrtps
+[24.419s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg
+[24.419s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[24.420s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[24.420s] -- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[24.420s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces
+[24.420s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv
+[24.420s] -- Up-to-date: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail
+[24.421s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__rosidl_typesupport_introspection_cpp.hpp
+[24.421s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__type_support.cpp
+[24.421s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_introspection_cpp.so
+[24.422s] -- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[24.422s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_cpp.so
+[24.422s] -- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_cpp.so" to ""
+[24.423s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/environment/pythonpath.sh
+[24.423s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/environment/pythonpath.dsv
+[24.423s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces-0.0.0-py3.12.egg-info
+[24.423s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces-0.0.0-py3.12.egg-info/top_level.txt
+[24.424s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces-0.0.0-py3.12.egg-info/PKG-INFO
+[24.424s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt
+[24.424s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt
+[24.424s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces
+[24.425s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[24.425s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv
+[24.425s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv/__init__.py
+[24.426s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv/_is_ready.py
+[24.426s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv/_is_ready_s.c
+[24.426s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/_jaime_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[24.426s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/__init__.py
+[24.426s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/_jaime_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[24.426s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/_jaime_interfaces_s.ep.rosidl_typesupport_c.c
+[24.427s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_c.so
+[24.427s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_introspection_c.so
+[24.612s] Listing '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces'...
+[24.612s] Compiling '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/__init__.py'...
+[24.613s] Listing '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv'...
+[24.613s] Compiling '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv/__init__.py'...
+[24.613s] Compiling '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv/_is_ready.py'...
+[24.625s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[24.626s] -- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""
+[24.626s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_introspection_c.so
+[24.627s] -- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_introspection_c.so" to ""
+[24.627s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_c.so
+[24.628s] -- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_c.so" to ""
+[24.628s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_generator_py.so
+[24.629s] -- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_generator_py.so" to ""
+[24.629s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/ament_index/resource_index/rust_packages/jaime_interfaces
+[24.630s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/rust
+[24.630s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/rust/src
+[24.630s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/rust/src/lib.rs
+[24.630s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/rust/src/srv
+[24.631s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/rust/src/srv/rmw.rs
+[24.631s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/rust/src/srv.rs
+[24.631s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/rust/build.rs
+[24.631s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/rust/Cargo.toml
+[24.632s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/srv/IsReady.idl
+[24.632s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/srv/IsReady.srv
+[24.632s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/ament_index/resource_index/package_run_dependencies/jaime_interfaces
+[24.632s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/ament_index/resource_index/parent_prefix_path/jaime_interfaces
+[24.633s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/environment/ament_prefix_path.sh
+[24.633s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/environment/ament_prefix_path.dsv
+[24.634s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/environment/path.sh
+[24.634s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/environment/path.dsv
+[24.634s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/local_setup.bash
+[24.635s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/local_setup.sh
+[24.635s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/local_setup.zsh
+[24.635s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/local_setup.dsv
+[24.635s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/package.dsv
+[24.636s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/ament_index/resource_index/packages/jaime_interfaces
+[24.636s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_generator_cExport.cmake
+[24.637s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_generator_cExport-noconfig.cmake
+[24.637s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[24.638s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[24.638s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[24.638s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[24.639s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_cExport.cmake
+[24.639s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[24.639s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_generator_cppExport.cmake
+[24.639s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[24.640s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[24.640s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[24.640s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[24.641s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_cppExport.cmake
+[24.641s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[24.641s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_generator_pyExport.cmake
+[24.642s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[24.642s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/rosidl_cmake-extras.cmake
+[24.642s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[24.642s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[24.643s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[24.643s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[24.643s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[24.644s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[24.644s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/rosidl_cmake_aggregate_target-extras.cmake
+[24.644s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfacesConfig.cmake
+[24.644s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfacesConfig-version.cmake
+[24.645s] -- Installing: /home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/share/jaime_interfaces/package.xml
+[24.649s] Invoked command in '/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces

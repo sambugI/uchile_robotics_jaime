@@ -1,0 +1,267 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-367e0e7ec90f1baad121.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						15,
+						16,
+						17,
+						18,
+						19
+					]
+				},
+				{
+					"build" : "jaime_interfaces__py",
+					"jsonFile" : "directory-jaime_interfaces__py-436039cb827fa3e7cb60.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "build/jaime_interfaces/jaime_interfaces__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "jaime_interfaces__rs",
+					"jsonFile" : "directory-jaime_interfaces__rs-2b15b2c2f20f28fd740d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "build/jaime_interfaces/jaime_interfaces__rs",
+					"targetIndexes" : 
+					[
+						14
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "jaime_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_jaime_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_jaime_interfaces_egg-d41b01c1be2d5f2c8a11.json",
+					"name" : "ament_cmake_python_build_jaime_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_jaime_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_jaime_interfaces-b4ccc56d88ff43c0cb53.json",
+					"name" : "ament_cmake_python_copy_jaime_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces-9454d1aed12703ded948.json",
+					"name" : "jaime_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces__cpp-ee28c80dcd56b04eb181.json",
+					"name" : "jaime_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "jaime_interfaces__py::@046d526534ecf950fa58",
+					"jsonFile" : "target-jaime_interfaces__py-d1b6401e91cc5bf81391.json",
+					"name" : "jaime_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces__rosidl_generator_c-a46ff5056f4946d7b223.json",
+					"name" : "jaime_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces__rosidl_generator_py-fe6c8843f0096510359c.json",
+					"name" : "jaime_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces__rosidl_generator_type_description::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces__rosidl_generator_type_description-7beafe1de2d19ef975a8.json",
+					"name" : "jaime_interfaces__rosidl_generator_type_description",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces__rosidl_typesupport_c-a271371e8028faca6f3b.json",
+					"name" : "jaime_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces__rosidl_typesupport_cpp-6abdec1f9af22c226030.json",
+					"name" : "jaime_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces__rosidl_typesupport_fastrtps_c-d72cdcc7477ae57ccbb7.json",
+					"name" : "jaime_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces__rosidl_typesupport_fastrtps_cpp-b75cc32cd2255dfe8758.json",
+					"name" : "jaime_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces__rosidl_typesupport_introspection_c-45c9e2d232ea0931cab4.json",
+					"name" : "jaime_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces__rosidl_typesupport_introspection_cpp-de42b845da055649e80f.json",
+					"name" : "jaime_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "jaime_interfaces__rs::@669992862050c1744e0e",
+					"jsonFile" : "target-jaime_interfaces__rs-3a039a93cc18a886aeba.json",
+					"name" : "jaime_interfaces__rs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces_s__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces_s__rosidl_typesupport_c-13ff8db72fd50e38b8c5.json",
+					"name" : "jaime_interfaces_s__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces_s__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces_s__rosidl_typesupport_fastrtps_c-90217bf498102baab5d1.json",
+					"name" : "jaime_interfaces_s__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces_s__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces_s__rosidl_typesupport_introspection_c-95aa3c817d0eef6ebc21.json",
+					"name" : "jaime_interfaces_s__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "jaime_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-jaime_interfaces_uninstall-8a6f50e898e243a5c62b.json",
+					"name" : "jaime_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-536ac1aa7403c8d93db3.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/samuel/uchile_robotics_jaime/jaime_interfaces/build/jaime_interfaces",
+		"source" : "/home/samuel/uchile_robotics_jaime/jaime_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
