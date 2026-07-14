@@ -1,0 +1,18 @@
+# Goal
+
+float32 tolerance          # Error máximo permitido (0.05 por defecto)
+
+---
+
+# Result
+
+bool success
+string message
+
+---
+
+# Feedback
+
+bool detected
+float32 error_x
+float32 error_y

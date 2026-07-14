@@ -22,6 +22,7 @@ services:
       - /home/jaime/uchile_robotics/uchile_high:/home/jaime_ws/src/uchile_high
       - /home/jaime/uchile_robotics/jaime_manipulation:/home/jaime_ws/src/jaime_manipulation
       - /home/jaime/uchile_robotics/jaime_highlevel:/home/jaime_ws/src/jaime_highlevel
+      - /home/jaime/uchile_robotics/jaime_interfaces:/home/jaime_ws/src/jaime_interfaces
       - /tmp/.X11-unix:/tmp/.X11-unix
 
     working_dir: /home/jaime_ws

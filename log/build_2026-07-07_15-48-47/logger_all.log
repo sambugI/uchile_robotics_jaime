@@ -1,0 +1,566 @@
+[0.289s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'jaime_interfaces']
+[0.289s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['jaime_interfaces'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x74aea32aa930>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x74aea32aa510>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x74aea32aa510>>, mixin_verb=('build',))
+[0.380s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.380s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.381s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.381s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.381s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.381s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.381s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/samuel/uchile_robotics_jaime'
+[0.381s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.382s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.382s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.382s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.382s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.382s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.382s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.382s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.382s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extensions ['ignore', 'ignore_ament_install']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extension 'ignore'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extension 'ignore_ament_install'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extensions ['colcon_pkg']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extension 'colcon_pkg'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extensions ['colcon_meta']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extension 'colcon_meta'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extensions ['ros']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extension 'ros'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extensions ['cmake', 'python']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extension 'cmake'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extension 'python'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extensions ['python_setup_py']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees) by extension 'python_setup_py'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extensions ['ignore', 'ignore_ament_install']
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extension 'ignore'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extension 'ignore_ament_install'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extensions ['colcon_pkg']
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extension 'colcon_pkg'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extensions ['colcon_meta']
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extension 'colcon_meta'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extensions ['ros']
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extension 'ros'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extensions ['cmake', 'python']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extension 'cmake'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extension 'python'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extensions ['python_setup_py']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_behaviour_trees/behaviours) by extension 'python_setup_py'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_bringup) by extension 'ignore'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_bringup) by extension 'ignore_ament_install'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_bringup) by extensions ['colcon_pkg']
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_bringup) by extension 'colcon_pkg'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_bringup) by extensions ['colcon_meta']
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_bringup) by extension 'colcon_meta'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_bringup) by extensions ['ros']
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_bringup) by extension 'ros'
+[0.449s] DEBUG:colcon.colcon_core.package_identification:Package 'jaime_bringup' with type 'ros.ament_cmake' and name 'jaime_bringup'
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extensions ['ignore', 'ignore_ament_install']
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extension 'ignore'
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extension 'ignore_ament_install'
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extensions ['colcon_pkg']
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extension 'colcon_pkg'
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extensions ['colcon_meta']
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extension 'colcon_meta'
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extensions ['ros']
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extension 'ros'
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extensions ['cmake', 'python']
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extension 'cmake'
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extension 'python'
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extensions ['python_setup_py']
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core) by extension 'python_setup_py'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extensions ['ignore', 'ignore_ament_install']
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extension 'ignore'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extension 'ignore_ament_install'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extensions ['colcon_pkg']
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extension 'colcon_pkg'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extensions ['colcon_meta']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extension 'colcon_meta'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extensions ['ros']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extension 'ros'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extensions ['cmake', 'python']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extension 'cmake'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extension 'python'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extensions ['python_setup_py']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src) by extension 'python_setup_py'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_base) by extensions ['ignore', 'ignore_ament_install']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_base) by extension 'ignore'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_base) by extension 'ignore_ament_install'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_base) by extensions ['colcon_pkg']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_base) by extension 'colcon_pkg'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_base) by extensions ['colcon_meta']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_base) by extension 'colcon_meta'
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_base) by extensions ['ros']
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_base) by extension 'ros'
+[0.458s] DEBUG:colcon.colcon_core.package_identification:Package 'jaime_core/src/jaime_base' with type 'ros.ament_cmake' and name 'jaime_base'
+[0.458s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_description) by extensions ['ignore', 'ignore_ament_install']
+[0.458s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_description) by extension 'ignore'
+[0.458s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_description) by extension 'ignore_ament_install'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_description) by extensions ['colcon_pkg']
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_description) by extension 'colcon_pkg'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_description) by extensions ['colcon_meta']
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_description) by extension 'colcon_meta'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_description) by extensions ['ros']
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_description) by extension 'ros'
+[0.461s] DEBUG:colcon.colcon_core.package_identification:Package 'jaime_core/src/jaime_description' with type 'ros.ament_cmake' and name 'jaime_description'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_joy) by extensions ['ignore', 'ignore_ament_install']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_joy) by extension 'ignore'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_joy) by extension 'ignore_ament_install'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_joy) by extensions ['colcon_pkg']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_joy) by extension 'colcon_pkg'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_joy) by extensions ['colcon_meta']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_joy) by extension 'colcon_meta'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_joy) by extensions ['ros']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_joy) by extension 'ros'
+[0.464s] DEBUG:colcon.colcon_core.package_identification:Package 'jaime_core/src/jaime_joy' with type 'ros.ament_cmake' and name 'jaime_joy'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_sensors) by extensions ['ignore', 'ignore_ament_install']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_sensors) by extension 'ignore'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_sensors) by extension 'ignore_ament_install'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_sensors) by extensions ['colcon_pkg']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_sensors) by extension 'colcon_pkg'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_sensors) by extensions ['colcon_meta']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_sensors) by extension 'colcon_meta'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_sensors) by extensions ['ros']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_sensors) by extension 'ros'
+[0.467s] DEBUG:colcon.colcon_core.package_identification:Package 'jaime_core/src/jaime_sensors' with type 'ros.ament_cmake' and name 'jaime_sensors'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_tablet) by extensions ['ignore', 'ignore_ament_install']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_tablet) by extension 'ignore'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_tablet) by extension 'ignore_ament_install'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_tablet) by extensions ['colcon_pkg']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_tablet) by extension 'colcon_pkg'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_tablet) by extensions ['colcon_meta']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_tablet) by extension 'colcon_meta'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_tablet) by extensions ['ros']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_tablet) by extension 'ros'
+[0.469s] DEBUG:colcon.colcon_core.package_identification:Package 'jaime_core/src/jaime_tablet' with type 'ros.ament_python' and name 'jaime_tablet'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_testing) by extensions ['ignore', 'ignore_ament_install']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_testing) by extension 'ignore'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_testing) by extension 'ignore_ament_install'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_testing) by extensions ['colcon_pkg']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_testing) by extension 'colcon_pkg'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_testing) by extensions ['colcon_meta']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_testing) by extension 'colcon_meta'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_testing) by extensions ['ros']
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_core/src/jaime_testing) by extension 'ros'
+[0.472s] DEBUG:colcon.colcon_core.package_identification:Package 'jaime_core/src/jaime_testing' with type 'ros.ament_cmake' and name 'jaime_testing'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_highlevel) by extensions ['ignore', 'ignore_ament_install']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_highlevel) by extension 'ignore'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_highlevel) by extension 'ignore_ament_install'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_highlevel) by extensions ['colcon_pkg']
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_highlevel) by extension 'colcon_pkg'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_highlevel) by extensions ['colcon_meta']
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_highlevel) by extension 'colcon_meta'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_highlevel) by extensions ['ros']
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_highlevel) by extension 'ros'
+[0.474s] DEBUG:colcon.colcon_core.package_identification:Package 'jaime_highlevel' with type 'ros.ament_cmake' and name 'jaime_highlevel'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_interfaces) by extension 'ignore'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_interfaces) by extension 'ignore_ament_install'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_interfaces) by extensions ['colcon_pkg']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_interfaces) by extension 'colcon_pkg'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_interfaces) by extensions ['colcon_meta']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_interfaces) by extension 'colcon_meta'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_interfaces) by extensions ['ros']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_interfaces) by extension 'ros'
+[0.477s] DEBUG:colcon.colcon_core.package_identification:Package 'jaime_interfaces' with type 'ros.ament_cmake' and name 'jaime_interfaces'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_manipulation) by extensions ['ignore', 'ignore_ament_install']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_manipulation) by extension 'ignore'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_manipulation) by extension 'ignore_ament_install'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_manipulation) by extensions ['colcon_pkg']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_manipulation) by extension 'colcon_pkg'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_manipulation) by extensions ['colcon_meta']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_manipulation) by extension 'colcon_meta'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_manipulation) by extensions ['ros']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(jaime_manipulation) by extension 'ros'
+[0.479s] DEBUG:colcon.colcon_core.package_identification:Package 'jaime_manipulation' with type 'ros.ament_cmake' and name 'jaime_manipulation'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extensions ['ignore', 'ignore_ament_install']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extension 'ignore'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extension 'ignore_ament_install'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extensions ['colcon_pkg']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extension 'colcon_pkg'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extensions ['colcon_meta']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extension 'colcon_meta'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extensions ['ros']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extension 'ros'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extensions ['cmake', 'python']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extension 'cmake'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extension 'python'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extensions ['python_setup_py']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_common) by extension 'python_setup_py'
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extensions ['ignore', 'ignore_ament_install']
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extension 'ignore'
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extension 'ignore_ament_install'
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extensions ['colcon_pkg']
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extension 'colcon_pkg'
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extensions ['colcon_meta']
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extension 'colcon_meta'
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extensions ['ros']
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extension 'ros'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extensions ['cmake', 'python']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extension 'cmake'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extension 'python'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extensions ['python_setup_py']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_high) by extension 'python_setup_py'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extensions ['ignore', 'ignore_ament_install']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extension 'ignore'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extension 'ignore_ament_install'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extensions ['colcon_pkg']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extension 'colcon_pkg'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extensions ['colcon_meta']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extension 'colcon_meta'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extensions ['ros']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extension 'ros'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extensions ['cmake', 'python']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extension 'cmake'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extension 'python'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extensions ['python_setup_py']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_navigation) by extension 'python_setup_py'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extensions ['ignore', 'ignore_ament_install']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extension 'ignore'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extension 'ignore_ament_install'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extensions ['colcon_pkg']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extension 'colcon_pkg'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extensions ['colcon_meta']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extension 'colcon_meta'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extensions ['ros']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extension 'ros'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extensions ['cmake', 'python']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extension 'cmake'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extension 'python'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extensions ['python_setup_py']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system) by extension 'python_setup_py'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extensions ['ignore', 'ignore_ament_install']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extension 'ignore'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extension 'ignore_ament_install'
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extensions ['colcon_pkg']
+[0.485s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extension 'colcon_pkg'
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extensions ['colcon_meta']
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extension 'colcon_meta'
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extensions ['ros']
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extension 'ros'
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extensions ['cmake', 'python']
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extension 'cmake'
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extension 'python'
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extensions ['python_setup_py']
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender) by extension 'python_setup_py'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extensions ['ignore', 'ignore_ament_install']
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extension 'ignore'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extension 'ignore_ament_install'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extensions ['colcon_pkg']
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extension 'colcon_pkg'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extensions ['colcon_meta']
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extension 'colcon_meta'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extensions ['ros']
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extension 'ros'
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extensions ['cmake', 'python']
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extension 'cmake'
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extension 'python'
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extensions ['python_setup_py']
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/config) by extension 'python_setup_py'
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extensions ['ignore', 'ignore_ament_install']
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extension 'ignore'
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extension 'ignore_ament_install'
+[0.488s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extensions ['colcon_pkg']
+[0.489s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extension 'colcon_pkg'
+[0.489s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extensions ['colcon_meta']
+[0.489s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extension 'colcon_meta'
+[0.489s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extensions ['ros']
+[0.489s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extension 'ros'
+[0.489s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extensions ['cmake', 'python']
+[0.489s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extension 'cmake'
+[0.489s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extension 'python'
+[0.489s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extensions ['python_setup_py']
+[0.489s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core) by extension 'python_setup_py'
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extensions ['ignore', 'ignore_ament_install']
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extension 'ignore'
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extension 'ignore_ament_install'
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extensions ['colcon_pkg']
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extension 'colcon_pkg'
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extensions ['colcon_meta']
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extension 'colcon_meta'
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extensions ['ros']
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extension 'ros'
+[0.490s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extensions ['cmake', 'python']
+[0.491s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extension 'cmake'
+[0.491s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extension 'python'
+[0.491s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extensions ['python_setup_py']
+[0.491s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config) by extension 'python_setup_py'
+[0.491s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extensions ['ignore', 'ignore_ament_install']
+[0.491s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extension 'ignore'
+[0.491s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extension 'ignore_ament_install'
+[0.491s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extensions ['colcon_pkg']
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extension 'colcon_pkg'
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extensions ['colcon_meta']
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extension 'colcon_meta'
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extensions ['ros']
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extension 'ros'
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extensions ['cmake', 'python']
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extension 'cmake'
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extension 'python'
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extensions ['python_setup_py']
+[0.492s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/core/config/udev_scripts) by extension 'python_setup_py'
+[0.493s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extensions ['ignore', 'ignore_ament_install']
+[0.493s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extension 'ignore'
+[0.493s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extension 'ignore_ament_install'
+[0.493s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extensions ['colcon_pkg']
+[0.493s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extension 'colcon_pkg'
+[0.493s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extensions ['colcon_meta']
+[0.493s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extension 'colcon_meta'
+[0.493s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extensions ['ros']
+[0.493s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extension 'ros'
+[0.494s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extensions ['cmake', 'python']
+[0.494s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extension 'cmake'
+[0.494s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extension 'python'
+[0.494s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extensions ['python_setup_py']
+[0.494s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills) by extension 'python_setup_py'
+[0.494s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extensions ['ignore', 'ignore_ament_install']
+[0.494s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extension 'ignore'
+[0.494s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extension 'ignore_ament_install'
+[0.495s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extensions ['colcon_pkg']
+[0.495s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extension 'colcon_pkg'
+[0.495s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extensions ['colcon_meta']
+[0.495s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extension 'colcon_meta'
+[0.495s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extensions ['ros']
+[0.495s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extension 'ros'
+[0.495s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extensions ['cmake', 'python']
+[0.495s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extension 'cmake'
+[0.495s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extension 'python'
+[0.495s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extensions ['python_setup_py']
+[0.495s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/bender/skills/config) by extension 'python_setup_py'
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extensions ['ignore', 'ignore_ament_install']
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extension 'ignore'
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extension 'ignore_ament_install'
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extensions ['colcon_pkg']
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extension 'colcon_pkg'
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extensions ['colcon_meta']
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extension 'colcon_meta'
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extensions ['ros']
+[0.496s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extension 'ros'
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extensions ['cmake', 'python']
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extension 'cmake'
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extension 'python'
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extensions ['python_setup_py']
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime) by extension 'python_setup_py'
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extensions ['ignore', 'ignore_ament_install']
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extension 'ignore'
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extension 'ignore_ament_install'
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extensions ['colcon_pkg']
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extension 'colcon_pkg'
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extensions ['colcon_meta']
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extension 'colcon_meta'
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extensions ['ros']
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extension 'ros'
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extensions ['cmake', 'python']
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extension 'cmake'
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extension 'python'
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extensions ['python_setup_py']
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/config) by extension 'python_setup_py'
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extensions ['ignore', 'ignore_ament_install']
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extension 'ignore'
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extension 'ignore_ament_install'
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extensions ['colcon_pkg']
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extension 'colcon_pkg'
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extensions ['colcon_meta']
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extension 'colcon_meta'
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extensions ['ros']
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extension 'ros'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extensions ['cmake', 'python']
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extension 'cmake'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extension 'python'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extensions ['python_setup_py']
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core) by extension 'python_setup_py'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extensions ['ignore', 'ignore_ament_install']
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extension 'ignore'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extension 'ignore_ament_install'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extensions ['colcon_pkg']
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extension 'colcon_pkg'
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extensions ['colcon_meta']
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extension 'colcon_meta'
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extensions ['ros']
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extension 'ros'
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extensions ['cmake', 'python']
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extension 'cmake'
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extension 'python'
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extensions ['python_setup_py']
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config) by extension 'python_setup_py'
+[0.502s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extensions ['ignore', 'ignore_ament_install']
+[0.502s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extension 'ignore'
+[0.502s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extension 'ignore_ament_install'
+[0.502s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extensions ['colcon_pkg']
+[0.502s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extension 'colcon_pkg'
+[0.502s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extensions ['colcon_meta']
+[0.502s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extension 'colcon_meta'
+[0.502s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extensions ['ros']
+[0.502s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extension 'ros'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extensions ['cmake', 'python']
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extension 'cmake'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extension 'python'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extensions ['python_setup_py']
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/core/config/udev_scripts) by extension 'python_setup_py'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extensions ['ignore', 'ignore_ament_install']
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extension 'ignore'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extension 'ignore_ament_install'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extensions ['colcon_pkg']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extension 'colcon_pkg'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extensions ['colcon_meta']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extension 'colcon_meta'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extensions ['ros']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extension 'ros'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extensions ['cmake', 'python']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extension 'cmake'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extension 'python'
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extensions ['python_setup_py']
+[0.504s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills) by extension 'python_setup_py'
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extensions ['ignore', 'ignore_ament_install']
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extension 'ignore'
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extension 'ignore_ament_install'
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extensions ['colcon_pkg']
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extension 'colcon_pkg'
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extensions ['colcon_meta']
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extension 'colcon_meta'
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extensions ['ros']
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extension 'ros'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extensions ['cmake', 'python']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extension 'cmake'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extension 'python'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extensions ['python_setup_py']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(uchile_system/jaime/skills/config) by extension 'python_setup_py'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extensions ['ignore', 'ignore_ament_install']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extension 'ignore'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extension 'ignore_ament_install'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extensions ['colcon_pkg']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extension 'colcon_pkg'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extensions ['colcon_meta']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extension 'colcon_meta'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extensions ['ros']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extension 'ros'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extensions ['cmake', 'python']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extension 'cmake'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extension 'python'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extensions ['python_setup_py']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(udev_rules) by extension 'python_setup_py'
+[0.507s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.508s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.508s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.508s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.508s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.548s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaime_base' in 'jaime_core/src/jaime_base'
+[0.548s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaime_description' in 'jaime_core/src/jaime_description'
+[0.549s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaime_highlevel' in 'jaime_highlevel'
+[0.549s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaime_joy' in 'jaime_core/src/jaime_joy'
+[0.549s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaime_sensors' in 'jaime_core/src/jaime_sensors'
+[0.549s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaime_tablet' in 'jaime_core/src/jaime_tablet'
+[0.549s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaime_testing' in 'jaime_core/src/jaime_testing'
+[0.549s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaime_bringup' in 'jaime_bringup'
+[0.549s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaime_manipulation' in 'jaime_manipulation'
+[0.550s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.550s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.553s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/samuel/uchile_robotics_jaime/jaime_interfaces/install
+[0.558s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 492 installed packages in /opt/ros/jazzy
+[0.562s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.718s] Level 5:colcon.colcon_core.verb:set package 'jaime_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.718s] Level 5:colcon.colcon_core.verb:set package 'jaime_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.718s] Level 5:colcon.colcon_core.verb:set package 'jaime_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.718s] Level 5:colcon.colcon_core.verb:set package 'jaime_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.718s] Level 5:colcon.colcon_core.verb:set package 'jaime_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.718s] Level 5:colcon.colcon_core.verb:set package 'jaime_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.718s] Level 5:colcon.colcon_core.verb:set package 'jaime_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.718s] Level 5:colcon.colcon_core.verb:set package 'jaime_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.719s] Level 5:colcon.colcon_core.verb:set package 'jaime_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.719s] DEBUG:colcon.colcon_core.verb:Building package 'jaime_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces', 'merge_install': False, 'path': '/home/samuel/uchile_robotics_jaime/jaime_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.719s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.721s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.721s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/samuel/uchile_robotics_jaime/jaime_interfaces' with build type 'ament_cmake'
+[0.721s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/samuel/uchile_robotics_jaime/jaime_interfaces'
+[0.726s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.726s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.727s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.751s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/samuel/uchile_robotics_jaime/jaime_interfaces -DCMAKE_INSTALL_PREFIX=/home/samuel/uchile_robotics_jaime/install/jaime_interfaces
+[20.896s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/samuel/uchile_robotics_jaime/jaime_interfaces -DCMAKE_INSTALL_PREFIX=/home/samuel/uchile_robotics_jaime/install/jaime_interfaces
+[20.899s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/samuel/uchile_robotics_jaime/build/jaime_interfaces -- -j8 -l8
+[32.899s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/samuel/uchile_robotics_jaime/build/jaime_interfaces -- -j8 -l8
+[32.922s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/samuel/uchile_robotics_jaime/build/jaime_interfaces
+[33.238s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(jaime_interfaces)
+[33.239s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/samuel/uchile_robotics_jaime/build/jaime_interfaces
+[33.243s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces' for CMake module files
+[33.245s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces' for CMake config files
+[33.246s] Level 1:colcon.colcon_core.shell:create_environment_hook('jaime_interfaces', 'cmake_prefix_path')
+[33.246s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/cmake_prefix_path.ps1'
+[33.248s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/cmake_prefix_path.dsv'
+[33.248s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/cmake_prefix_path.sh'
+[33.250s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib'
+[33.250s] Level 1:colcon.colcon_core.shell:create_environment_hook('jaime_interfaces', 'ld_library_path_lib')
+[33.251s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/ld_library_path_lib.ps1'
+[33.251s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/ld_library_path_lib.dsv'
+[33.252s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/ld_library_path_lib.sh'
+[33.253s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/bin'
+[33.253s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/pkgconfig/jaime_interfaces.pc'
+[33.254s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages'
+[33.254s] Level 1:colcon.colcon_core.shell:create_environment_hook('jaime_interfaces', 'pythonpath')
+[33.254s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/pythonpath.ps1'
+[33.255s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/pythonpath.dsv'
+[33.255s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/pythonpath.sh'
+[33.257s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/bin'
+[33.257s] INFO:colcon.colcon_core.shell:Creating package script '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/package.ps1'
+[33.260s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/package.dsv'
+[33.261s] INFO:colcon.colcon_core.shell:Creating package script '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/package.sh'
+[33.262s] INFO:colcon.colcon_core.shell:Creating package script '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/package.bash'
+[33.264s] INFO:colcon.colcon_core.shell:Creating package script '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/package.zsh'
+[33.265s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/colcon-core/packages/jaime_interfaces)
+[33.266s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(jaime_interfaces)
+[33.266s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces' for CMake module files
+[33.267s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces' for CMake config files
+[33.269s] Level 1:colcon.colcon_core.shell:create_environment_hook('jaime_interfaces', 'cmake_prefix_path')
+[33.270s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/cmake_prefix_path.ps1'
+[33.270s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/cmake_prefix_path.dsv'
+[33.271s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/cmake_prefix_path.sh'
+[33.272s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib'
+[33.272s] Level 1:colcon.colcon_core.shell:create_environment_hook('jaime_interfaces', 'ld_library_path_lib')
+[33.273s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/ld_library_path_lib.ps1'
+[33.274s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/ld_library_path_lib.dsv'
+[33.274s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/ld_library_path_lib.sh'
+[33.275s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/bin'
+[33.275s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/pkgconfig/jaime_interfaces.pc'
+[33.276s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages'
+[33.276s] Level 1:colcon.colcon_core.shell:create_environment_hook('jaime_interfaces', 'pythonpath')
+[33.276s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/pythonpath.ps1'
+[33.277s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/pythonpath.dsv'
+[33.278s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/hook/pythonpath.sh'
+[33.279s] Level 1:colcon.colcon_core.environment:checking '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/bin'
+[33.280s] INFO:colcon.colcon_core.shell:Creating package script '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/package.ps1'
+[33.281s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/package.dsv'
+[33.282s] INFO:colcon.colcon_core.shell:Creating package script '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/package.sh'
+[33.283s] INFO:colcon.colcon_core.shell:Creating package script '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/package.bash'
+[33.284s] INFO:colcon.colcon_core.shell:Creating package script '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/package.zsh'
+[33.285s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/colcon-core/packages/jaime_interfaces)
+[33.285s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[33.286s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[33.286s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[33.287s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[33.301s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[33.302s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[33.302s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[33.339s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[33.339s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/samuel/uchile_robotics_jaime/install/local_setup.ps1'
+[33.341s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/samuel/uchile_robotics_jaime/install/_local_setup_util_ps1.py'
+[33.344s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/samuel/uchile_robotics_jaime/install/setup.ps1'
+[33.347s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/samuel/uchile_robotics_jaime/install/local_setup.sh'
+[33.349s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/samuel/uchile_robotics_jaime/install/_local_setup_util_sh.py'
+[33.351s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/samuel/uchile_robotics_jaime/install/setup.sh'
+[33.354s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/samuel/uchile_robotics_jaime/install/local_setup.bash'
+[33.355s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/samuel/uchile_robotics_jaime/install/setup.bash'
+[33.358s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/samuel/uchile_robotics_jaime/install/local_setup.zsh'
+[33.360s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/samuel/uchile_robotics_jaime/install/setup.zsh'

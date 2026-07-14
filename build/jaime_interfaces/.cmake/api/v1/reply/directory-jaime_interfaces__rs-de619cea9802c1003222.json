@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "jaime_interfaces__rs",
+		"source" : "/home/samuel/uchile_robotics_jaime/build/jaime_interfaces/jaime_interfaces__rs"
+	}
+}

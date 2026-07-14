@@ -10,6 +10,8 @@ from utils import jaime_solution
 import numpy as np
 from scipy.spatial.transform import Rotation as R
 from jaime_interfaces.srv import IsReady
+from rclpy.action import ActionServer
+from jaime_interfaces.action import MoveToPose
 
 class LocalPlanner(Node):
     def __init__(self):
@@ -44,6 +46,14 @@ class LocalPlanner(Node):
             self.is_ready_callback
         )
 
+        # Para inicializar acción
+        self.move_action = ActionServer(
+            self,
+            MoveToPose,
+            "/manipulation/move_to_pose",
+            self.move_to_pose_callback
+        )
+
         self.update = self.create_timer(0.1, self.update_velocity)
 
 
@@ -56,6 +66,53 @@ class LocalPlanner(Node):
         self.goal_velocity = [0,0,0]
         self.cmd = None
 
+
+    async def move_to_pose_callback(self, goal_handle):
+
+        self.get_logger().info(
+            "Received manipulation goal"
+        )
+        target = goal_handle.request.target_position
+        goal_pos = [
+            target.x,
+            target.y,
+            target.z
+        ]
+        # Calcular IK
+        self.goal_ang = (
+            self.jaime
+            .compute_ik_position_only(goal_pos)
+        )
+        self.state = 1
+        feedback = MoveToPose.Feedback()
+        while rclpy.ok():
+            current = np.array(
+                [
+                    self._joint_states[0],
+                    self._joint_states[2],
+                    self._joint_states[4]
+                ]
+            )
+            error = np.linalg.norm(
+                self.goal_ang-current
+            )
+            feedback.error = float(error)
+            goal_handle.publish_feedback(
+                feedback
+            )
+            if error < 1e-2:
+                break
+            await rclpy.sleep(0.05)
+
+        goal_handle.succeed()
+        result = MoveToPose.Result()
+        result.success = True
+        result.message = (
+            "Reached target pose"
+        )
+        return result
+    
+    
     def is_ready_callback(self, request, response):
 
         if not self.received_joint_states:

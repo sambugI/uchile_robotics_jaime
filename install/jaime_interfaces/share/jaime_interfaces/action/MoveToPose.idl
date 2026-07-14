@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from jaime_interfaces/action/MoveToPose.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+
+module jaime_interfaces {
+  module action {
+    struct MoveToPose_Goal {
+      geometry_msgs::msg::Point target_position;
+    };
+    struct MoveToPose_Result {
+      boolean success;
+
+      string message;
+    };
+    struct MoveToPose_Feedback {
+      float error;
+    };
+  };
+};

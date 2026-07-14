@@ -1,0 +1,6 @@
+setup.py
+jaime_interfaces/__init__.py
+jaime_interfaces.egg-info/PKG-INFO
+jaime_interfaces.egg-info/SOURCES.txt
+jaime_interfaces.egg-info/dependency_links.txt
+jaime_interfaces.egg-info/top_level.txt

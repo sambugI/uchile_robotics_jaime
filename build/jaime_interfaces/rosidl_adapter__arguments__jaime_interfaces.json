@@ -1,0 +1,7 @@
+{
+  "package_name": "jaime_interfaces",
+  "non_idl_tuples": [
+    "/home/samuel/uchile_robotics_jaime/jaime_interfaces:srv/IsReady.srv",
+    "/home/samuel/uchile_robotics_jaime/jaime_interfaces:action/MoveToPose.action"
+  ]
+}

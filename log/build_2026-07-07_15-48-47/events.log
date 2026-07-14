@@ -1,0 +1,650 @@
+[0.000000] (-) TimerEvent: {}
+[0.000486] (-) JobUnselected: {'identifier': 'jaime_base'}
+[0.000924] (-) JobUnselected: {'identifier': 'jaime_bringup'}
+[0.000974] (-) JobUnselected: {'identifier': 'jaime_description'}
+[0.001008] (-) JobUnselected: {'identifier': 'jaime_highlevel'}
+[0.001273] (-) JobUnselected: {'identifier': 'jaime_joy'}
+[0.001562] (-) JobUnselected: {'identifier': 'jaime_manipulation'}
+[0.001599] (-) JobUnselected: {'identifier': 'jaime_sensors'}
+[0.001628] (-) JobUnselected: {'identifier': 'jaime_tablet'}
+[0.001659] (-) JobUnselected: {'identifier': 'jaime_testing'}
+[0.001691] (jaime_interfaces) JobQueued: {'identifier': 'jaime_interfaces', 'dependencies': OrderedDict()}
+[0.001730] (jaime_interfaces) JobStarted: {'identifier': 'jaime_interfaces'}
+[0.020558] (jaime_interfaces) JobProgress: {'identifier': 'jaime_interfaces', 'progress': 'cmake'}
+[0.021625] (jaime_interfaces) Command: {'cmd': ['/usr/bin/cmake', '/home/samuel/uchile_robotics_jaime/jaime_interfaces', '-DCMAKE_INSTALL_PREFIX=/home/samuel/uchile_robotics_jaime/install/jaime_interfaces'], 'cwd': '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces', 'env': OrderedDict({'PYENV_VIRTUALENV_INIT': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'LANGUAGE': 'es_CL:es', 'USER': 'samuel', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/samuel', 'OLDPWD': '/home/samuel/uchile_robotics_jaime/jaime_interfaces', 'DESKTOP_SESSION': 'ubuntu', 'PYENV_SHELL': 'bash', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2188', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'samuel', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'samuel', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/home/samuel/.pyenv/plugins/pyenv-virtualenv/shims:/home/samuel/.pyenv/shims:/home/samuel/.pyenv/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/samuel/dist/bin', 'SESSION_MANAGER': 'local/samuel-HP-Pavilion-Laptop-15-cs3xxx:@/tmp/.ICE-unix/2156,unix/samuel-HP-Pavilion-Laptop-15-cs3xxx:/tmp/.ICE-unix/2156', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/8588366d_869b_45de_9d69_82265decfc37', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'es_CL.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.136', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GSK_RENDERER': 'gl', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'PYENV_ROOT': '/home/samuel/.pyenv', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099608] (-) TimerEvent: {}
+[0.148858] (jaime_interfaces) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.199810] (-) TimerEvent: {}
+[0.282207] (jaime_interfaces) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.299975] (-) TimerEvent: {}
+[0.323792] (jaime_interfaces) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.400147] (-) TimerEvent: {}
+[0.500594] (-) TimerEvent: {}
+[0.517038] (jaime_interfaces) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.543667] (jaime_interfaces) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.544178] (jaime_interfaces) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.545071] (jaime_interfaces) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.564529] (jaime_interfaces) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.600754] (-) TimerEvent: {}
+[0.701170] (-) TimerEvent: {}
+[0.791158] (jaime_interfaces) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.801353] (-) TimerEvent: {}
+[0.830247] (jaime_interfaces) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.831092] (jaime_interfaces) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.832727] (jaime_interfaces) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.849974] (jaime_interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.901523] (-) TimerEvent: {}
+[1.001919] (-) TimerEvent: {}
+[1.102323] (-) TimerEvent: {}
+[1.202766] (-) TimerEvent: {}
+[1.303211] (-) TimerEvent: {}
+[1.403662] (-) TimerEvent: {}
+[1.504139] (-) TimerEvent: {}
+[1.604598] (-) TimerEvent: {}
+[1.705056] (-) TimerEvent: {}
+[1.805444] (-) TimerEvent: {}
+[1.905823] (-) TimerEvent: {}
+[1.993182] (jaime_interfaces) StdoutLine: {'line': b'-- Found Python3: /home/samuel/.pyenv/shims/python3 (found version "3.12.3") found components: Interpreter \n'}
+[2.005998] (-) TimerEvent: {}
+[2.106436] (-) TimerEvent: {}
+[2.206897] (-) TimerEvent: {}
+[2.307324] (-) TimerEvent: {}
+[2.383277] (jaime_interfaces) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[2.404086] (jaime_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.407392] (-) TimerEvent: {}
+[2.507749] (-) TimerEvent: {}
+[2.572121] (jaime_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.607866] (-) TimerEvent: {}
+[2.708275] (-) TimerEvent: {}
+[2.719347] (jaime_interfaces) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[2.734950] (jaime_interfaces) StdoutLine: {'line': b'-- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)\n'}
+[2.808411] (-) TimerEvent: {}
+[2.908793] (-) TimerEvent: {}
+[3.009179] (-) TimerEvent: {}
+[3.109581] (-) TimerEvent: {}
+[3.209979] (-) TimerEvent: {}
+[3.310353] (-) TimerEvent: {}
+[3.410752] (-) TimerEvent: {}
+[3.511132] (-) TimerEvent: {}
+[3.611566] (-) TimerEvent: {}
+[3.711967] (-) TimerEvent: {}
+[3.812350] (-) TimerEvent: {}
+[3.912785] (-) TimerEvent: {}
+[4.013269] (-) TimerEvent: {}
+[4.113770] (-) TimerEvent: {}
+[4.214667] (-) TimerEvent: {}
+[4.315076] (-) TimerEvent: {}
+[4.415474] (-) TimerEvent: {}
+[4.515841] (-) TimerEvent: {}
+[4.616283] (-) TimerEvent: {}
+[4.716677] (-) TimerEvent: {}
+[4.817073] (-) TimerEvent: {}
+[4.917475] (-) TimerEvent: {}
+[5.017936] (-) TimerEvent: {}
+[5.118345] (-) TimerEvent: {}
+[5.218751] (-) TimerEvent: {}
+[5.319158] (-) TimerEvent: {}
+[5.419636] (-) TimerEvent: {}
+[5.520032] (-) TimerEvent: {}
+[5.620414] (-) TimerEvent: {}
+[5.720793] (-) TimerEvent: {}
+[5.821137] (-) TimerEvent: {}
+[5.921636] (-) TimerEvent: {}
+[6.022071] (-) TimerEvent: {}
+[6.122541] (-) TimerEvent: {}
+[6.223017] (-) TimerEvent: {}
+[6.323575] (-) TimerEvent: {}
+[6.424656] (-) TimerEvent: {}
+[6.525253] (-) TimerEvent: {}
+[6.625821] (-) TimerEvent: {}
+[6.726316] (-) TimerEvent: {}
+[6.826850] (-) TimerEvent: {}
+[6.927308] (-) TimerEvent: {}
+[7.027716] (-) TimerEvent: {}
+[7.128224] (-) TimerEvent: {}
+[7.216947] (jaime_interfaces) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.1 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[7.228345] (-) TimerEvent: {}
+[7.328758] (-) TimerEvent: {}
+[7.429216] (-) TimerEvent: {}
+[7.529770] (-) TimerEvent: {}
+[7.630304] (-) TimerEvent: {}
+[7.731820] (-) TimerEvent: {}
+[7.832337] (-) TimerEvent: {}
+[7.932808] (-) TimerEvent: {}
+[8.033253] (-) TimerEvent: {}
+[8.133694] (-) TimerEvent: {}
+[8.234081] (-) TimerEvent: {}
+[8.334583] (-) TimerEvent: {}
+[8.435089] (-) TimerEvent: {}
+[8.535499] (-) TimerEvent: {}
+[8.635915] (-) TimerEvent: {}
+[8.736338] (-) TimerEvent: {}
+[8.836767] (-) TimerEvent: {}
+[8.937247] (-) TimerEvent: {}
+[9.037784] (-) TimerEvent: {}
+[9.138366] (-) TimerEvent: {}
+[9.238836] (-) TimerEvent: {}
+[9.339274] (-) TimerEvent: {}
+[9.439758] (-) TimerEvent: {}
+[9.540245] (-) TimerEvent: {}
+[9.640688] (-) TimerEvent: {}
+[9.741123] (-) TimerEvent: {}
+[9.841680] (-) TimerEvent: {}
+[9.942111] (-) TimerEvent: {}
+[10.042708] (-) TimerEvent: {}
+[10.143143] (-) TimerEvent: {}
+[10.243600] (-) TimerEvent: {}
+[10.344049] (-) TimerEvent: {}
+[10.444500] (-) TimerEvent: {}
+[10.544973] (-) TimerEvent: {}
+[10.645434] (-) TimerEvent: {}
+[10.745908] (-) TimerEvent: {}
+[10.846387] (-) TimerEvent: {}
+[10.946843] (-) TimerEvent: {}
+[10.980660] (jaime_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[11.046998] (-) TimerEvent: {}
+[11.147507] (-) TimerEvent: {}
+[11.248036] (-) TimerEvent: {}
+[11.348586] (-) TimerEvent: {}
+[11.449097] (-) TimerEvent: {}
+[11.549605] (-) TimerEvent: {}
+[11.650070] (-) TimerEvent: {}
+[11.750527] (-) TimerEvent: {}
+[11.850901] (-) TimerEvent: {}
+[11.951315] (-) TimerEvent: {}
+[12.051721] (-) TimerEvent: {}
+[12.152124] (-) TimerEvent: {}
+[12.252656] (-) TimerEvent: {}
+[12.353118] (-) TimerEvent: {}
+[12.453607] (-) TimerEvent: {}
+[12.554044] (-) TimerEvent: {}
+[12.654514] (-) TimerEvent: {}
+[12.755022] (-) TimerEvent: {}
+[12.855577] (-) TimerEvent: {}
+[12.956078] (-) TimerEvent: {}
+[13.056643] (-) TimerEvent: {}
+[13.157135] (-) TimerEvent: {}
+[13.257605] (-) TimerEvent: {}
+[13.358027] (-) TimerEvent: {}
+[13.458420] (-) TimerEvent: {}
+[13.558898] (-) TimerEvent: {}
+[13.659368] (-) TimerEvent: {}
+[13.759800] (-) TimerEvent: {}
+[13.860259] (-) TimerEvent: {}
+[13.960666] (-) TimerEvent: {}
+[14.061166] (-) TimerEvent: {}
+[14.161646] (-) TimerEvent: {}
+[14.262157] (-) TimerEvent: {}
+[14.362670] (-) TimerEvent: {}
+[14.463087] (-) TimerEvent: {}
+[14.563556] (-) TimerEvent: {}
+[14.664004] (-) TimerEvent: {}
+[14.764462] (-) TimerEvent: {}
+[14.864924] (-) TimerEvent: {}
+[14.965344] (-) TimerEvent: {}
+[15.065702] (-) TimerEvent: {}
+[15.166122] (-) TimerEvent: {}
+[15.266554] (-) TimerEvent: {}
+[15.366979] (-) TimerEvent: {}
+[15.467360] (-) TimerEvent: {}
+[15.567806] (-) TimerEvent: {}
+[15.668291] (-) TimerEvent: {}
+[15.768680] (-) TimerEvent: {}
+[15.786943] (jaime_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[15.797299] (jaime_interfaces) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[15.868826] (-) TimerEvent: {}
+[15.969253] (-) TimerEvent: {}
+[16.069681] (-) TimerEvent: {}
+[16.170010] (-) TimerEvent: {}
+[16.270395] (-) TimerEvent: {}
+[16.370872] (-) TimerEvent: {}
+[16.471319] (-) TimerEvent: {}
+[16.571816] (-) TimerEvent: {}
+[16.672323] (-) TimerEvent: {}
+[16.772779] (-) TimerEvent: {}
+[16.791147] (jaime_interfaces) StdoutLine: {'line': b'-- Found PythonExtra: /home/samuel/.pyenv/shims/python3  \n'}
+[16.872924] (-) TimerEvent: {}
+[16.973358] (-) TimerEvent: {}
+[17.073898] (-) TimerEvent: {}
+[17.174362] (-) TimerEvent: {}
+[17.274769] (-) TimerEvent: {}
+[17.375177] (-) TimerEvent: {}
+[17.475557] (-) TimerEvent: {}
+[17.575969] (-) TimerEvent: {}
+[17.676437] (-) TimerEvent: {}
+[17.776812] (-) TimerEvent: {}
+[17.877221] (-) TimerEvent: {}
+[17.977568] (-) TimerEvent: {}
+[18.077957] (-) TimerEvent: {}
+[18.178341] (-) TimerEvent: {}
+[18.278790] (-) TimerEvent: {}
+[18.379306] (-) TimerEvent: {}
+[18.479801] (-) TimerEvent: {}
+[18.580302] (-) TimerEvent: {}
+[18.680884] (-) TimerEvent: {}
+[18.781380] (-) TimerEvent: {}
+[18.881839] (-) TimerEvent: {}
+[18.982238] (-) TimerEvent: {}
+[19.082668] (-) TimerEvent: {}
+[19.182164] (jaime_interfaces) StdoutLine: {'line': b'-- Found Python3: /home/samuel/.pyenv/shims/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[19.182745] (-) TimerEvent: {}
+[19.283077] (-) TimerEvent: {}
+[19.383565] (-) TimerEvent: {}
+[19.483998] (-) TimerEvent: {}
+[19.584438] (-) TimerEvent: {}
+[19.685005] (-) TimerEvent: {}
+[19.727678] (jaime_interfaces) StdoutLine: {'line': b'-- Found Python3: /home/samuel/.pyenv/shims/python3 (found version "3.12.3") found components: Interpreter \n'}
+[19.740120] (jaime_interfaces) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[19.785155] (-) TimerEvent: {}
+[19.882626] (jaime_interfaces) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[19.883627] (jaime_interfaces) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[19.883900] (jaime_interfaces) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[19.885255] (-) TimerEvent: {}
+[19.894439] (jaime_interfaces) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[19.894789] (jaime_interfaces) StdoutLine: {'line': b"-- Configured 'flake8' exclude dirs and/or files: \n"}
+[19.912646] (jaime_interfaces) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[19.922896] (jaime_interfaces) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[19.985412] (-) TimerEvent: {}
+[19.994225] (jaime_interfaces) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[19.994569] (jaime_interfaces) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[20.004608] (jaime_interfaces) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[20.012473] (jaime_interfaces) StdoutLine: {'line': b'-- Configuring done (20.0s)\n'}
+[20.085549] (-) TimerEvent: {}
+[20.119602] (jaime_interfaces) StdoutLine: {'line': b'-- Generating done (0.1s)\n'}
+[20.150343] (jaime_interfaces) StdoutLine: {'line': b'-- Build files have been written to: /home/samuel/uchile_robotics_jaime/build/jaime_interfaces\n'}
+[20.175092] (jaime_interfaces) CommandEnded: {'returncode': 0}
+[20.176137] (jaime_interfaces) JobProgress: {'identifier': 'jaime_interfaces', 'progress': 'build'}
+[20.178022] (jaime_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces', '--', '-j8', '-l8'], 'cwd': '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces', 'env': OrderedDict({'PYENV_VIRTUALENV_INIT': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'LANGUAGE': 'es_CL:es', 'USER': 'samuel', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/samuel', 'OLDPWD': '/home/samuel/uchile_robotics_jaime/jaime_interfaces', 'DESKTOP_SESSION': 'ubuntu', 'PYENV_SHELL': 'bash', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2188', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'samuel', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'samuel', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/home/samuel/.pyenv/plugins/pyenv-virtualenv/shims:/home/samuel/.pyenv/shims:/home/samuel/.pyenv/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/samuel/dist/bin', 'SESSION_MANAGER': 'local/samuel-HP-Pavilion-Laptop-15-cs3xxx:@/tmp/.ICE-unix/2156,unix/samuel-HP-Pavilion-Laptop-15-cs3xxx:/tmp/.ICE-unix/2156', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/8588366d_869b_45de_9d69_82265decfc37', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'es_CL.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.136', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GSK_RENDERER': 'gl', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'PYENV_ROOT': '/home/samuel/.pyenv', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[20.185682] (-) TimerEvent: {}
+[20.286032] (-) TimerEvent: {}
+[20.289109] (jaime_interfaces) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating type hashes for ROS interfaces\x1b[0m\n'}
+[20.291903] (jaime_interfaces) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating Rust code for ROS interfaces\x1b[0m\n'}
+[20.321900] (jaime_interfaces) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_copy_jaime_interfaces\n'}
+[20.386168] (-) TimerEvent: {}
+[20.486630] (-) TimerEvent: {}
+[20.587060] (-) TimerEvent: {}
+[20.687510] (-) TimerEvent: {}
+[20.787959] (-) TimerEvent: {}
+[20.888369] (-) TimerEvent: {}
+[20.943765] (jaime_interfaces) StdoutLine: {'line': b'[  4%] Built target jaime_interfaces__rosidl_generator_type_description\n'}
+[20.978278] (jaime_interfaces) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[20.988738] (-) TimerEvent: {}
+[21.010557] (jaime_interfaces) StdoutLine: {'line': b'[  8%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[21.088888] (-) TimerEvent: {}
+[21.114501] (jaime_interfaces) StdoutLine: {'line': b'[  8%] Built target jaime_interfaces__rs\n'}
+[21.148097] (jaime_interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[21.151622] (jaime_interfaces) StdoutLine: {'line': b'creating jaime_interfaces.egg-info\n'}
+[21.191272] (-) TimerEvent: {}
+[21.244093] (jaime_interfaces) StdoutLine: {'line': b'writing jaime_interfaces.egg-info/PKG-INFO\n'}
+[21.244785] (jaime_interfaces) StdoutLine: {'line': b'writing dependency_links to jaime_interfaces.egg-info/dependency_links.txt\n'}
+[21.245356] (jaime_interfaces) StdoutLine: {'line': b'writing top-level names to jaime_interfaces.egg-info/top_level.txt\n'}
+[21.245835] (jaime_interfaces) StdoutLine: {'line': b"writing manifest file 'jaime_interfaces.egg-info/SOURCES.txt'\n"}
+[21.293546] (-) TimerEvent: {}
+[21.393986] (-) TimerEvent: {}
+[21.494830] (-) TimerEvent: {}
+[21.508495] (jaime_interfaces) StdoutLine: {'line': b"reading manifest file 'jaime_interfaces.egg-info/SOURCES.txt'\n"}
+[21.509583] (jaime_interfaces) StdoutLine: {'line': b"writing manifest file 'jaime_interfaces.egg-info/SOURCES.txt'\n"}
+[21.570623] (jaime_interfaces) StdoutLine: {'line': b'[  8%] Built target ament_cmake_python_build_jaime_interfaces_egg\n'}
+[21.594963] (-) TimerEvent: {}
+[21.695400] (-) TimerEvent: {}
+[21.795892] (-) TimerEvent: {}
+[21.896375] (-) TimerEvent: {}
+[21.996834] (-) TimerEvent: {}
+[22.097283] (-) TimerEvent: {}
+[22.199280] (-) TimerEvent: {}
+[22.299804] (-) TimerEvent: {}
+[22.400337] (-) TimerEvent: {}
+[22.500762] (-) TimerEvent: {}
+[22.601207] (-) TimerEvent: {}
+[22.612111] (jaime_interfaces) StdoutLine: {'line': b'[  8%] Built target jaime_interfaces__cpp\n'}
+[22.704296] (-) TimerEvent: {}
+[22.804819] (-) TimerEvent: {}
+[22.876033] (jaime_interfaces) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_generator_c.dir/rosidl_generator_c/jaime_interfaces/srv/detail/is_ready__description.c.o\x1b[0m\n'}
+[22.876939] (jaime_interfaces) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_generator_c.dir/rosidl_generator_c/jaime_interfaces/srv/detail/is_ready__functions.c.o\x1b[0m\n'}
+[22.878165] (jaime_interfaces) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_generator_c.dir/rosidl_generator_c/jaime_interfaces/action/detail/move_to_pose__description.c.o\x1b[0m\n'}
+[22.883327] (jaime_interfaces) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_generator_c.dir/rosidl_generator_c/jaime_interfaces/srv/detail/is_ready__type_support.c.o\x1b[0m\n'}
+[22.883828] (jaime_interfaces) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_generator_c.dir/rosidl_generator_c/jaime_interfaces/action/detail/move_to_pose__functions.c.o\x1b[0m\n'}
+[22.884029] (jaime_interfaces) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_generator_c.dir/rosidl_generator_c/jaime_interfaces/action/detail/move_to_pose__type_support.c.o\x1b[0m\n'}
+[22.905239] (-) TimerEvent: {}
+[23.006316] (-) TimerEvent: {}
+[23.106842] (-) TimerEvent: {}
+[23.207289] (-) TimerEvent: {}
+[23.307804] (-) TimerEvent: {}
+[23.344206] (jaime_interfaces) StdoutLine: {'line': b'[ 24%] \x1b[32m\x1b[1mLinking C shared library libjaime_interfaces__rosidl_generator_c.so\x1b[0m\n'}
+[23.407957] (-) TimerEvent: {}
+[23.438685] (jaime_interfaces) StdoutLine: {'line': b'[ 24%] Built target jaime_interfaces__rosidl_generator_c\n'}
+[23.463854] (jaime_interfaces) StdoutLine: {'line': b'[ 26%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[23.469340] (jaime_interfaces) StdoutLine: {'line': b'[ 28%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[23.470307] (jaime_interfaces) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[23.471128] (jaime_interfaces) StdoutLine: {'line': b'[ 37%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[23.471500] (jaime_interfaces) StdoutLine: {'line': b'[ 37%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[23.471797] (jaime_interfaces) StdoutLine: {'line': b'[ 37%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[23.509612] (-) TimerEvent: {}
+[23.612920] (-) TimerEvent: {}
+[23.715274] (-) TimerEvent: {}
+[23.815732] (-) TimerEvent: {}
+[23.916244] (-) TimerEvent: {}
+[24.018289] (-) TimerEvent: {}
+[24.118811] (-) TimerEvent: {}
+[24.219288] (-) TimerEvent: {}
+[24.323912] (-) TimerEvent: {}
+[24.424519] (-) TimerEvent: {}
+[24.525508] (-) TimerEvent: {}
+[24.627443] (-) TimerEvent: {}
+[24.727887] (-) TimerEvent: {}
+[24.798264] (jaime_interfaces) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaime_interfaces/action/move_to_pose__type_support.cpp.o\x1b[0m\n'}
+[24.811341] (jaime_interfaces) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaime_interfaces/srv/is_ready__type_support.cpp.o\x1b[0m\n'}
+[24.814107] (jaime_interfaces) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaime_interfaces/srv/is_ready__type_support.cpp.o\x1b[0m\n'}
+[24.815582] (jaime_interfaces) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaime_interfaces/action/move_to_pose__type_support.cpp.o\x1b[0m\n'}
+[24.828014] (-) TimerEvent: {}
+[24.929409] (-) TimerEvent: {}
+[25.029913] (-) TimerEvent: {}
+[25.044862] (jaime_interfaces) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX shared library libjaime_interfaces__rosidl_typesupport_c.so\x1b[0m\n'}
+[25.130048] (-) TimerEvent: {}
+[25.143377] (jaime_interfaces) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaime_interfaces/srv/detail/is_ready__type_support.cpp.o\x1b[0m\n'}
+[25.166563] (jaime_interfaces) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaime_interfaces/action/detail/move_to_pose__type_support.cpp.o\x1b[0m\n'}
+[25.212279] (jaime_interfaces) StdoutLine: {'line': b'[ 53%] Built target jaime_interfaces__rosidl_typesupport_c\n'}
+[25.232325] (-) TimerEvent: {}
+[25.300411] (jaime_interfaces) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaime_interfaces/srv/detail/is_ready__type_support.c.o\x1b[0m\n'}
+[25.306472] (jaime_interfaces) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaime_interfaces/action/detail/move_to_pose__type_support.c.o\x1b[0m\n'}
+[25.332450] (-) TimerEvent: {}
+[25.438293] (-) TimerEvent: {}
+[25.538797] (-) TimerEvent: {}
+[25.600379] (jaime_interfaces) StdoutLine: {'line': b'[ 60%] \x1b[32m\x1b[1mLinking C shared library libjaime_interfaces__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[25.638939] (-) TimerEvent: {}
+[25.740343] (-) TimerEvent: {}
+[25.746757] (jaime_interfaces) StdoutLine: {'line': b'[ 60%] Built target jaime_interfaces__rosidl_typesupport_introspection_c\n'}
+[25.843309] (-) TimerEvent: {}
+[25.844787] (jaime_interfaces) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaime_interfaces/action/detail/dds_fastrtps/move_to_pose__type_support.cpp.o\x1b[0m\n'}
+[25.855638] (jaime_interfaces) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaime_interfaces/srv/detail/dds_fastrtps/is_ready__type_support.cpp.o\x1b[0m\n'}
+[25.944297] (-) TimerEvent: {}
+[26.044873] (-) TimerEvent: {}
+[26.103306] (jaime_interfaces) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaime_interfaces/srv/detail/is_ready__type_support_c.cpp.o\x1b[0m\n'}
+[26.112619] (jaime_interfaces) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/jaime_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaime_interfaces/action/detail/move_to_pose__type_support_c.cpp.o\x1b[0m\n'}
+[26.145047] (-) TimerEvent: {}
+[26.249517] (-) TimerEvent: {}
+[26.350091] (-) TimerEvent: {}
+[26.456463] (-) TimerEvent: {}
+[26.557039] (-) TimerEvent: {}
+[26.657715] (-) TimerEvent: {}
+[26.762555] (-) TimerEvent: {}
+[26.868482] (-) TimerEvent: {}
+[26.969021] (-) TimerEvent: {}
+[27.069690] (-) TimerEvent: {}
+[27.176536] (-) TimerEvent: {}
+[27.277183] (-) TimerEvent: {}
+[27.341656] (jaime_interfaces) StdoutLine: {'line': b'[ 71%] \x1b[32m\x1b[1mLinking CXX shared library libjaime_interfaces__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[27.379672] (-) TimerEvent: {}
+[27.480208] (-) TimerEvent: {}
+[27.583781] (-) TimerEvent: {}
+[27.608405] (jaime_interfaces) StdoutLine: {'line': b'[ 71%] Built target jaime_interfaces__rosidl_typesupport_cpp\n'}
+[27.663970] (jaime_interfaces) StdoutLine: {'line': b'[ 73%] \x1b[32m\x1b[1mLinking CXX shared library libjaime_interfaces__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[27.684416] (-) TimerEvent: {}
+[27.786299] (-) TimerEvent: {}
+[27.886963] (-) TimerEvent: {}
+[27.921645] (jaime_interfaces) StdoutLine: {'line': b'[ 73%] Built target jaime_interfaces__rosidl_typesupport_introspection_cpp\n'}
+[27.987123] (-) TimerEvent: {}
+[28.029562] (jaime_interfaces) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX shared library libjaime_interfaces__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[28.087289] (-) TimerEvent: {}
+[28.187786] (-) TimerEvent: {}
+[28.202040] (jaime_interfaces) StdoutLine: {'line': b'[ 75%] Built target jaime_interfaces__rosidl_typesupport_fastrtps_c\n'}
+[28.287956] (-) TimerEvent: {}
+[28.388293] (-) TimerEvent: {}
+[28.488721] (-) TimerEvent: {}
+[28.589270] (-) TimerEvent: {}
+[28.689727] (-) TimerEvent: {}
+[28.705210] (jaime_interfaces) StdoutLine: {'line': b'[ 77%] \x1b[32m\x1b[1mLinking CXX shared library libjaime_interfaces__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[28.789891] (-) TimerEvent: {}
+[28.890294] (-) TimerEvent: {}
+[28.912524] (jaime_interfaces) StdoutLine: {'line': b'[ 77%] Built target jaime_interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[28.963638] (jaime_interfaces) StdoutLine: {'line': b'[ 77%] Built target jaime_interfaces\n'}
+[28.990427] (-) TimerEvent: {}
+[29.015115] (jaime_interfaces) StdoutLine: {'line': b'[ 80%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[29.090591] (-) TimerEvent: {}
+[29.190966] (-) TimerEvent: {}
+[29.291378] (-) TimerEvent: {}
+[29.391825] (-) TimerEvent: {}
+[29.492482] (-) TimerEvent: {}
+[29.592958] (-) TimerEvent: {}
+[29.693404] (-) TimerEvent: {}
+[29.793789] (-) TimerEvent: {}
+[29.894182] (-) TimerEvent: {}
+[29.994620] (-) TimerEvent: {}
+[30.095006] (-) TimerEvent: {}
+[30.195351] (-) TimerEvent: {}
+[30.295716] (-) TimerEvent: {}
+[30.396057] (-) TimerEvent: {}
+[30.496450] (-) TimerEvent: {}
+[30.596798] (-) TimerEvent: {}
+[30.697163] (-) TimerEvent: {}
+[30.797524] (-) TimerEvent: {}
+[30.897984] (-) TimerEvent: {}
+[30.998394] (-) TimerEvent: {}
+[31.062456] (jaime_interfaces) StdoutLine: {'line': b'[ 80%] Built target jaime_interfaces__py\n'}
+[31.098539] (-) TimerEvent: {}
+[31.119059] (jaime_interfaces) StdoutLine: {'line': b'[ 84%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_generator_py.dir/rosidl_generator_py/jaime_interfaces/action/_move_to_pose_s.c.o\x1b[0m\n'}
+[31.119524] (jaime_interfaces) StdoutLine: {'line': b'[ 84%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces__rosidl_generator_py.dir/rosidl_generator_py/jaime_interfaces/srv/_is_ready_s.c.o\x1b[0m\n'}
+[31.198724] (-) TimerEvent: {}
+[31.299135] (-) TimerEvent: {}
+[31.399671] (-) TimerEvent: {}
+[31.500065] (-) TimerEvent: {}
+[31.597816] (jaime_interfaces) StdoutLine: {'line': b'[ 86%] \x1b[32m\x1b[1mLinking C shared library libjaime_interfaces__rosidl_generator_py.so\x1b[0m\n'}
+[31.600206] (-) TimerEvent: {}
+[31.700589] (-) TimerEvent: {}
+[31.706974] (jaime_interfaces) StdoutLine: {'line': b'[ 86%] Built target jaime_interfaces__rosidl_generator_py\n'}
+[31.750043] (jaime_interfaces) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/jaime_interfaces/_jaime_interfaces_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[31.750527] (jaime_interfaces) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/jaime_interfaces/_jaime_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[31.750838] (jaime_interfaces) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/jaime_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/jaime_interfaces/_jaime_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[31.800725] (-) TimerEvent: {}
+[31.901175] (-) TimerEvent: {}
+[32.001680] (-) TimerEvent: {}
+[32.045145] (jaime_interfaces) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_c.so\x1b[0m\n'}
+[32.057230] (jaime_interfaces) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[32.063604] (jaime_interfaces) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[32.101827] (-) TimerEvent: {}
+[32.119696] (jaime_interfaces) StdoutLine: {'line': b'[100%] Built target jaime_interfaces_s__rosidl_typesupport_c\n'}
+[32.134646] (jaime_interfaces) StdoutLine: {'line': b'[100%] Built target jaime_interfaces_s__rosidl_typesupport_introspection_c\n'}
+[32.152330] (jaime_interfaces) StdoutLine: {'line': b'[100%] Built target jaime_interfaces_s__rosidl_typesupport_fastrtps_c\n'}
+[32.178177] (jaime_interfaces) CommandEnded: {'returncode': 0}
+[32.179436] (jaime_interfaces) JobProgress: {'identifier': 'jaime_interfaces', 'progress': 'install'}
+[32.200085] (jaime_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces'], 'cwd': '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces', 'env': OrderedDict({'PYENV_VIRTUALENV_INIT': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'LANGUAGE': 'es_CL:es', 'USER': 'samuel', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'x11', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/samuel', 'OLDPWD': '/home/samuel/uchile_robotics_jaime/jaime_interfaces', 'DESKTOP_SESSION': 'ubuntu', 'PYENV_SHELL': 'bash', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2188', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'samuel', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'samuel', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/home/samuel/.pyenv/plugins/pyenv-virtualenv/shims:/home/samuel/.pyenv/shims:/home/samuel/.pyenv/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/samuel/dist/bin', 'SESSION_MANAGER': 'local/samuel-HP-Pavilion-Laptop-15-cs3xxx:@/tmp/.ICE-unix/2156,unix/samuel-HP-Pavilion-Laptop-15-cs3xxx:/tmp/.ICE-unix/2156', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/8588366d_869b_45de_9d69_82265decfc37', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'es_CL.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.136', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GSK_RENDERER': 'gl', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/samuel/uchile_robotics_jaime/build/jaime_interfaces', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'PYENV_ROOT': '/home/samuel/.pyenv', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/samuel/uchile_robotics_jaime/jaime_interfaces/install/jaime_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[32.202217] (-) TimerEvent: {}
+[32.220667] (jaime_interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[32.221256] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/ament_index/resource_index/rosidl_interfaces/jaime_interfaces\n'}
+[32.221687] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/srv/IsReady.json\n'}
+[32.222071] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/action/MoveToPose.json\n'}
+[32.222478] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces\n'}
+[32.222910] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv\n'}
+[32.223279] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail\n'}
+[32.223580] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__type_support.c\n'}
+[32.224022] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__functions.c\n'}
+[32.224410] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__struct.h\n'}
+[32.224782] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__type_support.h\n'}
+[32.225154] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__description.c\n'}
+[32.225567] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__functions.h\n'}
+[32.225861] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/is_ready.h\n'}
+[32.226139] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg\n'}
+[32.226564] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[32.226911] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action\n'}
+[32.227177] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail\n'}
+[32.227594] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__type_support.c\n'}
+[32.227887] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__type_support.h\n'}
+[32.228168] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__struct.h\n'}
+[32.228509] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__functions.c\n'}
+[32.228779] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__functions.h\n'}
+[32.229138] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__description.c\n'}
+[32.229639] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/move_to_pose.h\n'}
+[32.230008] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/environment/library_path.sh\n'}
+[32.230352] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/environment/library_path.dsv\n'}
+[32.230631] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_generator_c.so\n'}
+[32.230896] (jaime_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_generator_c.so" to ""\n'}
+[32.231170] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces\n'}
+[32.231480] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv\n'}
+[32.231865] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail\n'}
+[32.232217] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__rosidl_typesupport_fastrtps_c.h\n'}
+[32.232530] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg\n'}
+[32.232879] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[32.233264] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action\n'}
+[32.233556] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail\n'}
+[32.233860] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__rosidl_typesupport_fastrtps_c.h\n'}
+[32.234142] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[32.234520] (jaime_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[32.234905] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces\n'}
+[32.235320] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv\n'}
+[32.235605] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail\n'}
+[32.235873] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__type_support.c\n'}
+[32.236363] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__rosidl_typesupport_introspection_c.h\n'}
+[32.236733] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg\n'}
+[32.237073] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[32.237485] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action\n'}
+[32.237853] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail\n'}
+[32.238223] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__type_support.c\n'}
+[32.238683] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__rosidl_typesupport_introspection_c.h\n'}
+[32.239013] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_introspection_c.so\n'}
+[32.239360] (jaime_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_introspection_c.so" to ""\n'}
+[32.239650] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_c.so\n'}
+[32.240045] (jaime_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_c.so" to ""\n'}
+[32.240345] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces\n'}
+[32.240755] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv\n'}
+[32.241033] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail\n'}
+[32.241429] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__struct.hpp\n'}
+[32.241772] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__type_support.hpp\n'}
+[32.242059] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__traits.hpp\n'}
+[32.242366] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__builder.hpp\n'}
+[32.242639] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/is_ready.hpp\n'}
+[32.243017] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg\n'}
+[32.243316] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[32.243605] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action\n'}
+[32.244036] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/move_to_pose.hpp\n'}
+[32.244350] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail\n'}
+[32.244682] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__type_support.hpp\n'}
+[32.244991] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__builder.hpp\n'}
+[32.245287] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__traits.hpp\n'}
+[32.245566] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__struct.hpp\n'}
+[32.245825] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces\n'}
+[32.246146] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv\n'}
+[32.246531] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail\n'}
+[32.246813] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[32.247103] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/dds_fastrtps\n'}
+[32.247399] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg\n'}
+[32.247826] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[32.248168] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action\n'}
+[32.248515] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail\n'}
+[32.248915] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[32.249362] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/dds_fastrtps\n'}
+[32.249744] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[32.250053] (jaime_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[32.250389] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces\n'}
+[32.250744] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv\n'}
+[32.251027] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail\n'}
+[32.251613] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__rosidl_typesupport_introspection_cpp.hpp\n'}
+[32.252050] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/srv/detail/is_ready__type_support.cpp\n'}
+[32.252424] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action\n'}
+[32.252745] (jaime_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail\n'}
+[32.253012] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__type_support.cpp\n'}
+[32.253381] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/include/jaime_interfaces/jaime_interfaces/action/detail/move_to_pose__rosidl_typesupport_introspection_cpp.hpp\n'}
+[32.253690] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[32.253937] (jaime_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[32.254248] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_cpp.so\n'}
+[32.254525] (jaime_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_typesupport_cpp.so" to ""\n'}
+[32.254783] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/environment/pythonpath.sh\n'}
+[32.255050] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/environment/pythonpath.dsv\n'}
+[32.255398] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces-0.0.0-py3.12.egg-info\n'}
+[32.255689] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces-0.0.0-py3.12.egg-info/top_level.txt\n'}
+[32.256023] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces-0.0.0-py3.12.egg-info/PKG-INFO\n'}
+[32.256348] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt\n'}
+[32.256656] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt\n'}
+[32.256818] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces\n'}
+[32.256965] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_fastrtps_c.so\n'}
+[32.257106] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv\n'}
+[32.257291] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv/__init__.py\n'}
+[32.257437] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv/_is_ready.py\n'}
+[32.257578] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv/_is_ready_s.c\n'}
+[32.257715] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/_jaime_interfaces_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[32.257854] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/__init__.py\n'}
+[32.257990] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/_jaime_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[32.258129] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/action\n'}
+[32.258293] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/action/_move_to_pose.py\n'}
+[32.258443] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/action/__init__.py\n'}
+[32.258580] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/action/_move_to_pose_s.c\n'}
+[32.258719] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/_jaime_interfaces_s.ep.rosidl_typesupport_c.c\n'}
+[32.258856] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_c.so\n'}
+[32.259016] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_introspection_c.so\n'}
+[32.302346] (-) TimerEvent: {}
+[32.402704] (-) TimerEvent: {}
+[32.475517] (jaime_interfaces) StdoutLine: {'line': b"Listing '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces'...\n"}
+[32.475860] (jaime_interfaces) StdoutLine: {'line': b"Compiling '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/__init__.py'...\n"}
+[32.476020] (jaime_interfaces) StdoutLine: {'line': b"Listing '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/action'...\n"}
+[32.476168] (jaime_interfaces) StdoutLine: {'line': b"Compiling '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/action/__init__.py'...\n"}
+[32.476343] (jaime_interfaces) StdoutLine: {'line': b"Compiling '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/action/_move_to_pose.py'...\n"}
+[32.476490] (jaime_interfaces) StdoutLine: {'line': b"Listing '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv'...\n"}
+[32.476639] (jaime_interfaces) StdoutLine: {'line': b"Compiling '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv/__init__.py'...\n"}
+[32.476785] (jaime_interfaces) StdoutLine: {'line': b"Compiling '/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/srv/_is_ready.py'...\n"}
+[32.488898] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_fastrtps_c.so\n'}
+[32.489632] (jaime_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[32.490073] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_introspection_c.so\n'}
+[32.491045] (jaime_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_introspection_c.so" to ""\n'}
+[32.491526] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_c.so\n'}
+[32.492261] (jaime_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/python3.12/site-packages/jaime_interfaces/jaime_interfaces_s__rosidl_typesupport_c.so" to ""\n'}
+[32.492482] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_generator_py.so\n'}
+[32.493245] (jaime_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/samuel/uchile_robotics_jaime/install/jaime_interfaces/lib/libjaime_interfaces__rosidl_generator_py.so" to ""\n'}
+[32.493527] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/ament_index/resource_index/rust_packages/jaime_interfaces\n'}
+[32.493891] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/rust\n'}
+[32.494143] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/rust/src\n'}
+[32.494483] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/rust/src/action.rs\n'}
+[32.494771] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/rust/src/lib.rs\n'}
+[32.495047] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/rust/src/srv\n'}
+[32.495303] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/rust/src/srv/rmw.rs\n'}
+[32.495533] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/rust/src/action\n'}
+[32.495798] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/rust/src/action/rmw.rs\n'}
+[32.496051] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/rust/src/srv.rs\n'}
+[32.496338] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/rust/build.rs\n'}
+[32.496591] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/rust/Cargo.toml\n'}
+[32.496943] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/srv/IsReady.idl\n'}
+[32.497160] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/action/MoveToPose.idl\n'}
+[32.497493] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/srv/IsReady.srv\n'}
+[32.497807] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/action/MoveToPose.action\n'}
+[32.498233] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/ament_index/resource_index/package_run_dependencies/jaime_interfaces\n'}
+[32.498617] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/ament_index/resource_index/parent_prefix_path/jaime_interfaces\n'}
+[32.498959] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/environment/ament_prefix_path.sh\n'}
+[32.499285] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/environment/ament_prefix_path.dsv\n'}
+[32.499766] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/environment/path.sh\n'}
+[32.500100] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/environment/path.dsv\n'}
+[32.500387] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/local_setup.bash\n'}
+[32.500618] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/local_setup.sh\n'}
+[32.500839] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/local_setup.zsh\n'}
+[32.501174] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/local_setup.dsv\n'}
+[32.501520] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/package.dsv\n'}
+[32.501928] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/ament_index/resource_index/packages/jaime_interfaces\n'}
+[32.502274] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_generator_cExport.cmake\n'}
+[32.502635] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[32.502787] (-) TimerEvent: {}
+[32.503061] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[32.503481] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[32.503860] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[32.504290] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[32.504736] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_cExport.cmake\n'}
+[32.505150] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[32.505618] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_generator_cppExport.cmake\n'}
+[32.506043] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[32.506693] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[32.507111] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[32.507506] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[32.507902] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[32.508304] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[32.508768] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_generator_pyExport.cmake\n'}
+[32.509143] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/export_jaime_interfaces__rosidl_generator_pyExport-noconfig.cmake\n'}
+[32.509600] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[32.510007] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[32.510515] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[32.510890] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[32.511314] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[32.511839] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[32.512169] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[32.512625] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/rosidl_cmake_aggregate_target-extras.cmake\n'}
+[32.513117] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfacesConfig.cmake\n'}
+[32.513511] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/cmake/jaime_interfacesConfig-version.cmake\n'}
+[32.513829] (jaime_interfaces) StdoutLine: {'line': b'-- Installing: /home/samuel/uchile_robotics_jaime/install/jaime_interfaces/share/jaime_interfaces/package.xml\n'}
+[32.518137] (jaime_interfaces) CommandEnded: {'returncode': 0}
+[32.565283] (jaime_interfaces) JobEnded: {'identifier': 'jaime_interfaces', 'rc': 0}
+[32.566842] (-) EventReactorShutdown: {}

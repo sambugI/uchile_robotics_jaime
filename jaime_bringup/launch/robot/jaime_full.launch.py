@@ -127,7 +127,15 @@ def generate_launch_description():
             ])
         )
     )
-
+    face_node = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([
+                manipulation_pkg,
+                'launch',
+                'face_launch.py'
+            ])
+        )
+    )
 
     # =========================
     # SYSTEM MANAGERS
@@ -178,18 +186,24 @@ def generate_launch_description():
         output='screen'
     )
 
-
+    perception_manager = Node(
+        package="jaime_bringup",
+        executable="perception_manager",
+        name="perception_manager",
+        output="screen"
+    )
     # Esperar a que todos los sistemas principales estén levantados
     # antes de iniciar los managers
 
     system_managers = TimerAction(
-        period=10.0,
+        period=20.0,
         actions=[
             basic_manager,
             localization_manager,
             navigation_manager,
             tablet_manager,
             manipulation_manager,
+            perception_manager,
         ]
     )
 
@@ -208,6 +222,7 @@ def generate_launch_description():
         # Peripherals
         tablet_node,
         manipulation_node,
+        face_node,
 
         # Managers después de 10 segundos
         system_managers,

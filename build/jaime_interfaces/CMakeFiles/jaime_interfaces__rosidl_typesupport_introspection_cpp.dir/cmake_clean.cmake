@@ -1,0 +1,17 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/jaime_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaime_interfaces/action/detail/move_to_pose__type_support.cpp.o"
+  "CMakeFiles/jaime_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaime_interfaces/action/detail/move_to_pose__type_support.cpp.o.d"
+  "CMakeFiles/jaime_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaime_interfaces/srv/detail/is_ready__type_support.cpp.o"
+  "CMakeFiles/jaime_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaime_interfaces/srv/detail/is_ready__type_support.cpp.o.d"
+  "libjaime_interfaces__rosidl_typesupport_introspection_cpp.pdb"
+  "libjaime_interfaces__rosidl_typesupport_introspection_cpp.so"
+  "rosidl_typesupport_introspection_cpp/jaime_interfaces/action/detail/move_to_pose__rosidl_typesupport_introspection_cpp.hpp"
+  "rosidl_typesupport_introspection_cpp/jaime_interfaces/action/detail/move_to_pose__type_support.cpp"
+  "rosidl_typesupport_introspection_cpp/jaime_interfaces/srv/detail/is_ready__rosidl_typesupport_introspection_cpp.hpp"
+  "rosidl_typesupport_introspection_cpp/jaime_interfaces/srv/detail/is_ready__type_support.cpp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/jaime_interfaces__rosidl_typesupport_introspection_cpp.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

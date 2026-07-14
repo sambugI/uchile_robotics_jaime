@@ -1,0 +1,36 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "jaime_interfaces/srv/IsReady_Response",
+      "fields": [
+        {
+          "name": "ready",
+          "type": {
+            "type_id": 15,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        },
+        {
+          "name": "message",
+          "type": {
+            "type_id": 17,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "jaime_interfaces/srv/IsReady_Response",
+      "hash_string": "RIHS01_1f7c257cce34469b4c6add37901c9987bc35b3565484f1c3a31e521a53e5660e"
+    }
+  ]
+}
