@@ -86,3 +86,18 @@ class BasicManager(Node):
         response.message="Basic system ready"
 
         return response
+def main(args=None):
+
+    rclpy.init(args=args)
+
+    node = BasicManager()
+
+    rclpy.spin(node)
+
+    node.destroy_node()
+
+    rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()

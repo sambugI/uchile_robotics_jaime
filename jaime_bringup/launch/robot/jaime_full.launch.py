@@ -118,24 +118,24 @@ def generate_launch_description():
     # local planner
     # -------------------------
 
-    manipulation_node = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            PathJoinSubstitution([
-                manipulation_pkg,
-                'launch',
-                'jaime_manipulation.launch.py'
-            ])
-        )
-    )
-    face_node = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            PathJoinSubstitution([
-                manipulation_pkg,
-                'launch',
-                'face_launch.py'
-            ])
-        )
-    )
+    #manipulation_node = IncludeLaunchDescription(
+    #    PythonLaunchDescriptionSource(
+    #        PathJoinSubstitution([
+    #            manipulation_pkg,
+    #            'launch',
+    #            'jaime_manipulation.launch.py'
+    #        ])
+    #    )
+    #)
+    #face_node = IncludeLaunchDescription(
+    #    PythonLaunchDescriptionSource(
+    #        PathJoinSubstitution([
+    #            manipulation_pkg,
+    #            'launch',
+    #            'face_launch.py'
+    #        ])
+    #    )
+    #)
 
     # =========================
     # SYSTEM MANAGERS
@@ -149,7 +149,7 @@ def generate_launch_description():
 
     basic_manager = Node(
         package='jaime_bringup',
-        executable='basic_manager',
+        executable='basic_manager.py',
         name='basic_manager',
         output='screen'
     )
@@ -157,7 +157,7 @@ def generate_launch_description():
 
     localization_manager = Node(
         package='jaime_bringup',
-        executable='localization_manager',
+        executable='localization_manager.py',
         name='localization_manager',
         output='screen'
     )
@@ -165,7 +165,7 @@ def generate_launch_description():
 
     navigation_manager = Node(
         package='jaime_bringup',
-        executable='navigation_manager',
+        executable='navigation_manager.py',
         name='navigation_manager',
         output='screen'
     )
@@ -173,7 +173,7 @@ def generate_launch_description():
 
     tablet_manager = Node(
         package='jaime_bringup',
-        executable='tablet_manager',
+        executable='tablet_manager.py',
         name='tablet_manager',
         output='screen'
     )
@@ -181,14 +181,14 @@ def generate_launch_description():
 
     manipulation_manager = Node(
         package='jaime_manipulation',
-        executable='manipulation_manager',
+        executable='manipulation_manager.py',
         name='manipulation_manager',
         output='screen'
     )
 
     perception_manager = Node(
         package="jaime_bringup",
-        executable="perception_manager",
+        executable="percepcion_manager.py",
         name="perception_manager",
         output="screen"
     )
@@ -202,7 +202,7 @@ def generate_launch_description():
             localization_manager,
             navigation_manager,
             tablet_manager,
-            manipulation_manager,
+            #manipulation_manager,
             perception_manager,
         ]
     )
@@ -221,8 +221,8 @@ def generate_launch_description():
 
         # Peripherals
         tablet_node,
-        manipulation_node,
-        face_node,
+        #manipulation_node,
+        #face_node,
 
         # Managers después de 10 segundos
         system_managers,

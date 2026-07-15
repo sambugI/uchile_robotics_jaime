@@ -51,6 +51,7 @@ install(
     scripts/localization_manager.py
     scripts/navigation_manager.py
     scripts/tablet_manager.py
+    scripts/percepcion_manager.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

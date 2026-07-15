@@ -47,6 +47,8 @@ install(
     scripts/local_planner.py
     scripts/read_encoders.py
     scripts/sim_node.py
+    scripts/face_detector.py
+    scripts/face_follower.py
   DESTINATION
     lib/${PROJECT_NAME}
 )
