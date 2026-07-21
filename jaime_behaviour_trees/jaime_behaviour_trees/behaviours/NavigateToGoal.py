@@ -1,11 +1,12 @@
+#!/usr/bin/env python3
+
 import py_trees
 
-import rclpy
+from action_msgs.msg import GoalStatus
 
 from rclpy.action import ActionClient
 
 from nav2_msgs.action import NavigateToPose
-
 
 
 class NavigateToGoal(py_trees.behaviour.Behaviour):
@@ -14,9 +15,7 @@ class NavigateToGoal(py_trees.behaviour.Behaviour):
 
         super().__init__("NavigateToGoal")
 
-
         self.node = node
-
 
         # Blackboard
 
@@ -29,8 +28,7 @@ class NavigateToGoal(py_trees.behaviour.Behaviour):
             access=py_trees.common.Access.READ
         )
 
-
-        # Nav2 Action Client
+        # Cliente de acción Nav2
 
         self.action_client = ActionClient(
             self.node,
@@ -38,31 +36,21 @@ class NavigateToGoal(py_trees.behaviour.Behaviour):
             "/navigate_to_pose"
         )
 
-
         self.goal_sent = False
-
         self.goal_handle = None
-
         self.result_future = None
-
+        self.goal_pose = None
 
 
     def initialise(self):
 
         self.goal_sent = False
-
         self.goal_handle = None
-
         self.result_future = None
-
-
-
-        # Revisar que exista goal
 
         try:
 
             self.goal_pose = self.bb.goal_pose
-
 
         except KeyError:
 
@@ -70,21 +58,24 @@ class NavigateToGoal(py_trees.behaviour.Behaviour):
                 "goal_pose not found in blackboard"
             )
 
-            return
-
-
 
     def update(self):
 
+        #################################################
+        # Revisar objetivo
+        #################################################
 
-        # --------------------------
-        # Esperar servidor Nav2
-        # --------------------------
+        if self.goal_pose is None:
+
+            return py_trees.common.Status.FAILURE
+
+        #################################################
+        # Esperar servidor
+        #################################################
 
         if not self.action_client.wait_for_server(
             timeout_sec=0.1
         ):
-
 
             self.node.get_logger().warn(
                 "Waiting for Nav2 action server"
@@ -92,161 +83,121 @@ class NavigateToGoal(py_trees.behaviour.Behaviour):
 
             return py_trees.common.Status.RUNNING
 
-
-
-        # --------------------------
+        #################################################
         # Enviar objetivo
-        # --------------------------
+        #################################################
 
         if not self.goal_sent:
 
-
             goal = NavigateToPose.Goal()
-
 
             goal.pose = self.goal_pose
 
-
-
             self.node.get_logger().info(
-                "Sending goal to Nav2"
+                "Sending navigation goal"
             )
 
-
-
-            send_future = (
-                self.action_client
-                .send_goal_async(goal)
+            future = self.action_client.send_goal_async(
+                goal
             )
 
-
-            send_future.add_done_callback(
+            future.add_done_callback(
                 self.goal_response_callback
             )
 
-
             self.goal_sent = True
-
 
             return py_trees.common.Status.RUNNING
 
-
-
-        # --------------------------
-        # Esperando aceptación
-        # --------------------------
+        #################################################
+        # Esperar aceptación
+        #################################################
 
         if self.goal_handle is None:
 
-
             return py_trees.common.Status.RUNNING
 
-
-
-        # --------------------------
-        # Esperando resultado
-        # --------------------------
+        #################################################
+        # Esperar resultado
+        #################################################
 
         if self.result_future is None:
 
-
             return py_trees.common.Status.RUNNING
-
-
 
         if not self.result_future.done():
 
-
             return py_trees.common.Status.RUNNING
-
-
 
         result = self.result_future.result()
 
+        if result is None:
 
+            return py_trees.common.Status.FAILURE
 
-        status = result.status
+        #################################################
+        # Resultado
+        #################################################
 
-
-
-        # Nav2 SUCCEEDED
-
-        if status == 4:
-
+        if result.status == GoalStatus.STATUS_SUCCEEDED:
 
             self.node.get_logger().info(
                 "Navigation succeeded"
             )
 
-
             return py_trees.common.Status.SUCCESS
 
+        self.node.get_logger().error(
+            f"Navigation failed with status {result.status}"
+        )
+
+        return py_trees.common.Status.FAILURE
 
 
-        else:
-
-
-            self.node.get_logger().error(
-                f"Navigation failed with status {status}"
-            )
-
-
-            return py_trees.common.Status.FAILURE
-
-
-
-    # -------------------------------------------------
-    # Callback cuando Nav2 acepta/rechaza el objetivo
-    # -------------------------------------------------
+    #################################################
+    # Callback de aceptación
+    #################################################
 
     def goal_response_callback(self, future):
 
-
         self.goal_handle = future.result()
 
+        if self.goal_handle is None:
 
+            return
 
         if not self.goal_handle.accepted:
 
-
             self.node.get_logger().error(
-                "Nav2 rejected goal"
+                "Navigation goal rejected"
             )
 
             self.goal_handle = None
 
             return
 
-
-
         self.node.get_logger().info(
-            "Nav2 accepted goal"
+            "Navigation goal accepted"
         )
-
 
         self.result_future = (
-            self.goal_handle
-            .get_result_async()
+            self.goal_handle.get_result_async()
         )
 
 
-
-    # -------------------------------------------------
-    # Cancelación si el árbol cambia de estado
-    # -------------------------------------------------
+    #################################################
+    # Cancelación
+    #################################################
 
     def terminate(self, new_status):
 
+        if (
+            self.goal_handle is not None
+            and new_status == py_trees.common.Status.INVALID
+        ):
 
-        if self.goal_handle is not None:
+            self.node.get_logger().info(
+                "Canceling navigation goal"
+            )
 
-
-            if new_status == py_trees.common.Status.INVALID:
-
-
-                self.node.get_logger().info(
-                    "Canceling navigation goal"
-                )
-
-
-                self.goal_handle.cancel_goal_async()
+            self.goal_handle.cancel_goal_async()

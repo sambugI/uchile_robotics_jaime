@@ -1,5 +1,7 @@
 import py_trees
 
+from action_msgs.msg import GoalStatus
+
 from rclpy.action import ActionClient
 
 from geometry_msgs.msg import Point
@@ -17,8 +19,6 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
         self.node = node
 
 
-        # Action client hacia local planner
-
         self.action_client = ActionClient(
             self.node,
             MoveToPose,
@@ -27,15 +27,13 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
 
 
         self.goal_sent = False
-
         self.goal_handle = None
-
         self.result_future = None
 
 
+        # Pose de conversación
+        # TODO: cambiar según calibración
 
-        # Pose predeterminada
-        
         self.search_pose = [
             0.0,
             0.0,
@@ -47,9 +45,7 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
     def initialise(self):
 
         self.goal_sent = False
-
         self.goal_handle = None
-
         self.result_future = None
 
 
@@ -57,7 +53,9 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
     def update(self):
 
 
-        # Esperar servidor de acción
+        #################################################
+        # Esperar servidor de manipulación
+        #################################################
 
         if not self.action_client.wait_for_server(
             timeout_sec=0.1
@@ -71,7 +69,9 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
 
 
 
-        # Enviar pose
+        #################################################
+        # Enviar objetivo
+        #################################################
 
         if not self.goal_sent:
 
@@ -117,7 +117,9 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
 
 
 
+        #################################################
         # Esperar aceptación
+        #################################################
 
         if self.goal_handle is None:
 
@@ -125,12 +127,13 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
 
 
 
+        #################################################
         # Esperar resultado
+        #################################################
 
         if self.result_future is None:
 
             return py_trees.common.Status.RUNNING
-
 
 
         if not self.result_future.done():
@@ -142,30 +145,51 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
         result = self.result_future.result()
 
 
+        if result is None:
 
-        if result.result.success:
-
-
-            self.node.get_logger().info(
-                "Neck reached search pose"
+            self.node.get_logger().error(
+                "Manipulation action failed"
             )
 
-
-            return py_trees.common.Status.SUCCESS
-
+            return py_trees.common.Status.FAILURE
 
 
-        else:
+
+        #################################################
+        # Resultado
+        #################################################
+
+        if result.status == GoalStatus.STATUS_SUCCEEDED:
+
+
+            if result.result.success:
+
+                self.node.get_logger().info(
+                    "Neck reached search pose"
+                )
+
+                return py_trees.common.Status.SUCCESS
 
 
             self.node.get_logger().error(
                 result.result.message
             )
 
-
             return py_trees.common.Status.FAILURE
 
 
+
+        self.node.get_logger().error(
+            f"Neck movement failed with status {result.status}"
+        )
+
+        return py_trees.common.Status.FAILURE
+
+
+
+    #################################################
+    # Callback aceptación
+    #################################################
 
     def goal_response_callback(self, future):
 
@@ -173,12 +197,16 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
         self.goal_handle = future.result()
 
 
+        if self.goal_handle is None:
+
+            return
+
 
         if not self.goal_handle.accepted:
 
 
             self.node.get_logger().error(
-                "Neck goal rejected"
+                "Neck search goal rejected"
             )
 
 
@@ -189,9 +217,8 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
 
 
         self.node.get_logger().info(
-            "Neck goal accepted"
+            "Neck search goal accepted"
         )
-
 
 
         self.result_future = (
@@ -201,12 +228,20 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
 
 
 
+    #################################################
+    # Cancelación
+    #################################################
+
     def terminate(self, new_status):
 
-        if self.goal_handle is not None:
 
+        if (
+            self.goal_handle is not None
+            and new_status == py_trees.common.Status.INVALID
+        ):
 
-            if new_status == py_trees.common.Status.INVALID:
+            self.node.get_logger().info(
+                "Canceling neck search goal"
+            )
 
-
-                self.goal_handle.cancel_goal_async()
+            self.goal_handle.cancel_goal_async()

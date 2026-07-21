@@ -1,4 +1,8 @@
+#!/usr/bin/env python3
+
 import py_trees
+
+from action_msgs.msg import GoalStatus
 
 from rclpy.action import ActionClient
 
@@ -12,12 +16,10 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
 
     def __init__(self, node):
 
-        super().__init__("NeckSearchPose")
+        super().__init__("NeckConversationPose")
 
         self.node = node
 
-
-        # Action client hacia local planner
 
         self.action_client = ActionClient(
             self.node,
@@ -27,17 +29,14 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
 
 
         self.goal_sent = False
-
         self.goal_handle = None
-
         self.result_future = None
 
 
+        # Pose de conversación
+        # TODO: cambiar según calibración
 
-        # Pose predeterminada
-        # TODO: cambiar posteriormente
-
-        self.search_pose = [
+        self.conversation_pose = [
             0.0,
             0.0,
             0.0
@@ -48,9 +47,7 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
     def initialise(self):
 
         self.goal_sent = False
-
         self.goal_handle = None
-
         self.result_future = None
 
 
@@ -58,7 +55,9 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
     def update(self):
 
 
-        # Esperar servidor de acción
+        #################################################
+        # Esperar servidor de manipulación
+        #################################################
 
         if not self.action_client.wait_for_server(
             timeout_sec=0.1
@@ -72,7 +71,9 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
 
 
 
-        # Enviar pose
+        #################################################
+        # Enviar objetivo
+        #################################################
 
         if not self.goal_sent:
 
@@ -83,20 +84,20 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
             goal.target_position = Point()
 
             goal.target_position.x = (
-                self.search_pose[0]
+                self.conversation_pose[0]
             )
 
             goal.target_position.y = (
-                self.search_pose[1]
+                self.conversation_pose[1]
             )
 
             goal.target_position.z = (
-                self.search_pose[2]
+                self.conversation_pose[2]
             )
 
 
             self.node.get_logger().info(
-                "Sending neck search pose"
+                "Sending neck conversation pose"
             )
 
 
@@ -118,7 +119,9 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
 
 
 
+        #################################################
         # Esperar aceptación
+        #################################################
 
         if self.goal_handle is None:
 
@@ -126,12 +129,13 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
 
 
 
+        #################################################
         # Esperar resultado
+        #################################################
 
         if self.result_future is None:
 
             return py_trees.common.Status.RUNNING
-
 
 
         if not self.result_future.done():
@@ -143,30 +147,51 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
         result = self.result_future.result()
 
 
+        if result is None:
 
-        if result.result.success:
-
-
-            self.node.get_logger().info(
-                "Neck reached search pose"
+            self.node.get_logger().error(
+                "Manipulation action failed"
             )
 
-
-            return py_trees.common.Status.SUCCESS
-
+            return py_trees.common.Status.FAILURE
 
 
-        else:
+
+        #################################################
+        # Resultado
+        #################################################
+
+        if result.status == GoalStatus.STATUS_SUCCEEDED:
+
+
+            if result.result.success:
+
+                self.node.get_logger().info(
+                    "Neck reached conversation pose"
+                )
+
+                return py_trees.common.Status.SUCCESS
 
 
             self.node.get_logger().error(
                 result.result.message
             )
 
-
             return py_trees.common.Status.FAILURE
 
 
+
+        self.node.get_logger().error(
+            f"Neck movement failed with status {result.status}"
+        )
+
+        return py_trees.common.Status.FAILURE
+
+
+
+    #################################################
+    # Callback aceptación
+    #################################################
 
     def goal_response_callback(self, future):
 
@@ -174,12 +199,16 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
         self.goal_handle = future.result()
 
 
+        if self.goal_handle is None:
+
+            return
+
 
         if not self.goal_handle.accepted:
 
 
             self.node.get_logger().error(
-                "Neck goal rejected"
+                "Neck conversation goal rejected"
             )
 
 
@@ -190,9 +219,8 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
 
 
         self.node.get_logger().info(
-            "Neck goal accepted"
+            "Neck conversation goal accepted"
         )
-
 
 
         self.result_future = (
@@ -202,12 +230,20 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
 
 
 
+    #################################################
+    # Cancelación
+    #################################################
+
     def terminate(self, new_status):
 
-        if self.goal_handle is not None:
 
+        if (
+            self.goal_handle is not None
+            and new_status == py_trees.common.Status.INVALID
+        ):
 
-            if new_status == py_trees.common.Status.INVALID:
+            self.node.get_logger().info(
+                "Canceling neck conversation goal"
+            )
 
-
-                self.goal_handle.cancel_goal_async()
+            self.goal_handle.cancel_goal_async()
