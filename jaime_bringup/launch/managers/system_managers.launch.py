@@ -42,16 +42,11 @@ def generate_launch_description():
     perception_manager = Node(
         package='jaime_bringup',
         executable='percepcion_manager.py',
-        name='perception_manager',
+        name='percepcion_manager',
         output='screen'
     )
 
-    manipulation_manager = Node(
-        package='jaime_manipulation',
-        executable='manipulation_manager.py',
-        name='manipulation_manager',
-        output='screen'
-    )
+
 
     # Esperar a que el resto del sistema esté inicializado
     system_managers = TimerAction(
@@ -62,7 +57,6 @@ def generate_launch_description():
             navigation_manager,
             tablet_manager,
             perception_manager,
-            manipulation_manager,
         ]
     )
 
