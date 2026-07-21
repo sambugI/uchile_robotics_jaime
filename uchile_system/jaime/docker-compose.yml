@@ -1,39 +1,51 @@
 services:
   jaime_core:
-    image: uchile_robotics/jaime_core
-    build:
-      context: ./core/
-      dockerfile: Dockerfile
-    container_name: jaime_core
-    network_mode: host
-   
-    devices:
-      - /dev/rplidar:/dev/rplidar
-      - /dev/kobuki:/dev/kobuki
-      - /dev/joy:/dev/joy
-      - /dev/event_joy:/dev/event_joy
-      - /dev/dri:/dev/dri
-      #- /dev/dynamixel:/dev/dynamixel
-      - /dev/head_ino:/dev/head_ino
-     
-    volumes:
-      - /home/jaime/uchile_robotics_jaime/jaime_bringup:/home/jaime_ws/src/jaime_bringup
-      - /home/jaime/uchile_robotics_jaime/jaime_core:/home/jaime_ws/src/jaime_core
-      - /home/jaime/uchile_robotics/uchile_high:/home/jaime_ws/src/uchile_high
-      - /home/jaime/uchile_robotics_jaime/jaime_manipulation:/home/jaime_ws/src/jaime_manipulation
-      - /home/jaime/uchile_robotics_jaime/jaime_highlevel:/home/jaime_ws/src/jaime_highlevel
-      - /home/jaime/uchile_robotics_jaime/jaime_interfaces:/home/jaime_ws/src/jaime_interfaces
-      - /home/jaime/uchile_robotics_jaime/jaime_behaviour_trees:/home/jaime_ws/src/jaime_behaviour_trees
-      - /tmp/.X11-unix:/tmp/.X11-unix
+      image: uchile_robotics/jaime_core
+      build:
+        context: ./core/
+        dockerfile: Dockerfile
+      container_name: jaime_core
+      network_mode: host
+    
+      devices:
+        - /dev/rplidar:/dev/rplidar
+        - /dev/kobuki:/dev/kobuki
+        - /dev/joy:/dev/joy
+        - /dev/event_joy:/dev/event_joy
+        - /dev/dri:/dev/dri
+        - /dev/head_ino:/dev/head_ino
+      
+      volumes:
+        - /home/jaime/uchile_robotics_jaime/jaime_bringup:/home/jaime_ws/src/jaime_bringup
+        - /home/jaime/uchile_robotics_jaime/jaime_core:/home/jaime_ws/src/jaime_core
+        - /home/jaime/uchile_robotics/uchile_high:/home/jaime_ws/src/uchile_high
+        - /home/jaime/uchile_robotics_jaime/jaime_manipulation:/home/jaime_ws/src/jaime_manipulation
+        - /home/jaime/uchile_robotics_jaime/jaime_highlevel:/home/jaime_ws/src/jaime_highlevel
+        - /home/jaime/uchile_robotics_jaime/jaime_interfaces:/home/jaime_ws/src/jaime_interfaces
+        - /home/jaime/uchile_robotics_jaime/jaime_behaviour_trees:/home/jaime_ws/src/jaime_behaviour_trees
+        - /tmp/.X11-unix:/tmp/.X11-unix
 
-    working_dir: /home/jaime_ws
-    environment:
-      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-      - CYCLONEDDS_URI=file:///cyclonedds.xml
-      - DISPLAY=${DISPLAY}
-      - QT_X11_NO_MITSHM=1
-    stdin_open: true
-    tty: true
+      working_dir: /home/jaime_ws
+
+      environment:
+        - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+        - CYCLONEDDS_URI=file:///cyclonedds.xml
+        - DISPLAY=${DISPLAY}
+        - QT_X11_NO_MITSHM=1
+
+      stdin_open: true
+      tty: true
+
+      command: >
+        bash -c "
+        source /opt/ros/jazzy/setup.bash &&
+        cd /home/jaime_ws &&
+        colcon build
+        --packages-select jaime_interfaces jaime_manipulation jaime_behaviour_trees
+        --symlink-install &&
+        source install/setup.bash &&
+        service ssh restart &&
+        bash"
   skills:
     image: uchile_robotics/skills
     build:
@@ -61,4 +73,11 @@ services:
       # - host:container
     # volumes:
       # - hostPath:containerPath:ro
-    
+    command: >
+  bash -c "
+  source /opt/ros/jazzy/setup.bash &&
+  cd /home/jaime_ws &&
+  colcon build --packages-select jaime_interfaces jaime_manipulation jaime_behaviour_trees --symlink-install &&
+  source install/setup.bash &&
+  service ssh restart &&
+  bash"

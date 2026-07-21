@@ -37,7 +37,9 @@ RUN apt-get update && apt-get full-upgrade -y && \
         curl lsb-release gnupg && \
     python3 -m pip install --break-system-packages \
         imutils \
-        requests && \
+        requests \
+        pyserial \
+        py-trees
     apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg &&\
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] https://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null &&\
