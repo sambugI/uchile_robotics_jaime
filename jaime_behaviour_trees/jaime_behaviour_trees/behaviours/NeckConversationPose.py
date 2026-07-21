@@ -8,7 +8,7 @@ from jaime_interfaces.action import MoveToPose
 
 
 
-class NeckSearchPose(py_trees.behaviour.Behaviour):
+class NeckConversationPose(py_trees.behaviour.Behaviour):
 
     def __init__(self, node):
 
