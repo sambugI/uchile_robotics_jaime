@@ -147,7 +147,7 @@ def generate_launch_description():
 
     # Para revisar si funcionan correctamente los nodos
 
-    basic_manager = Node(
+    """basic_manager = Node(
         package='jaime_bringup',
         executable='basic_manager.py',
         name='basic_manager',
@@ -191,21 +191,21 @@ def generate_launch_description():
         executable="percepcion_manager.py",
         name="perception_manager",
         output="screen"
-    )
+    )"""
     # Esperar a que todos los sistemas principales estén levantados
-    # antes de iniciar los managers
-
+    # antes de iniciar los managers 
+    """ 
     system_managers = TimerAction(
         period=20.0,
         actions=[
             basic_manager,
-            localization_manager,
+            #localization_manager,
             navigation_manager,
-            tablet_manager,
+            #tablet_manager,
             #manipulation_manager,
-            perception_manager,
+            #perception_manager,
         ]
-    )
+    )"""
 
 
 
@@ -214,7 +214,7 @@ def generate_launch_description():
         # Robot
         display_node,
         basic_node,
-
+	#localization_manager,
         # Navigation stack
         localization_node,
         navigation_node,
@@ -225,6 +225,6 @@ def generate_launch_description():
         #face_node,
 
         # Managers después de 10 segundos
-        system_managers,
+        #system_managers,
 
     ])

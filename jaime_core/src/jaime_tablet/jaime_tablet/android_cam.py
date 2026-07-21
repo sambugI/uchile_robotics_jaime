@@ -17,7 +17,7 @@ class AndroidCam(Node):
     def __init__(self):
         super().__init__('android_cam')
 
-        self.declare_parameter('url','http://10.36.80.197:8080/shot.jpg')
+        self.declare_parameter('url','http://10.111.185.80:8080/shot.jpg')
         self.declare_parameter('width', 1000)
         self.declare_parameter('height',1800)
         self.declare_parameter('fps', 30.0)
