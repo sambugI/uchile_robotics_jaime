@@ -41,12 +41,12 @@ def create_tree():
 
     root.add_children([
         ReceiveMission,
-        InitializeRobot(), # Se va a verificar solo que el robot funcione, el full launch se debe hacer afuera
-        NeckSearchPose(),
+        #InitializeRobot(), # Se va a verificar solo que el robot funcione, el full launch se debe hacer afuera
+        #NeckSearchPose(),
         ObtainRobotLocalization(), #Recuerda que el robot se debe localizar solo usando amcl.
         go_to_location,
-        acquire_user,
-        Conversation()
+        #acquire_user,
+        #Conversation()
     ])
 
     return root
