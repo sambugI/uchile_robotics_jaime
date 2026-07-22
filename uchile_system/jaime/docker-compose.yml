@@ -36,16 +36,16 @@ services:
       stdin_open: true
       tty: true
 
-      command: >
-        bash -c "
-        source /opt/ros/jazzy/setup.bash &&
-        cd /home/jaime_ws &&
-        colcon build
-        --packages-select jaime_interfaces jaime_manipulation jaime_behaviour_trees
-        --symlink-install &&
-        source install/setup.bash &&
-        service ssh restart &&
-        bash"
+      #command: >
+      #  bash -c "
+      #  source /opt/ros/jazzy/setup.bash &&
+      #  cd /home/jaime_ws &&
+      #  colcon build
+      #  --packages-select jaime_interfaces jaime_manipulation jaime_behaviour_trees
+      #  --symlink-install &&
+      #  source install/setup.bash &&
+      #  service ssh restart &&
+      #  bash"
   skills:
     image: uchile_robotics/skills
     build:
