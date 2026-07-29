@@ -210,14 +210,11 @@ class DynamixelNode(Node):
         self.vel = [0.0, 0.0, 0.0]
         self.encoder_angles = None
 
-        self.offsets = [0.01, -2.63, -1.0, -1.11, 2.6]
+        self.offsets = [0.01, -2.63, -1.37, 0.32, -2.531]
 
-        #self.lower_limits = [0.0, 0.0, 0.0, 0.0, -2.49]
-        #self.upper_limits = [0.6, 0.5, 0.56, 0.36, 0.55]
+        self.lower_limits = [0.0, 0.0, 0.0, 0.0, -1.397]
+        self.upper_limits = [0.6, 0.5, 0.89, 0.57, 0.0]
 
-        ## PRUEBA CUANDO NO ESTÁN DISPONIBLES LOS ENCODERS: 
-        self.lower_limits = [-1000, -1000, -1000, -1000, -1000]
-        self.upper_limits = [1000, 1000, 1000, 1000, 1000]
     def encoder_callback(self, msg: Float64MultiArray):
         if len(msg.data) != 4:
             self.get_logger().warning("Se esperaban exactamente 4 ángulos")
@@ -258,8 +255,8 @@ class DynamixelNode(Node):
         if ang is not None:
             self.joints = [
                 ang[0] - self.offsets[0],
-                (ang[0] - self.offsets[0]),
-                (ang[2] - self.offsets[2]),
+                (ang[1] - self.offsets[1]),
+                (-ang[2] - self.offsets[2]),
                 (ang[3] - self.offsets[3]),
                 pos_rad + self.offsets[4]
             ]
