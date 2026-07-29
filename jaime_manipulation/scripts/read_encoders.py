@@ -33,31 +33,34 @@ class EncoderHandler:
         print(f"Puerto serial {port} abierto a {baudrate} baudios.")
 
     def get_angles(self):
-            latest = None
+        latest = None
 
-            try:
-                while self.ser.in_waiting > 0:
-                    raw = self.ser.readline()
-                    if not raw:
-                        continue
+        try:
+            while self.ser.in_waiting > 0:
+                raw = self.ser.readline()
+                if not raw:
+                    continue
 
-                    decoded = raw.decode("utf-8", errors="ignore").strip()
-                    if not decoded:
-                        continue
-                    if "Reading from" in decoded:
-                        continue
-                    print ("Mensajes raw:", decoded)
-                    values = re.findall(r'-?\d+\.\d+', decoded)
-                    if len(values) != 4:
-                        continue
+                decoded = raw.decode("utf-8", errors="ignore").strip()
 
-                    latest = [float(v) for v in values]
+                if not decoded:
+                    continue
 
-                return latest
+                if "Reading from" in decoded:
+                    continue
+                print ("Mensaje raw:", decoded)
+                values = re.findall(r'-?\d+\.\d+', decoded)
 
-            except Exception as e:
-                print("Serial parse error:", e)
-                return None
+                if len(values) != 4:
+                    continue
+
+                latest = [float(v) for v in values]
+
+            return latest
+
+        except Exception as e:
+            print("Serial parse error:", e)
+            return None
 
     def close(self):
 
@@ -90,8 +93,8 @@ class EncoderNode(Node):
 
         if ang is None:
             return
-        msg = Float64MultiArray()
 
+        msg = Float64MultiArray()
         msg.data = ang
 
         self.encoder_pub.publish(msg)
@@ -102,7 +105,6 @@ class EncoderNode(Node):
             self.encoder.close()
 
         except Exception as e:
-
             print(f"Error cerrando serial: {e}")
 
         super().destroy_node()
@@ -115,15 +117,12 @@ def main(args=None):
     node = EncoderNode()
 
     try:
-
         rclpy.spin(node)
 
     except KeyboardInterrupt:
-
         pass
 
     finally:
-
         node.destroy_node()
 
         if rclpy.ok():
@@ -131,5 +130,4 @@ def main(args=None):
 
 
 if __name__ == "__main__":
-
     main()

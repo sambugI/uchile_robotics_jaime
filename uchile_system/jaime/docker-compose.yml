@@ -14,7 +14,7 @@ services:
         - /dev/event_joy:/dev/event_joy
         - /dev/dri:/dev/dri
         - /dev/head_ino:/dev/head_ino
-      
+        - /dev/dynamixel:/dev/dynamixel
       volumes:
         - /home/jaime/uchile_robotics_jaime/jaime_bringup:/home/jaime_ws/src/jaime_bringup
         - /home/jaime/uchile_robotics_jaime/jaime_core:/home/jaime_ws/src/jaime_core
@@ -73,11 +73,11 @@ services:
       # - host:container
     # volumes:
       # - hostPath:containerPath:ro
-    command: >
-  bash -c "
-  source /opt/ros/jazzy/setup.bash &&
-  cd /home/jaime_ws &&
-  colcon build --packages-select jaime_interfaces jaime_manipulation jaime_behaviour_trees --symlink-install &&
-  source install/setup.bash &&
-  service ssh restart &&
-  bash"
+ # command: >
+ # bash -c "
+ # source /opt/ros/jazzy/setup.bash &&
+ # cd /home/jaime_ws &&
+ # colcon build --packages-select jaime_interfaces jaime_manipulation jaime_behaviour_trees --symlink-install &&
+ # source install/setup.bash &&
+ # service ssh restart &&
+ # bash"

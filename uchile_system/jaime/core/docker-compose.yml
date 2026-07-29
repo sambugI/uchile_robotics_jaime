@@ -9,7 +9,7 @@ services:
     devices:
       - /dev/rplidar:/dev/rplidar
       - /dev/kobuki:/dev/kobuki
-      #- /dev/dynamixel:/dev/dynamixel
+      - /dev/dynamixel:/dev/dynamixel
       - /dev/head_ino:/dev/encoders
       - /dev/input/js0:/dev/input/js0
       - /dev/input/event28:/dev/input/event28

@@ -7,7 +7,7 @@ from behaviours.ObtainRobotLocalization import ObtainRobotLocalization
 from behaviours.IsAtGoal import IsAtGoal
 from behaviours.NavigateToGoal import NavigateToGoal
 from behaviours.NeckConversationPose import NeckConversationPose
-from behaviours.FindAndAlignFace import FindAndAlignFace
+#from behaviours.FindAndAlignFace import FindAndAlignFace
 from behaviours.Conversation import Conversation
 
 
