@@ -48,7 +48,6 @@ class EncoderHandler:
 
                 if "Reading from" in decoded:
                     continue
-                print ("Mensaje raw:", decoded)
                 values = re.findall(r'-?\d+\.\d+', decoded)
 
                 if len(values) != 4:

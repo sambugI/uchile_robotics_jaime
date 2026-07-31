@@ -73,12 +73,18 @@ class DynamixelCommander:
 
         for dxl_id in self.DXL_IDS:
             data, result, error = self.packetHandler.readTxRx(
-                self.portHandler, dxl_id, self.ADDR_PRESENT_POSITION, 4
+                self.portHandler,
+                dxl_id,
+                self.ADDR_PRESENT_POSITION,
+                4
             )
 
             if result != COMM_SUCCESS or error != 0 or data is None or len(data) < 4:
-                print(f"[WARN] Fallo al leer motor {dxl_id}")
-                continue
+                print(
+                    f"[WARN] Fallo al leer motor {dxl_id} "
+                    f"(Comm={result}, Error={error})"
+                )
+                return None, None
 
             pos_raw = data[0] + (data[1] << 8)
             vel_raw = data[2] + (data[3] << 8)
@@ -147,7 +153,7 @@ class DynamixelCommander:
                         self.portHandler,
                         dxl_id,
                         self.ADDR_GOAL_POS,
-                        750
+                        500
                     )
                 else:
                     self.packetHandler.write2ByteTxRx(
@@ -160,7 +166,7 @@ class DynamixelCommander:
                         self.portHandler,
                         dxl_id,
                         self.ADDR_GOAL_POS,
-                        1000
+                        177
                     )
 
     def shutdown(self):
@@ -210,11 +216,15 @@ class DynamixelNode(Node):
         self.vel = [0.0, 0.0, 0.0]
         self.encoder_angles = None
 
-        self.offsets = [0.01, -2.63, -1.37, 0.32, -2.531]
+        self.offsets = [-3.12, -1.61, -1.37, 0.38, -0.15]
 
-        self.lower_limits = [0.0, 0.0, 0.0, 0.0, -1.397]
-        self.upper_limits = [0.6, 0.5, 0.89, 0.57, 0.0]
+        self.lower_limits = [0.0, 0.0, 0.0, 0.0, -0.87]
+        self.upper_limits = [0.29, 0.53, 0.5, 0.51, 0.57]
 
+        self.failed_reads = 0
+        self.max_failed_reads = 5
+
+    
     def encoder_callback(self, msg: Float64MultiArray):
         if len(msg.data) != 4:
             self.get_logger().warning("Se esperaban exactamente 4 ángulos")
@@ -246,18 +256,39 @@ class DynamixelNode(Node):
         ang = self.encoder_angles
         pos, vel = self.dynamixel.get_joints_data()
 
+        # Si falló alguna lectura
+        if pos is None:
+
+            self.failed_reads += 1
+
+            self.get_logger().warning(
+                f"Lectura Dynamixel fallida "
+                f"({self.failed_reads}/{self.max_failed_reads})"
+            )
+
+            if self.failed_reads >= self.max_failed_reads:
+                self.get_logger().error(
+                    "Se perdieron 5 lecturas consecutivas. Cerrando nodo."
+                )
+                raise RuntimeError("Comunicación con Dynamixel perdida")
+
+            return
+
+        # Hubo una lectura correcta: reiniciar contador
+        self.failed_reads = 0
+
         resolution = 1023
         max_radians = math.radians(300)
 
         pos_raw = pos[2]
-        pos_rad = ((pos_raw) / resolution) * max_radians
+        pos_rad = (pos_raw / resolution) * max_radians
 
         if ang is not None:
             self.joints = [
-                ang[0] - self.offsets[0],
-                (ang[1] - self.offsets[1]),
-                (-ang[2] - self.offsets[2]),
-                (ang[3] - self.offsets[3]),
+                -ang[0] - self.offsets[0],
+                ang[1] - self.offsets[1],
+                ang[2] - self.offsets[2],
+                -ang[3] - self.offsets[3],
                 pos_rad + self.offsets[4]
             ]
 
@@ -286,10 +317,21 @@ class DynamixelNode(Node):
         ]
 
         for i in range(3):
-            if i < 2:
+            if i == 0:
                 q1 = self.joints[groups[i]["joints"][0]]
                 q2 = self.joints[groups[i]["joints"][1]]
 
+                if vel[i] > 0:
+                    if q1 <= groups[i]["lower"][0] or q2 <= groups[i]["lower"][1]:
+                        print(i, "limite inferior alcanzado")
+                        vel[i] = 0
+                elif vel[i] < 0:
+                    if q1 >= groups[i]["upper"][0] or q2 >= groups[i]["upper"][1]:
+                        print(i, "limite superior alcanzado")
+                        vel[i] = 0
+            elif i == 1:
+                q1 = self.joints[groups[i]["joints"][0]]
+                q2 = self.joints[groups[i]["joints"][1]]
                 if vel[i] < 0:
                     if q1 <= groups[i]["lower"][0] or q2 <= groups[i]["lower"][1]:
                         print(i, "limite inferior alcanzado")
