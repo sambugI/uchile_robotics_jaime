@@ -272,7 +272,7 @@ class DynamixelNode(Node):
         self.offsets = [-3.12, -1.61, -1.37, 0.38, -0.15]
 
         self.lower_limits = [0.0, 0.0, 0.0, 0.0, -0.87]
-        self.upper_limits = [0.29, 0.53, 0.5, 0.51, 0.57]
+        self.upper_limits = [0.19, 0.5, 0.5, 0.51, 0.57]
 
         self.failed_reads = 0
         self.max_failed_reads = 5
@@ -281,6 +281,7 @@ class DynamixelNode(Node):
         self.pose_source = None
         self.active_goal_handle = None
         self.tablet_position_lock = None
+        self.tablet_locked = False
 
     def encoder_callback(self, msg: Float64MultiArray):
         if len(msg.data) != 4:
@@ -514,6 +515,7 @@ class DynamixelNode(Node):
                 print("Pose alcanzada")
 
                 vel = np.zeros(3)
+                
                 if not self.tablet_locked:
 
                     print("Fijando posición actual de tablet")
@@ -569,11 +571,20 @@ class DynamixelNode(Node):
 
         else:
 
-            # modo velocidad manual
-            self.tablet_locked = False
-
             raw_vel = np.array(self.vel)*100
             vel = raw_vel.tolist()
+            if vel[2] == 0:
+                if not self.tablet_locked:
+
+                    raw_position = self.dynamixel.get_tablet_raw_position()
+
+                    if raw_position is not None:
+                        self.dynamixel.set_tablet_raw_position(raw_position)
+                        self.tablet_position_lock = raw_position
+                        self.tablet_locked = True
+
+            else:
+                self.tablet_locked = False
 
 
         groups = [
