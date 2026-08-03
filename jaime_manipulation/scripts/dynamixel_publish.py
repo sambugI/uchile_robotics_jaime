@@ -498,7 +498,7 @@ class DynamixelNode(Node):
 
             # Ganancia proporcional para los 3 joints
             Kp = np.array([
-                3.0,
+                -3.0,
                 3.0,
                 2.0
             ])
@@ -510,7 +510,7 @@ class DynamixelNode(Node):
             # -------------------------
             # Cerca de la pose final
             # -------------------------
-            if error_norm < 0.03:
+            if error_norm < 0.1:
 
                 print("Pose alcanzada")
 
