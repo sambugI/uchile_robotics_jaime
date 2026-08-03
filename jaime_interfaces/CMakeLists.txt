@@ -13,7 +13,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
   "srv/IsReady.srv"
 
-  "action/MoveToPose.action"
+  "action/MoveToJointPose.action"
 
   DEPENDENCIES geometry_msgs
 

@@ -49,6 +49,9 @@ install(
     scripts/sim_node.py
     scripts/face_detector.py
     scripts/face_follower.py
+    scripts/utils.py
+    scripts/fk_solution.py
+    scripts/__init__.py
   DESTINATION
     lib/${PROJECT_NAME}
 )
