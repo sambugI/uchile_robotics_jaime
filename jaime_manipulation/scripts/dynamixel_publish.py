@@ -271,7 +271,7 @@ class DynamixelNode(Node):
 
         self.offsets = [-3.12, -1.61, -1.37, 0.38, -0.15]
 
-        self.lower_limits = [0.0, 0.0, 0.0, 0.0, -0.87]
+        self.lower_limits = [0.0, 0.0, 0.0, -0.0, -0.97]
         self.upper_limits = [0.19, 0.5, 0.5, 0.51, 0.57]
 
         self.failed_reads = 0
@@ -498,9 +498,9 @@ class DynamixelNode(Node):
 
             # Ganancia proporcional para los 3 joints
             Kp = np.array([
-                -3.0,
-                3.0,
-                2.0
+                -6.0,
+                6.0,
+                4.0
             ])
 
             # Distancia total al objetivo
@@ -510,12 +510,12 @@ class DynamixelNode(Node):
             # -------------------------
             # Cerca de la pose final
             # -------------------------
-            if error_norm < 0.1:
+            if error_norm < 0.015:
 
                 print("Pose alcanzada")
 
                 vel = np.zeros(3)
-                
+
                 if not self.tablet_locked:
 
                     print("Fijando posición actual de tablet")
@@ -538,6 +538,8 @@ class DynamixelNode(Node):
 
 
                         self.tablet_position_lock = raw_position
+                        self.goal_joint_state = None
+                        self.mode = "speed"
                         self.tablet_locked = True
 
             else:
