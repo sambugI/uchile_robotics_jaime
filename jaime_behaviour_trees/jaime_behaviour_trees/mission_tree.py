@@ -66,7 +66,7 @@ def create_tree(node):
 
         # InitializeRobot(node),
 
-        # NeckSearchPose(node),
+        NeckSearchPose(node),
 
         ObtainRobotLocalization(node),
 
@@ -74,6 +74,7 @@ def create_tree(node):
 
         # acquire_user,
 
+        NeckConversationPose(node)
         # Conversation()
 
     ])

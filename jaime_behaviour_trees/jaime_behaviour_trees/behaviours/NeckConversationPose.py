@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
 
 import py_trees
-
 from action_msgs.msg import GoalStatus
-
 from rclpy.action import ActionClient
-
-from geometry_msgs.msg import Point
-
-from jaime_interfaces.action import MoveToPose
+from jaime_interfaces.action import MoveToJointPose
 
 
 
@@ -23,8 +18,8 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
 
         self.action_client = ActionClient(
             self.node,
-            MoveToPose,
-            "/manipulation/move_to_pose"
+            MoveToJointPose,
+            "/manipulation/move_to_joint_pose"
         )
 
 
@@ -37,9 +32,9 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
         # TODO: cambiar según calibración
 
         self.conversation_pose = [
-            0.0,
-            0.0,
-            0.0
+            0.13,
+            0.21,
+            -0.96
         ]
 
 
@@ -76,45 +71,19 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
         #################################################
 
         if not self.goal_sent:
-
-
-            goal = MoveToPose.Goal()
-
-
-            goal.target_position = Point()
-
-            goal.target_position.x = (
-                self.conversation_pose[0]
-            )
-
-            goal.target_position.y = (
-                self.conversation_pose[1]
-            )
-
-            goal.target_position.z = (
-                self.conversation_pose[2]
-            )
-
-
+            goal = MoveToJointPose.Goal()
+            goal.joints = self.conversation_pose
             self.node.get_logger().info(
                 "Sending neck conversation pose"
             )
-
-
             future = (
                 self.action_client
                 .send_goal_async(goal)
             )
-
-
             future.add_done_callback(
                 self.goal_response_callback
             )
-
-
             self.goal_sent = True
-
-
             return py_trees.common.Status.RUNNING
 
 

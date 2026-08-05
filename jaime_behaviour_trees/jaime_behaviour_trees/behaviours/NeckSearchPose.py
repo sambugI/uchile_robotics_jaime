@@ -1,12 +1,9 @@
+#!/usr/bin/env python3
+
 import py_trees
-
 from action_msgs.msg import GoalStatus
-
 from rclpy.action import ActionClient
-
-from geometry_msgs.msg import Point
-
-from jaime_interfaces.action import MoveToPose
+from jaime_interfaces.action import MoveToJointPose
 
 
 
@@ -15,31 +12,18 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
     def __init__(self, node):
 
         super().__init__("NeckSearchPose")
-
         self.node = node
-
-
         self.action_client = ActionClient(
             self.node,
-            MoveToPose,
-            "/manipulation/move_to_pose"
+            MoveToJointPose,
+            "/manipulation/move_to_joint_pose"
         )
-
-
         self.goal_sent = False
         self.goal_handle = None
         self.result_future = None
 
-
-        # Pose de conversación
-        # TODO: cambiar según calibración
-
-        self.search_pose = [
-            0.0,
-            0.0,
-            0.0
-        ]
-
+        # Pose de búsqueda
+        self.search_pose = [0.03, 0.07, -0.66182676]
 
 
     def initialise(self):
@@ -74,45 +58,19 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
         #################################################
 
         if not self.goal_sent:
-
-
-            goal = MoveToPose.Goal()
-
-
-            goal.target_position = Point()
-
-            goal.target_position.x = (
-                self.search_pose[0]
-            )
-
-            goal.target_position.y = (
-                self.search_pose[1]
-            )
-
-            goal.target_position.z = (
-                self.search_pose[2]
-            )
-
-
+            goal = MoveToJointPose.Goal()
+            goal.joints = self.search_pose
             self.node.get_logger().info(
                 "Sending neck search pose"
             )
-
-
             future = (
                 self.action_client
                 .send_goal_async(goal)
             )
-
-
             future.add_done_callback(
                 self.goal_response_callback
             )
-
-
             self.goal_sent = True
-
-
             return py_trees.common.Status.RUNNING
 
 
