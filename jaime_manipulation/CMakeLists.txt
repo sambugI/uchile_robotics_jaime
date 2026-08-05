@@ -44,6 +44,7 @@ install(
 install(
   PROGRAMS
     scripts/dynamixel_publish.py
+    scripts/joint_pose_action_server.py
     scripts/local_planner.py
     scripts/read_encoders.py
     scripts/sim_node.py

@@ -31,11 +31,7 @@ class NeckConversationPose(py_trees.behaviour.Behaviour):
         # Pose de conversación
         # TODO: cambiar según calibración
 
-        self.conversation_pose = [
-            0.13,
-            0.21,
-            -0.96
-        ]
+        self.conversation_pose = [0.03, 0.07, -0.66182676]
 
 
 

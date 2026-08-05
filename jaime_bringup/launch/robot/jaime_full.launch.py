@@ -118,15 +118,15 @@ def generate_launch_description():
     # local planner
     # -------------------------
 
-    #manipulation_node = IncludeLaunchDescription(
-    #    PythonLaunchDescriptionSource(
-    #        PathJoinSubstitution([
-    #            manipulation_pkg,
-    #            'launch',
-    #            'jaime_manipulation.launch.py'
-    #        ])
-    #    )
-    #)
+    manipulation_node = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution([
+                manipulation_pkg,
+                'launch',
+                'jaime_manipulation.launch.py'
+            ])
+        )
+    )
     #face_node = IncludeLaunchDescription(
     #    PythonLaunchDescriptionSource(
     #        PathJoinSubstitution([
@@ -139,16 +139,16 @@ def generate_launch_description():
     return LaunchDescription([
 
         # Robot
-        display_node,
+        #display_node,
         basic_node,
-	#localization_manager,
+	    #localization_manager,
         # Navigation stack
-        localization_node,
-        navigation_node,
+        #localization_node,
+        #navigation_node,
 
         # Peripherals
-        tablet_node,
-        #manipulation_node,
+        #tablet_node,
+        manipulation_node,
         #face_node,
 
     ])

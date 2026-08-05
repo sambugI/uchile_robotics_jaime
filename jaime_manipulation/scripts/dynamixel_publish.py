@@ -11,8 +11,6 @@ import numpy as np
 import yaml
 from ament_index_python.packages import get_package_share_directory
 from std_msgs.msg import Bool
-from rclpy.action import ActionServer
-from jaime_interfaces.action import MoveToJointPose
 
 class DynamixelCommander:
     def __init__(self, config_path="/config/params.yaml"):
@@ -227,13 +225,6 @@ class DynamixelNode(Node):
         # Crear publicador
         self.joint_pub = self.create_publisher(JointState, 'joint_states', 10)
         
-        self.move_joint_action = ActionServer(
-            self,
-            MoveToJointPose,
-            "/manipulation/move_to_joint_pose",
-            self.move_to_joint_pose_callback
-        )
-
         self.timer = self.create_timer(0.05, self.publish_joint_states)
         self.move_timer = self.create_timer(0.1, self.move_joints)
 
@@ -278,8 +269,6 @@ class DynamixelNode(Node):
         self.max_failed_reads = 5
         self.tablet_position_lock = None
 
-        self.pose_source = None
-        self.active_goal_handle = None
         self.tablet_position_lock = None
         self.tablet_locked = False
 
@@ -290,18 +279,14 @@ class DynamixelNode(Node):
 
         self.encoder_angles = list(msg.data)
 
-    def goal_joints_callback(self,msg):
-        if self.pose_source == "action":
-            print("Ignorando tópico: acción en ejecución")
-            return
-        if len(msg.data)!=3:
+    def goal_joints_callback(self, msg):
+
+        if len(msg.data) != 3:
             return
 
         self.goal_joint_state = list(msg.data)
         self.mode = "pose"
-        self.pose_source = "topic"
         self.tablet_locked = False
-        print("Pose recibida por tópico")
 
     def goal_vel_callback(self, msg: Float64MultiArray):
         if len(msg.data) != 3:
@@ -371,115 +356,11 @@ class DynamixelNode(Node):
         self.joint_pub.publish(joint_state_msg)
 
 
-    async def move_to_joint_pose_callback(self, goal_handle):
-
-        self.get_logger().info(
-            "Nueva pose articular recibida por acción"
-        )
-
-
-        target = goal_handle.request.joints
-
-
-        if len(target) != 3:
-
-            goal_handle.abort()
-
-            result = MoveToJointPose.Result()
-            result.success = False
-            result.message = "Se esperaban 3 joints"
-
-            return result
-
-
-        # Guardar objetivo
-        self.goal_joint_state = list(target)
-
-        self.mode = "pose"
-
-        self.pose_source = "action"
-
-        self.active_goal_handle = goal_handle
-
-
-
-        feedback = MoveToJointPose.Feedback()
-
-
-        while rclpy.ok():
-
-
-            current = np.array([
-                self.joints[0],
-                self.joints[2],
-                self.joints[4]
-            ])
-
-
-            desired = np.array(
-                self.goal_joint_state
-            )
-
-
-            error = np.linalg.norm(
-                desired-current
-            )
-
-
-            feedback.error = float(error)
-
-            goal_handle.publish_feedback(
-                feedback
-            )
-
-
-            # Llegó
-            if error < 0.05:
-                break
-
-
-            # Si fue cancelado
-            if goal_handle.is_cancel_requested:
-
-                goal_handle.canceled()
-
-                result = MoveToJointPose.Result()
-
-                result.success = False
-                result.message = "Movimiento cancelado"
-
-                return result
-
-
-
-            await asyncio.sleep(0.05)
-
-
-
-        goal_handle.succeed()
-
-
-        result = MoveToJointPose.Result()
-
-        result.success = True
-
-        result.message = (
-            "Joint pose alcanzada"
-        )
-
-
-        self.pose_source = None
-        self.active_goal_handle = None
-
-
-        return result
+    
     def move_joints(self):
         tablet_goal = None
 
         if self.mode == "pose" and self.goal_joint_state is not None:
-
-            print("Entrando a controlador de pose")
-
             current = np.array([
                 self.joints[0],
                 self.joints[2],
@@ -493,8 +374,6 @@ class DynamixelNode(Node):
             ])
 
             error = desired - current
-
-            print("Error joints:", error)
 
             # Ganancia proporcional para los 3 joints
             Kp = np.array([
@@ -538,10 +417,12 @@ class DynamixelNode(Node):
 
 
                         self.tablet_position_lock = raw_position
-                        self.goal_joint_state = None
-                        self.mode = "speed"
                         self.tablet_locked = True
+                # Finalizar modo pose
+                self.goal_joint_state = None
+                self.mode = "speed"
 
+                print("Cambiando a modo velocidad")
             else:
 
                 # Todavía moviéndose

@@ -62,15 +62,15 @@ def create_tree(node):
 
     root.add_children([
 
-        ReceiveMission(),
+        #ReceiveMission(),
 
         # InitializeRobot(node),
 
         NeckSearchPose(node),
 
-        ObtainRobotLocalization(node),
+        #ObtainRobotLocalization(node),
 
-        go_to_location,
+        #go_to_location,
 
         # acquire_user,
 
