@@ -139,15 +139,13 @@ def generate_launch_description():
     return LaunchDescription([
 
         # Robot
-        #display_node,
+        display_node,
         basic_node,
-	    #localization_manager,
-        # Navigation stack
-        #localization_node,
-        #navigation_node,
+        localization_node,
+        navigation_node,
 
         # Peripherals
-        #tablet_node,
+        tablet_node,
         manipulation_node,
         #face_node,
 

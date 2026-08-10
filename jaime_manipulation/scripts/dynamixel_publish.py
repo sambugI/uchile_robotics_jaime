@@ -262,7 +262,7 @@ class DynamixelNode(Node):
 
         self.offsets = [-3.12, -1.61, -1.37, 0.38, -0.15]
 
-        self.lower_limits = [0.0, 0.0, 0.0, -0.0, -0.97]
+        self.lower_limits = [0.0, 0.0, 0.0, -0.0, -0.98]
         self.upper_limits = [0.19, 0.5, 0.5, 0.51, 0.57]
 
         self.failed_reads = 0

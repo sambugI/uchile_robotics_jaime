@@ -27,14 +27,14 @@ class ReceiveMission(
 
         pose.header.frame_id = "map"
 
-        pose.pose.position.x = 1.8644624550831095
-        pose.pose.position.y = 2.936493961465064
+        pose.pose.position.x = 1.0713979281359092
+        pose.pose.position.y = 2.3921611174592865
         pose.pose.position.z = 0.0
 
         pose.pose.orientation.x = 0.0
         pose.pose.orientation.y = 0.0
-        pose.pose.orientation.z = 0.6517057070179878
-        pose.pose.orientation.w = 0.7584719318736749
+        pose.pose.orientation.z = 0.7072878800407808
+        pose.pose.orientation.w = 0.7069256359387585
 
         self.bb.goal_pose = pose
 
