@@ -71,11 +71,36 @@ class LocalPlanner(Node):
         return response
     def _joint_states_callback(self, msg):
 
-        self.received_joint_states = True
-        self._joint_states = msg.position.tolist()
-        self.jaime.update(self._joint_states)
-        self.pub_pose()
+        required_joints = [
+            "l3_to_l2",
+            "l4_to_l3",
+            "l5_to_l4",
+            "l6_to_l5",
+            "l7_to_l6"
+        ]
 
+        # Crear diccionario nombre -> posición
+        joint_map = dict(zip(msg.name, msg.position))
+
+        # Ignorar mensajes que no contienen los 5 joints del brazo
+        if not all(joint in joint_map for joint in required_joints):
+            return
+
+        # Mantener los 5 joints en el orden esperado por utils.py
+        self._joint_states = [
+            joint_map["l3_to_l2"],
+            joint_map["l4_to_l3"],
+            joint_map["l5_to_l4"],
+            joint_map["l6_to_l5"],
+            joint_map["l7_to_l6"]
+        ]
+
+        self.received_joint_states = True
+
+        # utils.py recibe los 5 y selecciona [0, 2, 4]
+        self.jaime.update(self._joint_states)
+
+        self.pub_pose()
     def cmd_callback(self,msg):
         self.state = 0
         self.cmd = msg.data.tolist()
@@ -93,7 +118,7 @@ class LocalPlanner(Node):
     def update_velocity(self):
         if self.state == 0:
             if self.cmd:
-                vel = self.jaime.compute_velocity(self.cmd)
+                vel = self.jaime.compute_pos_velocity(self.cmd)
  
                 # Normalización
                 max_val = max(abs(v) for v in vel)  # valor máximo absoluto
@@ -105,7 +130,7 @@ class LocalPlanner(Node):
                 print(self.goal_velocity)
         else:
             if self.goal_ang is not None:
-                current_ang = [self._joint_states[0],self._joint_states[2],self._joint_states[4]]
+                current_ang = [self._joint_states[0], self._joint_states[2], self._joint_states[4]]
                 
                 error = np.array(self.goal_ang)-np.array(current_ang)
                 

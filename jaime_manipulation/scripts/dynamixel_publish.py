@@ -260,11 +260,13 @@ class DynamixelNode(Node):
         self.vel = [0.0, 0.0, 0.0]
         self.encoder_angles = None
 
-        self.offsets = [-3.12, -1.61, -1.37, 0.38, -0.15]
-
-        self.lower_limits = [0.0, 0.0, 0.0, -0.0, -0.98]
-        self.upper_limits = [0.19, 0.5, 0.5, 0.51, 0.57]
-
+        #self.offsets = [-3.12, -1.61, -1.37, 0.38, -0.15]
+        self.offsets = [-3.22, -2.31, -1.37, 0.38, -0.15]
+        #self.lower_limits = [0.0, 0.0, 0.0, -0.0, -0.98]
+        #self.upper_limits = [0.19, 0.5, 0.5, 0.51, 0.57]
+        self.lower_limits = [0.1, 0.7, 0.0, -0.0, -0.98]
+        self.upper_limits = [0.29, 1.2, 0.5, 0.51, 0.57]
+        
         self.failed_reads = 0
         self.max_failed_reads = 5
         self.tablet_position_lock = None
