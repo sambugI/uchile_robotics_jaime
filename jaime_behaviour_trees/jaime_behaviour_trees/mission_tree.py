@@ -70,7 +70,7 @@ def create_tree(node):
 
         ObtainRobotLocalization(node),
 
-        #go_to_location,
+        go_to_location,
 
         # acquire_user,
 

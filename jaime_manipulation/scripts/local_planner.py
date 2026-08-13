@@ -126,7 +126,7 @@ class LocalPlanner(Node):
                     vel = [2*(v / max_val) for v in vel]
 
                 
-                self.goal_velocity = [vel[0],-vel[1],0.08*vel[2]] # Se cambió signo por dirección opuesta del primer motor.
+                self.goal_velocity = [-vel[0],-vel[1],0.08*vel[2]] # Se cambió signo por dirección opuesta del primer motor.
                 print(self.goal_velocity)
         else:
             if self.goal_ang is not None:
@@ -143,7 +143,7 @@ class LocalPlanner(Node):
                 if max_val > 1.0:                   # solo normaliza si es necesario
                     vel = [2*(v / max_val) for v in vel]
 
-                self.goal_velocity = [-vel[0], vel[1], vel[2]] # Se cambió signo por dirección opuesta del primer motor.
+                self.goal_velocity = [vel[0], vel[1], vel[2]] # Se cambió signo por dirección opuesta del primer motor.
         
         
         msg = Float64MultiArray()

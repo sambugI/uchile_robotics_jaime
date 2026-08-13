@@ -260,12 +260,11 @@ class DynamixelNode(Node):
         self.vel = [0.0, 0.0, 0.0]
         self.encoder_angles = None
 
-        #self.offsets = [-3.12, -1.61, -1.37, 0.38, -0.15]
-        self.offsets = [-0.0, -2.08, -1.62, 0.38, -0.65]
-        #self.lower_limits = [0.0, 0.0, 0.0, -0.0, -0.98]
-        #self.upper_limits = [0.19, 0.5, 0.5, 0.51, 0.57]
-        self.lower_limits = [0.0, 0.53, 0.25, 0.0, -1.48]
-        self.upper_limits = [0.19, 0.93, 0.75, 0.51, 0.07]
+        
+        #self.offsets = [-0.0, -2.08, -1.62, 0.38, -0.65]
+        self.offsets = [-0.0, -2.08, -0.5, 0.38, -0.65]
+        self.lower_limits = [0.11, 0.44, 0.42, 0.04, -1.63]
+        self.upper_limits = [0.4, 0.93, 1.22, 0.4, 0.07]
         
         self.failed_reads = 0
         self.max_failed_reads = 5
@@ -365,7 +364,7 @@ class DynamixelNode(Node):
         if self.mode == "pose" and self.goal_joint_state is not None:
             current = np.array([
                 self.joints[0],
-                self.joints[2],
+                self.joints[3],
                 self.joints[4]
             ])
 
@@ -387,7 +386,7 @@ class DynamixelNode(Node):
             # Distancia total al objetivo
             error_norm = np.linalg.norm(error)
 
-
+            print ("Error:", error)
             # -------------------------
             # Cerca de la pose final
             # -------------------------
@@ -396,6 +395,7 @@ class DynamixelNode(Node):
                 print("Pose alcanzada")
 
                 vel = np.zeros(3)
+                print ("Velocidad final:", vel)
 
                 if not self.tablet_locked:
 

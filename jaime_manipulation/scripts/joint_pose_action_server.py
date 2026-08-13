@@ -115,7 +115,7 @@ class JointPoseActionServer(Node):
 
         self.current_joints = np.array([
             msg.position[0],
-            msg.position[2],
+            msg.position[3],
             msg.position[4]
         ])
 

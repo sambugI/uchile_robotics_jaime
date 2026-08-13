@@ -23,7 +23,7 @@ class NeckSearchPose(py_trees.behaviour.Behaviour):
         self.result_future = None
 
         # Pose de búsqueda
-        self.search_pose = [0.13, 0.21, -1.46]
+        self.search_pose = [0.32, 0.21, -1.59]
 
 
     def initialise(self):

@@ -49,7 +49,6 @@ class EncoderHandler:
                 if "Reading from" in decoded:
                     continue
                 values = re.findall(r'-?\d+\.\d+', decoded)
-
                 if len(values) != 4:
                     continue
 
