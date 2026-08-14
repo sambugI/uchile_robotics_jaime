@@ -34,7 +34,7 @@ class FaceFollower(Node):
         # Control de activación
         #################################################
 
-        self.tracking_enabled = False
+        self.tracking_enabled = True
 
 
         #################################################
@@ -118,7 +118,7 @@ class FaceFollower(Node):
     #################################################
 
     def face_position_callback(self, msg):
-
+        print ("Face position callback: ", msg.x, msg.y)
         self.error_x = msg.x
         self.error_y = msg.y
 
@@ -129,7 +129,7 @@ class FaceFollower(Node):
     #################################################
 
     def face_detected_callback(self, msg):
-
+        print ("Face detected callback: ", msg.data)
         self.face_detected = msg.data
 
 
@@ -141,6 +141,7 @@ class FaceFollower(Node):
     def control_loop(self):
 
         if not self.tracking_enabled:
+            print ("Tracking not enabled")
             return
 
 
@@ -155,84 +156,49 @@ class FaceFollower(Node):
 
 
 
-    #################################################
-    # Control PD
-    #################################################
-
     def compute_pd_control(self):
 
         now = self.get_clock().now()
-
 
         dt = (
             now - self.last_time
         ).nanoseconds / 1e9
 
-
         if dt <= 0:
             return
 
-
         self.last_time = now
-
-
-        dx = (
-            self.error_x -
-            self.prev_error_x
-        ) / dt
-
 
         dy = (
             self.error_y -
             self.prev_error_y
         ) / dt
 
-
-        self.prev_error_x = self.error_x
         self.prev_error_y = self.error_y
 
-
-        # Control PD en coordenadas de imagen
-
-        control_x = (
-            self.kp_yaw * self.error_x
-            +
-            self.kd_yaw * dx
-        )
-
-
+        # Control PD solamente en pitch
         control_y = (
             self.kp_pitch * self.error_y
             +
             self.kd_pitch * dy
         )
 
-
         # Saturación
-
-        control_x = max(
-            min(control_x, 1.0),
-            -1.0
-        )
-
-
         control_y = max(
-            min(control_y, 1.0),
-            -1.0
+            min(control_y, 0.5),
+            -0.5
         )
-
 
         msg = Float64MultiArray()
 
         msg.data = [
-            float(control_x),
-            float(control_y),
-            0.0
+            0.0,
+            0.0,
+            float(control_y) / 3
         ]
+        print ("Publishing control command: ", msg.data)
 
-
-        self.cmd_pub.publish(msg)
-
+        #self.cmd_pub.publish(msg)
 
     #################################################
     # Detener cuello
@@ -267,7 +233,8 @@ class FaceFollower(Node):
 
 
         self.tracking_enabled = True
-
+        self.prev_error_y = self.error_y
+        self.last_time = self.get_clock().now()
 
         tolerance = (
             goal_handle.request.tolerance
@@ -303,8 +270,6 @@ class FaceFollower(Node):
 
             if (
                 self.face_detected
-                and
-                abs(self.error_x) < tolerance
                 and
                 abs(self.error_y) < tolerance
             ):

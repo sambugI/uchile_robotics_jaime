@@ -21,9 +21,12 @@ class FaceDetector(Node):
         self.bridge = CvBridge()
 
         self.detector = cv2.CascadeClassifier(
-            cv2.data.haarcascades +
-            "haarcascade_frontalface_default.xml"
+            "/usr/share/opencv4/haarcascades/haarcascade_frontalface_default.xml"
         )
+        if self.detector.empty():
+                raise RuntimeError(
+                    "No se pudo cargar haarcascade_frontalface_default.xml"
+                )
 
         self.create_subscription(
             Image,

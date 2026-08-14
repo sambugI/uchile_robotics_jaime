@@ -14,7 +14,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/IsReady.srv"
 
   "action/MoveToJointPose.action"
-
+  "action/FindFace.action"
   DEPENDENCIES geometry_msgs
 
 )
