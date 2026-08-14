@@ -62,7 +62,7 @@ def create_tree(node):
 
     root.add_children([
 
-        ReceiveMission(),
+        ReceiveMission(node),
 
         # InitializeRobot(node),
 
