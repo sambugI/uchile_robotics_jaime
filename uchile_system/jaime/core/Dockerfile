@@ -39,6 +39,7 @@ RUN apt-get update && apt-get full-upgrade -y && \
         imutils \
         requests \
         pyserial \
+        opencv-data \
         py-trees
     apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg &&\
@@ -87,5 +88,6 @@ RUN sed -i 's/#PermitRootLogin .*/PermitRootLogin yes/' /etc/ssh/sshd_config && 
     echo "root:docker"|chpasswd
 
 EXPOSE 22
-ENTRYPOINT ["bash", "-c", "service ssh restart && exec bash"]
-
+# ENTRYPOINT ["bash", "-c", "service ssh restart && exec bash"]
+# Se cambi+o el original para compilar siempre jaime manipulation junto con jaime interfaces y jaime behaviour. Se deb cambiar al conciliar con la versión original
+ENTRYPOINT ["bash", "-c", "service ssh restart && source /opt/ros/jazzy/setup.bash && colcon build --symlink-install && source /home/jaime_ws/install/setup.bash && exec bash"]
