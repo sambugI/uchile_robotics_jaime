@@ -1,0 +1,142 @@
+[0.019s] Invoking command in '/home/jaime_ws/src/jaime_bringup/build/jaime_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jaime_ws/install/uchile_navigation:/home/jaime_ws/install/jaime_tablet:/home/jaime_ws/install/jaime_behaviour_trees:/opt/ros/jazzy /usr/bin/cmake /home/jaime_ws/src/jaime_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jaime_ws/src/jaime_bringup/install/jaime_bringup
+[0.037s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.231s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.244s] -- Found jaime_interfaces: 0.0.0 (/home/jaime_ws/install/jaime_interfaces/share/jaime_interfaces/cmake)
+[0.453s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.510s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.573s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.635s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.851s] -- Found rclpy: 7.1.11 (/opt/ros/jazzy/share/rclpy/cmake)
+[0.869s] -- Found tf2_ros: 0.36.21 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[1.169s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.192s] -- Found rmw_cyclonedds_cpp: 2.2.3 (/opt/ros/jazzy/share/rmw_cyclonedds_cpp/cmake)
+[1.317s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[1.587s] -- Found nav_msgs: 5.3.8 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[1.694s] -- Configuring done (1.7s)
+[1.703s] -- Generating done (0.0s)
+[1.705s] -- Build files have been written to: /home/jaime_ws/src/jaime_bringup/build/jaime_bringup
+[1.712s] Invoked command in '/home/jaime_ws/src/jaime_bringup/build/jaime_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jaime_ws/install/uchile_navigation:/home/jaime_ws/install/jaime_tablet:/home/jaime_ws/install/jaime_behaviour_trees:/opt/ros/jazzy /usr/bin/cmake /home/jaime_ws/src/jaime_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jaime_ws/src/jaime_bringup/install/jaime_bringup
+[1.713s] Invoking command in '/home/jaime_ws/src/jaime_bringup/build/jaime_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jaime_ws/install/uchile_navigation:/home/jaime_ws/install/jaime_tablet:/home/jaime_ws/install/jaime_behaviour_trees:/opt/ros/jazzy /usr/bin/cmake --build /home/jaime_ws/src/jaime_bringup/build/jaime_bringup -- -j12 -l12
+[1.773s] Invoked command in '/home/jaime_ws/src/jaime_bringup/build/jaime_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jaime_ws/install/uchile_navigation:/home/jaime_ws/install/jaime_tablet:/home/jaime_ws/install/jaime_behaviour_trees:/opt/ros/jazzy /usr/bin/cmake --build /home/jaime_ws/src/jaime_bringup/build/jaime_bringup -- -j12 -l12
+[1.786s] Invoking command in '/home/jaime_ws/src/jaime_bringup/build/jaime_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jaime_ws/install/uchile_navigation:/home/jaime_ws/install/jaime_tablet:/home/jaime_ws/install/jaime_behaviour_trees:/opt/ros/jazzy /usr/bin/cmake --install /home/jaime_ws/src/jaime_bringup/build/jaime_bringup
+[1.797s] -- Install configuration: ""
+[1.798s] -- Execute custom install script
+[1.799s] [33mCMake Warning (dev) at ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:67 (file):
+[1.799s]   Policy CMP0009 is not set: FILE GLOB_RECURSE calls should not follow
+[1.799s]   symlinks by default.  Run "cmake --help-policy CMP0009" for policy details.
+[1.799s]   Use the cmake_policy command to set the policy and suppress this warning.
+[1.799s] Call Stack (most recent call first):
+[1.799s]   ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:319 (ament_cmake_symlink_install_directory)
+[1.799s]   cmake_install.cmake:46 (include)
+[1.799s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.799s] [0m
+[1.799s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/build/.built_by
+[1.811s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/build/COLCON_IGNORE
+[1.824s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/install/.colcon_install_layout
+[1.836s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/install/COLCON_IGNORE
+[1.849s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/install/_local_setup_util_ps1.py
+[1.862s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/install/_local_setup_util_sh.py
+[1.876s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/install/local_setup.bash
+[1.889s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/install/local_setup.ps1
+[1.901s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/install/local_setup.sh
+[1.914s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/install/local_setup.zsh
+[1.926s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/install/setup.bash
+[1.938s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/install/setup.ps1
+[1.950s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/install/setup.sh
+[1.962s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/install/setup.zsh
+[1.974s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/localization/jaime_cartographer.launch.py
+[1.986s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/localization/localization_launch.py
+[1.998s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/localization/slam_toolbox.launch.py
+[2.010s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/log/COLCON_IGNORE
+[2.022s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/log/build_2025-12-11_09-33-34/events.log
+[2.034s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/log/build_2025-12-11_09-33-34/logger_all.log
+[2.046s] -- Up-to-date symlink: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/log/latest/events.log
+[2.046s] -- Up-to-date symlink: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/log/latest/logger_all.log
+[2.046s] -- Up-to-date symlink: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/log/latest_build/events.log
+[2.046s] -- Up-to-date symlink: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/log/latest_build/logger_all.log
+[2.046s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/managers/system_managers.launch.py
+[2.059s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/navigation/navigation_launch.py
+[2.070s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/robot/__pycache__/jaime_basic.launch.cpython-312.pyc
+[2.082s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/robot/__pycache__/jaime_full.launch.cpython-312.pyc
+[2.094s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/robot/jaime_basic.launch.py
+[2.106s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/robot/jaime_full.launch.py
+[2.118s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/robot/jaime_slam.launch.py
+[2.130s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup//launch/tools/rviz/jaime.rviz
+[2.143s] [33mCMake Warning (dev) at ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:67 (file):
+[2.143s]   Policy CMP0009 is not set: FILE GLOB_RECURSE calls should not follow
+[2.144s]   symlinks by default.  Run "cmake --help-policy CMP0009" for policy details.
+[2.144s]   Use the cmake_policy command to set the policy and suppress this warning.
+[2.144s] Call Stack (most recent call first):
+[2.144s]   ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:322 (ament_cmake_symlink_install_directory)
+[2.144s]   cmake_install.cmake:46 (include)
+[2.144s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[2.144s] [0m
+[2.144s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//31_jul_2025_stage_auto/mapa.pgm
+[2.156s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//31_jul_2025_stage_auto/mapa.yaml
+[2.167s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//env_30_may_2025/env_30_may_2025.pgm
+[2.180s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//env_30_may_2025/env_30_may_2025.yaml
+[2.192s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//mapa_lab_21_04.pgm
+[2.203s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//mapa_lab_21_04.yaml
+[2.216s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//mapa_lab_22_04.pgm
+[2.228s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//mapa_lab_22_04.yaml
+[2.240s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//quimica/quimica_autonomo.pgm
+[2.252s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//quimica/quimica_autonomo.yaml
+[2.264s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//quimica/quimica_manual.pgm
+[2.277s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//quimica/quimica_manual.yaml
+[2.289s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/build/.built_by
+[2.301s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/build/COLCON_IGNORE
+[2.313s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/install/.colcon_install_layout
+[2.325s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/install/COLCON_IGNORE
+[2.337s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/install/_local_setup_util_ps1.py
+[2.351s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/install/_local_setup_util_sh.py
+[2.363s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/install/local_setup.bash
+[2.375s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/install/local_setup.ps1
+[2.387s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/install/local_setup.sh
+[2.399s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/install/local_setup.zsh
+[2.411s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/install/setup.bash
+[2.423s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/install/setup.ps1
+[2.436s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/install/setup.sh
+[2.448s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/install/setup.zsh
+[2.461s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/log/COLCON_IGNORE
+[2.472s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/log/build_2025-12-10_22-09-44/events.log
+[2.484s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/log/build_2025-12-10_22-09-44/logger_all.log
+[2.496s] -- Up-to-date symlink: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/log/latest/events.log
+[2.496s] -- Up-to-date symlink: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/log/latest/logger_all.log
+[2.496s] -- Up-to-date symlink: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/log/latest_build/events.log
+[2.497s] -- Up-to-date symlink: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/log/latest_build/logger_all.log
+[2.497s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/stage_5_may_2025.pgm
+[2.509s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/maps//stage_5_may_2025/stage_5_may_2025.yaml
+[2.521s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/params//localization/amcl.yaml
+[2.534s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/params//localization/cartographer/cartographer_config.lua
+[2.547s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/params//localization/cartographer/map_builder.lua
+[2.559s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/params//localization/cartographer/map_builder_server.lua
+[2.572s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/params//localization/cartographer/no_tengo_idea_porque_lua.txt
+[2.584s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/params//localization/cartographer/pose_graph.lua
+[2.596s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/params//localization/cartographer/trajectory_builder.lua
+[2.608s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/params//localization/cartographer/trajectory_builder_2d.lua
+[2.621s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/params//localization/cartographer/trajectory_builder_3d.lua
+[2.633s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/params//localization/mapper_params_online_async.yaml
+[2.645s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/params//maps/maps.yaml
+[2.657s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/params//navigation/nav2_params.yaml
+[2.669s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/lib/jaime_bringup/localization_manager.py
+[2.681s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/lib/jaime_bringup/basic_manager.py
+[2.693s] -- Up-to-date symlink: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/lib/jaime_bringup/localization_manager.py
+[2.693s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/lib/jaime_bringup/navigation_manager.py
+[2.705s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/lib/jaime_bringup/tablet_manager.py
+[2.717s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/lib/jaime_bringup/percepcion_manager.py
+[2.729s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/ament_index/resource_index/package_run_dependencies/jaime_bringup
+[2.741s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/ament_index/resource_index/parent_prefix_path/jaime_bringup
+[2.753s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/environment/ament_prefix_path.sh
+[2.766s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/environment/ament_prefix_path.dsv
+[2.778s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/environment/path.sh
+[2.790s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/environment/path.dsv
+[2.802s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/local_setup.bash
+[2.814s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/local_setup.sh
+[2.826s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/local_setup.zsh
+[2.838s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/local_setup.dsv
+[2.851s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/package.dsv
+[2.864s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/ament_index/resource_index/packages/jaime_bringup
+[2.876s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/cmake/jaime_bringupConfig.cmake
+[2.889s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/cmake/jaime_bringupConfig-version.cmake
+[2.902s] -- Symlinking: /home/jaime_ws/src/jaime_bringup/install/jaime_bringup/share/jaime_bringup/package.xml
+[2.916s] Invoked command in '/home/jaime_ws/src/jaime_bringup/build/jaime_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jaime_ws/install/uchile_navigation:/home/jaime_ws/install/jaime_tablet:/home/jaime_ws/install/jaime_behaviour_trees:/opt/ros/jazzy /usr/bin/cmake --install /home/jaime_ws/src/jaime_bringup/build/jaime_bringup

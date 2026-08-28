@@ -1,2 +1,1 @@
-source;share/jaime_bringup/environment/ament_prefix_path.sh
-source;share/jaime_bringup/environment/path.sh
+/home/jaime_ws/src/jaime_bringup/build/jaime_bringup/ament_cmake_environment_hooks/local_setup.dsv

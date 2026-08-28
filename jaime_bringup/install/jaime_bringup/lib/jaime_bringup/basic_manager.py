@@ -1,0 +1,1 @@
+/home/jaime_ws/src/jaime_bringup/scripts/basic_manager.py

@@ -4,9 +4,16 @@ FROM ${BASE_OS}
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV LANG=en_US.UTF-8
-RUN apt-get update && apt-get full-upgrade -y && \
+RUN apt-get update && \
+    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
-        git wget openssh-server vim curl nano python3-pip \
+        git \
+        wget \
+        openssh-server \
+        vim \
+        curl \
+        nano \
+        python3-pip \
         software-properties-common \
         doxygen \
         libboost-dev \
@@ -34,14 +41,16 @@ RUN apt-get update && apt-get full-upgrade -y && \
         ros-jazzy-ros2-controllers \
         ros-jazzy-dynamixel-sdk \
         x11-apps \
-        curl lsb-release gnupg && \
+        lsb-release \
+        gnupg && \
     python3 -m pip install --break-system-packages \
         imutils \
         requests \
         pyserial \
-        opencv-data \
-        py-trees
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+        py-trees \
+        opencv-python==4.9.0.80 && \ # Versión nativa de numpy necesita esta versión de opencv
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 RUN curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg &&\
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] https://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null &&\
     apt-get update &&\

@@ -24,7 +24,7 @@ if(BUILD_TESTING)
 endif()
 
 install(
-  DIRECTORY launch scripts 
+  DIRECTORY scripts 
   DESTINATION share/${PROJECT_NAME}
 )
 ament_package()

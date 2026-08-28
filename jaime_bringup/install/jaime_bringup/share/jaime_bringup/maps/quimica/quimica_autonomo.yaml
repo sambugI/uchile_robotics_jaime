@@ -1,7 +1,1 @@
-image: quimica_autonomo.pgm
-mode: trinary
-resolution: 0.05
-origin: [-13.7, -11.2, 0]
-negate: 0
-occupied_thresh: 0.65
-free_thresh: 0.25
+/home/jaime_ws/src/jaime_bringup/maps/quimica/quimica_autonomo.yaml

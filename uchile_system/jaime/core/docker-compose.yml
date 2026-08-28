@@ -16,7 +16,7 @@ services:
     volumes:
       - /home/jaime/uchile_robotics/jaime_bringup:/home/jaime_ws/src/jaime_bringup
       - /home/jaime/uchile_robotics/jaime_core:/home/jaime_ws/src/jaime_core
-      - /home/jaime/uchile_robotics/uchile_high:/home/jaime_ws/src/uchile_high
+      #- /home/jaime/uchile_robotics/uchile_high:/home/jaime_ws/src/uchile_high
       - /home/jaime/uchile_robotics/jaime_manipulation:/home/jaime_ws/src/jaime_manipulation
       - /home/jaime/uchile_robotics/jaime_highlevel:/home/jaime_ws/src/jaime_highlevel
     environment:

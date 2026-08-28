@@ -18,7 +18,7 @@ services:
       volumes:
         - /home/jaime/uchile_robotics_jaime/jaime_bringup:/home/jaime_ws/src/jaime_bringup
         - /home/jaime/uchile_robotics_jaime/jaime_core:/home/jaime_ws/src/jaime_core
-        - /home/jaime/uchile_robotics/uchile_high:/home/jaime_ws/src/uchile_high
+        #- /home/jaime/uchile_robotics/uchile_high:/home/jaime_ws/src/uchile_high
         - /home/jaime/uchile_robotics_jaime/jaime_manipulation:/home/jaime_ws/src/jaime_manipulation
         - /home/jaime/uchile_robotics_jaime/jaime_highlevel:/home/jaime_ws/src/jaime_highlevel
         - /home/jaime/uchile_robotics_jaime/jaime_interfaces:/home/jaime_ws/src/jaime_interfaces
@@ -47,8 +47,8 @@ services:
     working_dir: /home/jaime_ws
     volumes:
       # /home/robotica/uchile_robotics/jaime_knowledge:/home/jaime_ws/src/jaime_knowledge
-      - /home/jaime/uchile_robotics/uchile_common:/home/jaime_ws/src/uchile_common
-      - /home/jaime/uchile_robotics/uchile_high:/home/jaime_ws/src/uchile_high
+      #- /home/jaime/uchile_robotics/uchile_common:/home/jaime_ws/src/uchile_common
+      #- /home/jaime/uchile_robotics/uchile_high:/home/jaime_ws/src/uchile_high
       # Ubuntu 26 no permite usar X11 al parecer.
       - /tmp/.X11-unix:/tmp/.X11-unix
     stdin_open: true
