@@ -267,9 +267,9 @@ class DynamixelNode(Node):
 
         
         #self.offsets = [-0.0, -2.08, -1.62, 0.38, -0.65]
-        self.offsets = [-0.0, -2.08, -3.52, -2.4, -0.65]
-        self.lower_limits = [-0.12, 0.48, 0.42, 0.13, -0.36]
-        self.upper_limits = [0.43, 0.93, 0.75, 0.51, 0.93]
+        self.offsets = [-0.0, -2.08, -3.52, -2.2, -0.65]
+        self.lower_limits = [-0.12, 0.48, 0.42, -0.03, -0.36]
+        self.upper_limits = [0.43, 0.93, 0.75, 0.31, 0.93]
         
         self.failed_reads = 0
         self.max_failed_reads = 5
@@ -393,7 +393,7 @@ class DynamixelNode(Node):
         if self.mode == "pose" and self.goal_joint_state is not None:
             current = np.array([
                 self.joints[0],
-                self.joints[3],
+                self.joints[2],
                 self.joints[4]
             ])
 

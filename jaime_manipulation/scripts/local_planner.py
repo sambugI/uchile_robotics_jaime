@@ -11,6 +11,7 @@ import numpy as np
 from scipy.spatial.transform import Rotation as R
 from jaime_interfaces.srv import IsReady
 from rclpy.action import ActionServer
+import time
 
 class LocalPlanner(Node):
     def __init__(self):
@@ -56,6 +57,10 @@ class LocalPlanner(Node):
         self.goal_ang = None
         self.goal_velocity = [0,0,0]
         self.cmd = None
+
+        # Timeout para /cmd
+        self.last_cmd_time = None
+        self.cmd_timeout = 0.5  # segundos
     
     
     def is_ready_callback(self, request, response):
@@ -107,6 +112,9 @@ class LocalPlanner(Node):
 
         self.cmd = msg.data.tolist()
 
+        # Registrar cuándo llegó el último comando
+        self.last_cmd_time = time.time()
+
         # /cmd solo puede activar el modo velocidad
         # si no hay un goal_pos ejecutándose
         if self.state is None:
@@ -123,6 +131,33 @@ class LocalPlanner(Node):
 
         
     def update_velocity(self):
+        # ==========================================
+        # TIMEOUT DE /cmd
+        # ==========================================
+        if self.state == 0 and self.last_cmd_time is not None:
+
+            elapsed = time.time() - self.last_cmd_time
+
+            if elapsed > self.cmd_timeout:
+
+                print("Timeout de /cmd")
+
+                # Detener movimiento
+                self.goal_velocity = [0.0, 0.0, 0.0]
+
+                # Limpiar comando
+                self.cmd = None
+                self.last_cmd_time = None
+
+                # Volver a estado inactivo
+                self.state = None
+
+                # Publicar velocidad cero
+                msg = Float64MultiArray()
+                msg.data = self.goal_velocity
+                self.pub.publish(msg)
+
+                return
         if self.state == 0:
             if self.cmd:
                 vel = self.jaime.compute_pos_velocity(self.cmd)
@@ -133,7 +168,7 @@ class LocalPlanner(Node):
                     vel = [2*(v / max_val) for v in vel]
 
                 
-                self.goal_velocity = [-vel[0],-vel[1],0.08*vel[2]] # Se cambió signo por dirección opuesta del primer motor.
+                self.goal_velocity = [vel[0],-vel[1],0.08*vel[2]] # Se cambió signo por dirección opuesta del primer motor.
                 print(self.goal_velocity)
         elif self.state == 1:
             if self.goal_ang is not None:
@@ -163,7 +198,7 @@ class LocalPlanner(Node):
                     if max_val > 1.0:
                         vel = [2 * (v / max_val) for v in vel]
 
-                    self.goal_velocity = [vel[0], vel[1], vel[2]]
+                    self.goal_velocity = [-vel[0], vel[1], vel[2]]
             
         # ==========================================
         # SIN COMANDO
