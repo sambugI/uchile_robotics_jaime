@@ -52,7 +52,7 @@ class LocalPlanner(Node):
         self.jaime = jaime_solution()
 
         #Current state 0(cmd), 1 (goal_pos)
-        self.state = 0
+        self.state = None
         self.goal_ang = None
         self.goal_velocity = [0,0,0]
         self.cmd = None
@@ -101,9 +101,16 @@ class LocalPlanner(Node):
         self.jaime.update(self._joint_states)
 
         self.pub_pose()
-    def cmd_callback(self,msg):
-        self.state = 0
+
+        
+    def cmd_callback(self, msg):
+
         self.cmd = msg.data.tolist()
+
+        # /cmd solo puede activar el modo velocidad
+        # si no hay un goal_pos ejecutándose
+        if self.state is None:
+            self.state = 0
         
         
     
@@ -128,24 +135,43 @@ class LocalPlanner(Node):
                 
                 self.goal_velocity = [-vel[0],-vel[1],0.08*vel[2]] # Se cambió signo por dirección opuesta del primer motor.
                 print(self.goal_velocity)
-        else:
+        elif self.state == 1:
             if self.goal_ang is not None:
                 current_ang = [self._joint_states[0], self._joint_states[2], self._joint_states[4]]
                 
                 error = np.array(self.goal_ang)-np.array(current_ang)
                 
+                # Objetivo alcanzado
                 if np.linalg.norm(error) < 1e-2:
-                    self.goal_velocity = [0.0, 0.0, 0.0]
-                    return
-                vel = 5 * error
-                
-                max_val = max(abs(v) for v in vel)  # valor máximo absoluto
-                if max_val > 1.0:                   # solo normaliza si es necesario
-                    vel = [2*(v / max_val) for v in vel]
 
-                self.goal_velocity = [vel[0], vel[1], vel[2]] # Se cambió signo por dirección opuesta del primer motor.
-        
-        
+                    print("Goal position alcanzado")
+
+                    self.goal_velocity = [0.0, 0.0, 0.0]
+
+                    # Finalizar goal_pos
+                    self.goal_ang = None
+                    self.state = None
+
+                    print("Cambiando a estado inactivo")
+
+                else:
+
+                    vel = 5 * error
+
+                    max_val = max(abs(v) for v in vel)
+
+                    if max_val > 1.0:
+                        vel = [2 * (v / max_val) for v in vel]
+
+                    self.goal_velocity = [vel[0], vel[1], vel[2]]
+            
+        # ==========================================
+        # SIN COMANDO
+        # ==========================================
+        else:
+
+            self.goal_velocity = [0.0, 0.0, 0.0]
+            
         msg = Float64MultiArray()
         msg.data = self.goal_velocity
         self.pub.publish(msg)

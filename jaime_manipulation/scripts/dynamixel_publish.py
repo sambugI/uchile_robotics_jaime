@@ -253,8 +253,13 @@ class DynamixelNode(Node):
         
         self.dynamixel = DynamixelCommander()
 
-        self.mode = "speed"
+        self.mode = None
         self.goal_joint_state = None
+
+
+        # Timeout para goal_vel
+        self.last_vel_time = None
+        self.vel_timeout = 0.5 # segundos
 
         self.joints = [0.0, 0.0, 0.0, 0.0, 0.0]
         self.vel = [0.0, 0.0, 0.0]
@@ -262,9 +267,9 @@ class DynamixelNode(Node):
 
         
         #self.offsets = [-0.0, -2.08, -1.62, 0.38, -0.65]
-        self.offsets = [-0.0, -2.08, -0.5, 0.38, -0.65]
-        self.lower_limits = [0.11, 0.44, 0.42, 0.04, -1.63]
-        self.upper_limits = [0.4, 0.93, 1.22, 0.4, 0.07]
+        self.offsets = [-0.0, -2.08, -3.52, -2.4, -0.65]
+        self.lower_limits = [-0.12, 0.48, 0.42, 0.13, -0.36]
+        self.upper_limits = [0.43, 0.93, 0.75, 0.51, 0.93]
         
         self.failed_reads = 0
         self.max_failed_reads = 5
@@ -291,13 +296,20 @@ class DynamixelNode(Node):
 
     def goal_vel_callback(self, msg: Float64MultiArray):
         if len(msg.data) != 3:
-            self.get_logger().warning("Se esperaban exactamente 3 velocidades")
+            self.get_logger().warning(
+                "Se esperaban exactamente 3 velocidades"
+            )
             return
 
-        self.mode = "speed"
-        self.goal_joint_state=None
+        # Actualizar velocidad y tiempo de recepción
         self.vel = list(msg.data)
+        self.last_vel_time = time.time()
 
+        # Activar modo velocidad solamente si no hay otro modo activo
+        if self.mode is None:
+            self.mode = "speed"
+
+            
     def publish_joint_states(self):
         joint_state_msg = JointState()
         joint_state_msg.header = Header()
@@ -343,10 +355,10 @@ class DynamixelNode(Node):
 
         if ang is not None:
             self.joints = [
-                -ang[0] - self.offsets[0],
+                ang[0] - self.offsets[0],
                 ang[1] - self.offsets[1],
                 ang[2] - self.offsets[2],
-                -ang[3] - self.offsets[3],
+                ang[3] - self.offsets[3],
                 pos_rad + self.offsets[4]
             ]
 
@@ -360,7 +372,24 @@ class DynamixelNode(Node):
     
     def move_joints(self):
         tablet_goal = None
+        if self.mode == "speed" and self.last_vel_time is not None:
 
+            elapsed = time.time() - self.last_vel_time
+
+            if elapsed > self.vel_timeout:
+
+                print("Timeout de goal_vel")
+
+                # Detener motores
+                self.vel = [0.0, 0.0, 0.0]
+                self.dynamixel.set_velocity([0.0, 0.0, 0.0])
+
+                # No hay comando activo
+                self.mode = None
+                self.last_vel_time = None
+
+                return
+                
         if self.mode == "pose" and self.goal_joint_state is not None:
             current = np.array([
                 self.joints[0],
@@ -422,9 +451,9 @@ class DynamixelNode(Node):
                         self.tablet_locked = True
                 # Finalizar modo pose
                 self.goal_joint_state = None
-                self.mode = "speed"
+                self.mode = None
 
-                print("Cambiando a modo velocidad")
+                print("Pose finalizada. Modo inactivo")
             else:
 
                 # Todavía moviéndose
@@ -454,10 +483,10 @@ class DynamixelNode(Node):
             vel = (vel * 100).tolist()
 
 
-        else:
-
-            raw_vel = np.array(self.vel)*100
+        elif self.mode == "speed":
+            raw_vel = np.array(self.vel) * 100
             vel = raw_vel.tolist()
+
             if vel[2] == 0:
                 if not self.tablet_locked:
 
@@ -467,9 +496,13 @@ class DynamixelNode(Node):
                         self.dynamixel.set_tablet_raw_position(raw_position)
                         self.tablet_position_lock = raw_position
                         self.tablet_locked = True
-
             else:
                 self.tablet_locked = False
+
+        else:
+            # No hay ningún comando activo
+            self.dynamixel.set_velocity([0.0, 0.0, 0.0])
+            return
 
 
         groups = [
