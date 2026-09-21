@@ -12,11 +12,31 @@ from scipy.spatial.transform import Rotation as R
 from jaime_interfaces.srv import IsReady
 from rclpy.action import ActionServer
 import time
+from ament_index_python.packages import get_package_share_directory
+import yaml
+import os
 
 class LocalPlanner(Node):
-    def __init__(self):
+    def __init__(self, config_path="/config/vel_params.yaml"):
         super().__init__('local_planner')
 
+        pkg_share = get_package_share_directory("jaime_manipulation")
+        config_path = pkg_share + config_path
+
+        with open(config_path, 'r') as file:
+            config = yaml.safe_load(file)
+
+        params = config["dynamixel_node"]["ros__parameters"]
+
+        self.lower_limits = np.array(
+            params["lower_limits"],
+            dtype=float
+        )
+
+        self.upper_limits = np.array(
+            params["upper_limits"],
+            dtype=float
+        )
         self._fk_publisher = self.create_publisher(PoseStamped, 'eef_pose', 1)
 
         self.pub = self.create_publisher(Float64MultiArray, 'goal_vel', 10)
@@ -167,8 +187,9 @@ class LocalPlanner(Node):
                 if max_val > 1.0:                   # solo normaliza si es necesario
                     vel = [2*(v / max_val) for v in vel]
 
-                
-                self.goal_velocity = [vel[0],-vel[1],0.08*vel[2]] # Se cambió signo por dirección opuesta del primer motor.
+                # Original: self.goal_velocity = [vel[0],-vel[1],0.08*vel[2]]
+                # Se cambiaron signos de todos para ver cómo cambiaba el sentido de la velocidad.
+                self.goal_velocity = [- vel[0], vel[1], -0.08*vel[2]] # Se cambió signo por dirección opuesta del primer motor.
                 print(self.goal_velocity)
         elif self.state == 1:
             if self.goal_ang is not None:

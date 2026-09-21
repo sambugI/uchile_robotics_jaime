@@ -228,15 +228,28 @@ class DynamixelNode(Node):
 
         with open(config_path, 'r') as file:
             config = yaml.safe_load(file)
+        params = config["dynamixel_node"]["ros__parameters"]
+
         self.Kp = np.array(
-            config["Kp"],
+            params["Kp"],
             dtype=float
         )
 
         self.vel_limits = np.array(
-            config["vel_limits"],
+            params["vel_limits"],
             dtype=float
         )
+
+        self.lower_limits = np.array(
+            params["lower_limits"],
+            dtype=float
+        )
+
+        self.upper_limits = np.array(
+            params["upper_limits"],
+            dtype=float
+        )
+        
 
         print("Kp:", self.Kp)
         print("Velocidad máxima:", self.vel_limits)
@@ -287,9 +300,11 @@ class DynamixelNode(Node):
         
         #self.offsets = [-0.0, -2.08, -1.62, 0.38, -0.65]
         self.offsets = [-0.0, -2.08, -3.52, -2.2, -0.42]
-        self.lower_limits = [-0.12, 0.48, 0.42, -0.03, -0.34]
-        self.upper_limits = [0.43, 0.93, 0.75, 0.31, 0.93]
+        # self.lower_limits = [-0.12, 0.48, 0.42, -0.03, -0.34]
+        # self.upper_limits = [0.43, 0.93, 0.75, 0.31, 0.93]
         
+        print ("Límites inferiores:", self.lower_limits)
+        print ("Límites superiores:", self.upper_limits)
         self.failed_reads = 0
         self.max_failed_reads = 5
         self.tablet_position_lock = None
