@@ -219,8 +219,27 @@ class DynamixelCommander:
 
 
 class DynamixelNode(Node):
-    def __init__(self):
+    def __init__(self, config_path="/config/vel_params.yaml"):
         super().__init__('dynamixel_node')
+
+
+        pkg_share = get_package_share_directory("jaime_manipulation")
+        config_path = pkg_share + config_path
+
+        with open(config_path, 'r') as file:
+            config = yaml.safe_load(file)
+        self.Kp = np.array(
+            config["Kp"],
+            dtype=float
+        )
+
+        self.vel_limits = np.array(
+            config["vel_limits"],
+            dtype=float
+        )
+
+        print("Kp:", self.Kp)
+        print("Velocidad máxima:", self.vel_limits)
 
         # Crear publicador
         self.joint_pub = self.create_publisher(JointState, 'joint_states', 10)
@@ -267,8 +286,8 @@ class DynamixelNode(Node):
 
         
         #self.offsets = [-0.0, -2.08, -1.62, 0.38, -0.65]
-        self.offsets = [-0.0, -2.08, -3.52, -2.2, -0.65]
-        self.lower_limits = [-0.12, 0.48, 0.42, -0.03, -0.36]
+        self.offsets = [-0.0, -2.08, -3.52, -2.2, -0.42]
+        self.lower_limits = [-0.12, 0.48, 0.42, -0.03, -0.34]
         self.upper_limits = [0.43, 0.93, 0.75, 0.31, 0.93]
         
         self.failed_reads = 0
@@ -405,13 +424,6 @@ class DynamixelNode(Node):
 
             error = desired - current
 
-            # Ganancia proporcional para los 3 joints
-            Kp = np.array([
-                -6.0,
-                6.0,
-                4.0
-            ])
-
             # Distancia total al objetivo
             error_norm = np.linalg.norm(error)
 
@@ -459,33 +471,34 @@ class DynamixelNode(Node):
                 # Todavía moviéndose
                 self.tablet_locked = False
 
-                vel = Kp * error
+                vel = self.Kp * error
 
 
             # -------------------------
             # Límites de velocidad
             # -------------------------
 
-            vel_limits = np.array([
-                0.3,   # joint 1
-                0.3,   # joint 2
-                0.2    # tablet
-            ])
-
             vel = np.clip(
                 vel,
-                -vel_limits,
-                vel_limits
+                -self.vel_limits,
+                self.vel_limits
             )
-
 
             # Convertir a unidades Dynamixel
             vel = (vel * 100).tolist()
 
 
         elif self.mode == "speed":
-            raw_vel = np.array(self.vel) * 100
-            vel = raw_vel.tolist()
+            vel = np.array(self.vel, dtype=float)
+            # Limitar velocidad en las mismas unidades de goal_vel
+            vel = np.clip(
+                vel,
+                -self.vel_limits,
+                self.vel_limits
+            )
+
+            # Convertir a unidades Dynamixel
+            vel = (vel * 100).tolist()
 
             if vel[2] == 0:
                 if not self.tablet_locked:

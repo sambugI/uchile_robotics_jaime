@@ -1,0 +1,16 @@
+dynamixel_node:
+  ros__parameters:
+
+    # Ganancias proporcionales para control de pose
+    # [joint_1, joint_2, tablet]
+    Kp:
+      - -6.0
+      - 6.0
+      - 4.0
+
+    # Límites máximos de velocidad para control de pose
+    # [joint_1, joint_2, tablet]
+    vel_limits:
+      - 0.5
+      - 0.5
+      - 0.4
