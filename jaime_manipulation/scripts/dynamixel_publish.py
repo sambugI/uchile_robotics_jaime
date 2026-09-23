@@ -205,17 +205,73 @@ class DynamixelCommander:
                         self.ADDR_GOAL_POS,
                         177
                     )
+    def stop_motors(self):
+        print("[INFO] FORZANDO velocidad 0...")
 
-    def shutdown(self):
         for dxl_id in self.DXL_IDS:
-            self.packetHandler.write1ByteTxRx(
-                self.portHandler,
-                dxl_id,
-                self.ADDR_TORQUE_ENABLE,
-                self.TORQUE_DISABLE
-            )
-        self.portHandler.closePort()
-        print("[INFO] Puerto cerrado y torque desactivado.")
+
+            # Motores 1 y 2
+            if dxl_id in [1, 2]:
+                result, error = self.packetHandler.write2ByteTxRx(
+                    self.portHandler,
+                    dxl_id,
+                    self.ADDR_GOAL_SPEED,
+                    0
+                )
+
+            # Motor 3
+            elif dxl_id == 3:
+                result, error = self.packetHandler.write2ByteTxRx(
+                    self.portHandler,
+                    dxl_id,
+                    self.ADDR_GOAL_SPEED,
+                    1
+                )
+
+            if result != COMM_SUCCESS:
+                print(
+                    f"[ERROR] No se pudo detener motor {dxl_id}: "
+                    f"{self.packetHandler.getTxRxResult(result)}"
+                )
+
+            elif error != 0:
+                print(
+                    f"[ERROR] Error en motor {dxl_id}: "
+                    f"{self.packetHandler.getRxPacketError(error)}"
+                )
+
+            else:
+                print(f"[INFO] Motor {dxl_id} detenido.")
+    def shutdown(self):
+        print("[INFO] Deteniendo motores...")
+
+        # FORZAR velocidad 0 antes de cualquier otra cosa
+        try:
+            self.stop_motors()
+        except Exception as e:
+            print(f"[WARN] No se pudieron detener los motores: {e}")
+
+        # Desactivar torque
+        for dxl_id in self.DXL_IDS:
+            try:
+                self.packetHandler.write1ByteTxRx(
+                    self.portHandler,
+                    dxl_id,
+                    self.ADDR_TORQUE_ENABLE,
+                    self.TORQUE_DISABLE
+                )
+            except Exception as e:
+                print(
+                    f"[WARN] No se pudo desactivar torque "
+                    f"del motor {dxl_id}: {e}"
+                )
+
+        try:
+            self.portHandler.closePort()
+        except Exception as e:
+            print(f"[WARN] Error cerrando puerto: {e}")
+
+        print("[INFO] Shutdown completado.")
 
 
 class DynamixelNode(Node):
@@ -298,8 +354,8 @@ class DynamixelNode(Node):
         self.encoder_angles = None
 
         
-        #self.offsets = [-0.0, -2.08, -1.62, 0.38, -0.65]
-        self.offsets = [-0.0, -2.08, -3.52, -2.2, -0.42]
+        #self.offsets = [-0.0, -2.08, -1.62, 0.38, -0.42]
+        self.offsets = [-0.0, -2.08, -3.52, -2.2, -0.8]
         # self.lower_limits = [-0.12, 0.48, 0.42, -0.03, -0.34]
         # self.upper_limits = [0.43, 0.93, 0.75, 0.31, 0.93]
         
@@ -438,7 +494,8 @@ class DynamixelNode(Node):
             ])
 
             error = desired - current
-
+            # El primer joint tiene sentido invertido
+            error[0] = -error[0]
             # Distancia total al objetivo
             error_norm = np.linalg.norm(error)
 
@@ -546,6 +603,9 @@ class DynamixelNode(Node):
             },
             {"joints": [4], "lower": [None], "upper": [None]},
         ]
+        # Invertir sentido del primer motor
+        # +velocidad recibida -> movimiento físico hacia abajo
+        vel[0] = -vel[0]
 
         for i in range(3):
             if i == 0:

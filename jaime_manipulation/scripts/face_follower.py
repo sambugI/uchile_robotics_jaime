@@ -194,7 +194,7 @@ class FaceFollower(Node):
         msg.data = [
             0.0,
             0.0,
-            float(control_y) / 3
+            -float(control_y) / 3 #Revisa el signo por si acaso
         ]
         print ("Publishing control command: ", msg.data)
 
