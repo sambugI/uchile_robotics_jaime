@@ -181,8 +181,7 @@ class LocalPlanner(Node):
                 return
         if self.state == 0:
             if self.cmd:
-                vel = self.jaime.compute_pos_velocity(self.cmd)
- 
+                vel = self.jaime.compute_pos_velocity (self.cmd)
                 # Normalización
                 max_val = max(abs(v) for v in vel)  # valor máximo absoluto
                 if max_val > 1.0:                   # solo normaliza si es necesario

@@ -164,6 +164,8 @@ class DynamixelCommander:
                 )
 
             elif dxl_id == 3:
+                # En este caso, no se le puede poner solo velocidad deseada.
+                # Así que se le da una posición objetivo y luego se setea la velocidad deseada a la que quiere ir
                 vel = int(velocities[dxl_id - 1])
 
                 if vel < 0:
@@ -203,54 +205,22 @@ class DynamixelCommander:
                         self.portHandler,
                         dxl_id,
                         self.ADDR_GOAL_POS,
-                        177
+                        100
                     )
-    def stop_motors(self):
-        print("[INFO] FORZANDO velocidad 0...")
 
-        for dxl_id in self.DXL_IDS:
-
-            # Motores 1 y 2
-            if dxl_id in [1, 2]:
-                result, error = self.packetHandler.write2ByteTxRx(
-                    self.portHandler,
-                    dxl_id,
-                    self.ADDR_GOAL_SPEED,
-                    0
-                )
-
-            # Motor 3
-            elif dxl_id == 3:
-                result, error = self.packetHandler.write2ByteTxRx(
-                    self.portHandler,
-                    dxl_id,
-                    self.ADDR_GOAL_SPEED,
-                    1
-                )
-
-            if result != COMM_SUCCESS:
-                print(
-                    f"[ERROR] No se pudo detener motor {dxl_id}: "
-                    f"{self.packetHandler.getTxRxResult(result)}"
-                )
-
-            elif error != 0:
-                print(
-                    f"[ERROR] Error en motor {dxl_id}: "
-                    f"{self.packetHandler.getRxPacketError(error)}"
-                )
-
-            else:
-                print(f"[INFO] Motor {dxl_id} detenido.")
     def shutdown(self):
         print("[INFO] Deteniendo motores...")
+        
+        print(
+            "[DEBUG] is_open:",
+            self.portHandler.is_open,
+            "is_using:",
+            self.portHandler.is_using
+        )
 
-        # FORZAR velocidad 0 antes de cualquier otra cosa
-        try:
-            self.stop_motors()
-        except Exception as e:
-            print(f"[WARN] No se pudieron detener los motores: {e}")
-
+        # Al interrumpir el nodo, puede que el puerto este en un proceso de lectura escritura y quede abierto.
+        # Para evitar esto, se trata de que el flag quede explícitamente igual a False antes de continuar a detener motores.
+        self.portHandler.is_using = False
         # Desactivar torque
         for dxl_id in self.DXL_IDS:
             try:
@@ -347,7 +317,7 @@ class DynamixelNode(Node):
 
         # Timeout para goal_vel
         self.last_vel_time = None
-        self.vel_timeout = 0.5 # segundos
+        self.vel_timeout = 1.0 # segundos
 
         self.joints = [0.0, 0.0, 0.0, 0.0, 0.0]
         self.vel = [0.0, 0.0, 0.0]
@@ -571,12 +541,14 @@ class DynamixelNode(Node):
 
             # Convertir a unidades Dynamixel
             vel = (vel * 100).tolist()
+            raw_position = self.dynamixel.get_tablet_raw_position()
+            print ("[INFO] Tablet raw position:", raw_position)
 
             if vel[2] == 0:
                 if not self.tablet_locked:
 
                     raw_position = self.dynamixel.get_tablet_raw_position()
-
+                    print ("[INFO] Tablet raw position:", raw_position)
                     if raw_position is not None:
                         self.dynamixel.set_tablet_raw_position(raw_position)
                         self.tablet_position_lock = raw_position
@@ -646,12 +618,23 @@ class DynamixelNode(Node):
         self.dynamixel.set_velocity(vel)
 
     def destroy_node(self):
+        print("[INFO] Iniciando shutdown del nodo...")
+
+        # 1. Detener callbacks ROS que acceden al Dynamixel
+        if hasattr(self, "timer"):
+            self.timer.cancel()
+
+        if hasattr(self, "move_timer"):
+            self.move_timer.cancel()
+        print ("[INFO] Callbacks ROS detenidos.")
+        # 2. Ahora nadie debería estar accediendo al puerto
         try:
             if hasattr(self, "dynamixel") and self.dynamixel is not None:
                 self.dynamixel.shutdown()
         except Exception as e:
-            print(f"[WARN] Error durante shutdown: {e}")
+            print(f"[ERROR] Error durante shutdown Dynamixel: {e}")
 
+        # 3. Destruir nodo
         super().destroy_node()
 
 

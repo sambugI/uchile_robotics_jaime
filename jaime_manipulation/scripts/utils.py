@@ -140,3 +140,90 @@ class jaime_solution():
             return vel
         else:
             return [0,0,0]
+
+    def compute_pos_velocity_with_limits(
+        self,
+        cmd,
+        lower_limits,
+        upper_limits,
+        margin=0.01
+    ):
+
+        if self.joints is None:
+            return np.zeros(3)
+
+        q = np.array(self.joints, dtype=float)
+        cmd = np.array(cmd, dtype=float)
+
+        J = np.array(self._pos_jacobian(*q), dtype=float)
+
+        # ---------------------------------------
+        # Solución inicial
+        # ---------------------------------------
+
+        qdot = np.linalg.pinv(J) @ cmd
+
+        print("Velocidad cinemática:", qdot)
+
+        # ---------------------------------------
+        # Convertir a velocidades de motor
+        # ---------------------------------------
+        # Los motores 2 y 3 tienen direccciones invertidas en local planner.
+        # Por eso se invierten los signos de las velocidades de estos motores para considerar los límites.
+        motor_qdot = np.array([
+            qdot[0],
+            -qdot[1],
+            -qdot[2]
+        ])
+
+        print("Velocidad motor:", motor_qdot)
+
+        # ---------------------------------------
+        # Determinar joints bloqueados
+        # ---------------------------------------
+
+        fixed_joints = []
+
+        for i in range(3):
+
+            at_lower = q[i] <= lower_limits[i] + margin
+            at_upper = q[i] >= upper_limits[i] - margin
+
+            # Para evaluar el movimiento físico,
+            # usamos la velocidad que realmente irá al motor.
+
+            if at_lower and motor_qdot[i] < 0:
+                fixed_joints.append(i)
+
+            elif at_upper and motor_qdot[i] > 0:
+                fixed_joints.append(i)
+
+        print("Fixed joints:", fixed_joints)
+
+        # ---------------------------------------
+        # Joints libres
+        # ---------------------------------------
+
+        free_joints = [
+            i for i in range(3)
+            if i not in fixed_joints
+        ]
+
+        if len(free_joints) == 0:
+            return np.zeros(3)
+
+        J_free = J[:, free_joints]
+
+        qdot_free = np.linalg.pinv(J_free) @ cmd
+
+        # ---------------------------------------
+        # Reconstruir velocidad cinemática
+        # ---------------------------------------
+
+        qdot = np.zeros(3)
+
+        for j, joint_idx in enumerate(free_joints):
+            qdot[joint_idx] = qdot_free[j]
+
+        print("Velocidad cinemática reconstruida:", qdot)
+        return qdot
