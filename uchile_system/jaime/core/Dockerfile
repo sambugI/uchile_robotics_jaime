@@ -48,7 +48,7 @@ RUN apt-get update && \
         requests \
         pyserial \
         py-trees \
-        opencv-python==4.9.0.80 && \ # Versión nativa de numpy necesita esta versión de opencv
+        opencv-python==4.9.0.80 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 RUN curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg &&\
