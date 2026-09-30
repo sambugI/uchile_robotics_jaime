@@ -100,3 +100,6 @@ EXPOSE 22
 # ENTRYPOINT ["bash", "-c", "service ssh restart && exec bash"]
 # Se cambi+o el original para compilar siempre jaime manipulation junto con jaime interfaces y jaime behaviour. Se deb cambiar al conciliar con la versión original
 ENTRYPOINT ["bash", "-c", "service ssh restart && source /opt/ros/jazzy/setup.bash && colcon build --symlink-install && source /home/jaime_ws/install/setup.bash && exec bash"]
+
+RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
+RUN echo "source /home/jaime_ws/install/setup.bash" >> /root/.bashrc
