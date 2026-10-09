@@ -24,6 +24,7 @@ def generate_launch_description():
     description_pkg = FindPackageShare('jaime_description')
     tablet_pkg = FindPackageShare('jaime_tablet')
     manipulation_pkg = FindPackageShare('jaime_manipulation')
+    #joy_pkg = FindPackageShare('jaime_joy')
 
 
     # -------------------------
@@ -127,6 +128,17 @@ def generate_launch_description():
             ])
         )
     )
+
+    #joy_node = IncludeLaunchDescription(
+    #    PythonLaunchDescriptionSource(
+    #        PathJoinSubstitution([
+    #            joy_pkg,
+    #            'launch',
+    #            'joystick.launch.py'
+    #        ])
+    #    )
+    #)
+
     #face_node = IncludeLaunchDescription(
     #    PythonLaunchDescriptionSource(
     #        PathJoinSubstitution([
@@ -147,6 +159,7 @@ def generate_launch_description():
         # Peripherals
         tablet_node,
         manipulation_node,
+        #joy_node,
         #face_node,
 
     ])

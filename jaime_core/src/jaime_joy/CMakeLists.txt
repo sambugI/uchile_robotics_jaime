@@ -14,6 +14,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
 
 # Install resources
 install(DIRECTORY
@@ -27,16 +28,30 @@ install(DIRECTORY
 )
 
 # Executable
-add_executable(teleop_node src/joystick_node.cpp)
-ament_target_dependencies(teleop_node
+#add_executable(teleop_node src/joystick_node.cpp)
+#ament_target_dependencies(jaime_teleop_node
+#  rclcpp
+#  sensor_msgs
+#  geometry_msgs
+#  std_msgs
+#)
+
+add_executable(jaime_teleop_node src/joystick_node.cpp)
+ament_target_dependencies(jaime_teleop_node
   rclcpp
   sensor_msgs
   geometry_msgs
+  std_msgs
 )
 
-install(TARGETS
-  teleop_node
+
+install(TARGETS jaime_teleop_node
   DESTINATION lib/${PROJECT_NAME}
 )
+
+#install(TARGETS
+#  teleop_node
+#  DESTINATION lib/${PROJECT_NAME}
+#)
 
 ament_package()

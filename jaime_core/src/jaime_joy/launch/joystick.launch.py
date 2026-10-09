@@ -18,13 +18,28 @@ def generate_launch_description():
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
          )
 
-    teleop_node = Node(
-            package='teleop_twist_joy',
-            executable='teleop_node',
-            name='teleop_node',
+    #teleop_node = Node(
+    #    package='jaime_joy',
+    #    executable='teleop_joy_node',
+    #    name='teleop_node',
+    #    parameters=[joy_params, {'use_sim_time': use_sim_time}],
+    #)
+
+    #teleop_node = Node(
+    #        package='teleop_twist_joy',
+    #        executable='teleop_node',
+    #        name='teleop_node',
+    #        parameters=[joy_params, {'use_sim_time': use_sim_time}],
+    #        remappings=[('/cmd_vel','/cmd_vel_joy')]
+    #        )
+
+    jaime_teleop_node = Node(
+            package='jaime_joy',
+            executable='jaime_teleop_node',
+            name='jaime_teleop_node',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
             remappings=[('/cmd_vel','/cmd_vel_joy')]
-         )
+            )
 
     # twist_stamper = Node(
     #         package='twist_stamper',
@@ -41,6 +56,6 @@ def generate_launch_description():
             default_value='false',
             description='Use sim time if true'),
         joy_node,
-        teleop_node,
+        jaime_teleop_node,
         # twist_stamper       
     ])

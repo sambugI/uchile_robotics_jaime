@@ -325,7 +325,7 @@ class DynamixelNode(Node):
 
         
         #self.offsets = [-0.0, -2.08, -1.62, 0.38, -0.42]
-        self.offsets = [-0.0, -2.08, -3.52, -2.2, -0.8]
+        self.offsets = [-0.0, -2.08, -0.73, -2.2, -0.8]
         # self.lower_limits = [-0.12, 0.48, 0.42, -0.03, -0.34]
         # self.upper_limits = [0.43, 0.93, 0.75, 0.31, 0.93]
         
@@ -489,17 +489,9 @@ class DynamixelNode(Node):
 
 
                     if raw_position is not None:
-
-                        print(
-                            "[INFO] Tablet raw position:",
-                            raw_position
-                        )
-
-
                         self.dynamixel.set_tablet_raw_position(
                             raw_position
                         )
-
 
                         self.tablet_position_lock = raw_position
                         self.tablet_locked = True
