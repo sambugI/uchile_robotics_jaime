@@ -4,7 +4,7 @@
 import rclpy
 from rclpy.node import Node
 
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Float64MultiArray, Bool
 
 import serial
 import time
@@ -38,6 +38,7 @@ class EncoderHandler:
         try:
             while self.ser.in_waiting > 0:
                 raw = self.ser.readline()
+
                 if not raw:
                     continue
 
@@ -48,8 +49,9 @@ class EncoderHandler:
 
                 if "Reading from" in decoded:
                     continue
-                values = re.findall(r'-?\d+\.\d+', decoded)
-                if len(values) != 4:
+
+                values = re.findall(r'-?\d+\.?\d*', decoded)
+                if len(values) != 5:
                     continue
 
                 latest = [float(v) for v in values]
@@ -72,30 +74,45 @@ class EncoderNode(Node):
 
         super().__init__('encoder_node')
 
+        # Publicador de los 4 encoders
         self.encoder_pub = self.create_publisher(
             Float64MultiArray,
             'encoder_angles',
             10
         )
 
+        # Publicador del botón de emergencia
+        self.emergency_pub = self.create_publisher(
+            Bool,
+            'emergency_button',
+            10
+        )
+
+        self.encoder = EncoderHandler()
+
         self.timer = self.create_timer(
             0.05,
             self.publish_angles
         )
 
-        self.encoder = EncoderHandler()
-
     def publish_angles(self):
 
-        ang = self.encoder.get_angles()
-
-        if ang is None:
+        values = self.encoder.get_angles()
+        if values is None:
             return
 
+        # Publicar los primeros 4 valores en encoder_angles
         msg = Float64MultiArray()
-        msg.data = ang
+        msg.data = values[:4]
 
         self.encoder_pub.publish(msg)
+
+        # Publicar el quinto valor en emergency_button
+        emergency_msg = Bool()
+        # Se publica en el script de emergencia si el valor es -1.0, indicando que se ha presionado el botón de emergencia
+        emergency_msg.data = (values[4] == -1.0)
+
+        self.emergency_pub.publish(emergency_msg)
 
     def destroy_node(self):
 

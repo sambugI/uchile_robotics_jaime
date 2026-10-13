@@ -293,6 +293,13 @@ class DynamixelNode(Node):
             self.goal_vel_callback,
             10
         )
+
+        self.emergency_sub = self.create_subscription(
+            Bool,
+            'emergency_button',
+            self.emergency_callback,
+            10
+        )
         
         # Subscriptor a ángulos de encoders
         self.encoder_sub = self.create_subscription(
@@ -334,9 +341,41 @@ class DynamixelNode(Node):
         self.failed_reads = 0
         self.max_failed_reads = 5
         self.tablet_position_lock = None
-
+        self.emergency_active = False
         self.tablet_position_lock = None
         self.tablet_locked = False
+
+    def emergency_callback(self, msg: Bool):
+
+        emergency = bool(msg.data)
+
+        # Activar emergencia
+        if emergency and not self.emergency_active:
+
+            self.emergency_active = True
+
+            self.get_logger().error(
+                "¡EMERGENCIA ACTIVADA! Se detendrá el movimiento del robot."
+            )
+
+            # Cancelar comandos pendientes
+            self.vel = [0.0, 0.0, 0.0]
+            self.goal_joint_state = None
+            self.mode = None
+            self.last_vel_time = None
+
+            # Detener motores inmediatamente
+            self.dynamixel.set_velocity([0.0, 0.0, 0.0])
+
+        # Liberar emergencia
+        elif not emergency and self.emergency_active:
+
+            self.emergency_active = False
+
+            self.get_logger().warning(
+                "Botón de emergencia liberado. "
+                "El robot queda a la espera de nuevos comandos."
+            )
 
     def encoder_callback(self, msg: Float64MultiArray):
         if len(msg.data) != 4:
@@ -346,7 +385,8 @@ class DynamixelNode(Node):
         self.encoder_angles = list(msg.data)
 
     def goal_joints_callback(self, msg):
-
+        if self.emergency_active:
+            return
         if len(msg.data) != 3:
             return
 
@@ -355,6 +395,9 @@ class DynamixelNode(Node):
         self.tablet_locked = False
 
     def goal_vel_callback(self, msg: Float64MultiArray):
+
+        if self.emergency_active:
+            return
         if len(msg.data) != 3:
             self.get_logger().warning(
                 "Se esperaban exactamente 3 velocidades"
@@ -382,13 +425,22 @@ class DynamixelNode(Node):
             'l6_to_l5',
             'l7_to_l6'
         ]
+        # Durante la emergencia no consultar los Dynamixel.
+        # Publicar las últimas posiciones conocidas.
+        if self.emergency_active:
+
+            joint_state_msg.position = self.joints
+            joint_state_msg.velocity = []
+            joint_state_msg.effort = []
+
+            self.joint_pub.publish(joint_state_msg)
+            return
 
         ang = self.encoder_angles
         pos, vel = self.dynamixel.get_joints_data()
 
         # Si falló alguna lectura
         if pos is None:
-
             self.failed_reads += 1
 
             self.get_logger().warning(
@@ -398,9 +450,9 @@ class DynamixelNode(Node):
 
             if self.failed_reads >= self.max_failed_reads:
                 self.get_logger().error(
-                    "Se perdieron 5 lecturas consecutivas. Cerrando nodo."
+                    "Se perdieron 5 lecturas consecutivas. "
+                    "Se mantiene el nodo activo para diagnóstico."
                 )
-                raise RuntimeError("Comunicación con Dynamixel perdida")
 
             return
 
@@ -431,6 +483,18 @@ class DynamixelNode(Node):
 
     
     def move_joints(self):
+        # Bloqueo global de movimiento durante la emergencia
+        if self.emergency_active:
+
+            self.vel = [0.0, 0.0, 0.0]
+            self.goal_joint_state = None
+            self.mode = None
+            self.last_vel_time = None
+
+            # Mantener la orden de parada mientras la emergencia esté activa
+            self.dynamixel.set_velocity([0.0, 0.0, 0.0])
+
+            return
         tablet_goal = None
         if self.mode == "speed" and self.last_vel_time is not None:
 
@@ -534,13 +598,11 @@ class DynamixelNode(Node):
             # Convertir a unidades Dynamixel
             vel = (vel * 100).tolist()
             raw_position = self.dynamixel.get_tablet_raw_position()
-            print ("[INFO] Tablet raw position:", raw_position)
 
             if vel[2] == 0:
                 if not self.tablet_locked:
 
                     raw_position = self.dynamixel.get_tablet_raw_position()
-                    print ("[INFO] Tablet raw position:", raw_position)
                     if raw_position is not None:
                         self.dynamixel.set_tablet_raw_position(raw_position)
                         self.tablet_position_lock = raw_position
