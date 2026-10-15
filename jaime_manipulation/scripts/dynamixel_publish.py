@@ -11,6 +11,8 @@ import numpy as np
 import yaml
 from ament_index_python.packages import get_package_share_directory
 from std_msgs.msg import Bool
+import time
+import os
 
 class DynamixelCommander:
     def __init__(self, config_path="/config/params.yaml"):
@@ -66,6 +68,24 @@ class DynamixelCommander:
 
         print(f"[INFO] {len(self.DXL_IDS)} motores inicializados en modo rueda.")
         self.last_sent_velocities = None
+        # Registros de los MX-106 con protocolo Dynamixel 1.0
+        self.ADDR_PRESENT_LOAD = 40
+        self.ADDR_CURRENT = 68
+
+        # Solo registrar los motores ID 1 y 2.
+        # El motor ID 3 queda excluido.
+        self.telemetry_start_time = time.monotonic()
+
+        self.telemetry = {
+            dxl_id: {
+                "time": [],
+                "load_percent": [],
+                "current_amp": []
+            }
+            for dxl_id in (1, 2)
+        }
+
+        print("[INFO] Registro de carga y corriente habilitado para ID 1 y 2.")
 
     def get_joints_data(self):
         positions = []
@@ -100,6 +120,92 @@ class DynamixelCommander:
 
         return positions, velocities
 
+    def sample_load_current(self):
+        """
+        Lee Present Load y Current de los motores ID 1 y 2.
+
+        Las lecturas se realizan mediante el puerto Dynamixel
+        que ya utiliza el nodo para controlar el brazo.
+
+        No envía comandos de movimiento.
+        """
+
+        elapsed = time.monotonic() - self.telemetry_start_time
+
+        for dxl_id in (1, 2):
+
+            # Leer Present Load: dirección 40, 2 bytes
+            load_raw, load_result, load_error = (
+                self.packetHandler.read2ByteTxRx(
+                    self.portHandler,
+                    dxl_id,
+                    self.ADDR_PRESENT_LOAD
+                )
+            )
+
+            # Leer Current: dirección 68, 2 bytes
+            current_raw, current_result, current_error = (
+                self.packetHandler.read2ByteTxRx(
+                    self.portHandler,
+                    dxl_id,
+                    self.ADDR_CURRENT
+                )
+            )
+
+            # Si alguna lectura falla, descartar esta muestra.
+            if (
+                load_result != COMM_SUCCESS
+                or current_result != COMM_SUCCESS
+                or load_error != 0
+                or current_error != 0
+            ):
+                print(
+                    f"[WARN] No se pudo registrar carga/corriente "
+                    f"del motor ID {dxl_id}."
+                )
+                continue
+
+            # -----------------------------------------
+            # Convertir Present Load a porcentaje
+            # -----------------------------------------
+            # Bits 0-9: magnitud de carga.
+            # Bit 10: dirección.
+            #
+            # Convención del gráfico:
+            #   CW  -> carga positiva.
+            #   CCW -> carga negativa.
+
+            load_magnitude = load_raw & 0x03FF
+
+            if load_raw & 0x0400:
+                load_sign = 1
+            else:
+                load_sign = -1
+
+            load_percent = load_sign * load_magnitude * 0.1
+
+            # -----------------------------------------
+            # Convertir Current a amperios
+            # -----------------------------------------
+            # En este registro:
+            #   2048 corresponde a corriente nula.
+            #   La resolución es de 4.5 mA por unidad.
+
+            current_amp = (current_raw - 2048) * 0.0045
+
+            # -----------------------------------------
+            # Guardar la muestra
+            # -----------------------------------------
+
+            self.telemetry[dxl_id]["time"].append(elapsed)
+
+            self.telemetry[dxl_id]["load_percent"].append(
+                load_percent
+            )
+
+            self.telemetry[dxl_id]["current_amp"].append(
+                current_amp
+            )
     def get_tablet_raw_position(self):
 
         data, result, error = self.packetHandler.read2ByteTxRx(
@@ -317,7 +423,10 @@ class DynamixelNode(Node):
         
         
         self.dynamixel = DynamixelCommander()
-
+        self.telemetry_timer = self.create_timer(
+            0.2,
+            self.dynamixel.sample_load_current
+        )
         self.mode = None
         self.goal_joint_state = None
 
@@ -344,7 +453,115 @@ class DynamixelNode(Node):
         self.emergency_active = False
         self.tablet_position_lock = None
         self.tablet_locked = False
+    def plot_load_current(self):
+        """
+        Genera dos gráficos independientes:
+        - Motor ID 1
+        - Motor ID 2
 
+        Cada gráfico incluye:
+        - Present Load (%) en el eje Y izquierdo.
+        - Current (A) en el eje Y derecho.
+
+        También guarda cada gráfico como imagen PNG.
+        """
+
+        try:
+            import matplotlib.pyplot as plt
+
+        except ImportError:
+            self.get_logger().error(
+                "No se pudo importar matplotlib. "
+                "Instala python3-matplotlib para generar los gráficos."
+            )
+            return
+
+        generated_plots = False
+
+        for dxl_id in (1, 2):
+
+            data = self.dynamixel.telemetry[dxl_id]
+
+            # Comprobar que existan muestras.
+            if len(data["time"]) == 0:
+                self.get_logger().warning(
+                    f"No hay muestras para graficar del motor ID {dxl_id}."
+                )
+                continue
+
+            # Definir colores según el motor.
+            if dxl_id == 1:
+                color_load = 'tab:blue'
+                color_current = 'tab:orange'
+            else:
+                color_load = 'tab:green'
+                color_current = 'tab:red'
+
+            # Crear una figura independiente para cada motor.
+            fig, ax_load = plt.subplots(figsize=(11, 6))
+
+            # Eje Y izquierdo: carga.
+            line_load, = ax_load.plot(
+                data["time"],
+                data["load_percent"],
+                label="Present Load",
+                linewidth=1.5,
+                color=color_load
+            )
+
+            ax_load.set_xlabel("Tiempo desde el inicio (s)")
+            ax_load.set_ylabel("Present Load (%)")
+            ax_load.grid(True, alpha=0.3)
+
+            # Eje Y derecho: corriente.
+            ax_current = ax_load.twinx()
+
+            line_current, = ax_current.plot(
+                data["time"],
+                data["current_amp"],
+                label="Current",
+                linewidth=1.5,
+                color=color_current
+            )
+
+            ax_current.set_ylabel("Current (A)")
+
+            # Título.
+            ax_load.set_title(
+                f"Motor Dynamixel ID {dxl_id}: carga y corriente"
+            )
+
+            # Unificar las leyendas de ambos ejes.
+            lines = [line_load, line_current]
+
+            ax_load.legend(
+                lines,
+                [line.get_label() for line in lines],
+                loc="best"
+            )
+
+            fig.tight_layout()
+
+            # Guardar el gráfico en el directorio de ejecución.
+            filename = f"dynamixel_id_{dxl_id}_load_current.png"
+
+            filepath = os.path.abspath(filename)
+
+            fig.savefig(
+                filepath,
+                dpi=150,
+                bbox_inches="tight"
+            )
+
+            self.get_logger().info(
+                f"Gráfico del motor ID {dxl_id} guardado en: {filepath}"
+            )
+
+            generated_plots = True
+
+        # Mostrar ambas figuras al terminar el registro.
+        if generated_plots:
+            plt.show()
     def emergency_callback(self, msg: Bool):
 
         emergency = bool(msg.data)
@@ -631,24 +848,25 @@ class DynamixelNode(Node):
         ]
         # Invertir sentido del primer motor
         # +velocidad recibida -> movimiento físico hacia abajo
-        vel[0] = -vel[0]
-
+   
         for i in range(3):
             if i == 0:
                 q1 = self.joints[groups[i]["joints"][0]]
                 q2 = self.joints[groups[i]["joints"][1]]
 
-                if vel[i] > 0:
+                if vel[i] < 0:
                     if q1 <= groups[i]["lower"][0] or q2 <= groups[i]["lower"][1]:
                         print(i, "limite inferior alcanzado")
                         vel[i] = 0
-                elif vel[i] < 0:
+                elif vel[i] > 0:
                     if q1 >= groups[i]["upper"][0] or q2 >= groups[i]["upper"][1]:
                         print(i, "limite superior alcanzado")
                         vel[i] = 0
+
             elif i == 1:
                 q1 = self.joints[groups[i]["joints"][0]]
                 q2 = self.joints[groups[i]["joints"][1]]
+
                 if vel[i] < 0:
                     if q1 <= groups[i]["lower"][0] or q2 <= groups[i]["lower"][1]:
                         print(i, "limite inferior alcanzado")
@@ -674,22 +892,43 @@ class DynamixelNode(Node):
     def destroy_node(self):
         print("[INFO] Iniciando shutdown del nodo...")
 
-        # 1. Detener callbacks ROS que acceden al Dynamixel
+        # 1. Detener los temporizadores que acceden al puerto.
         if hasattr(self, "timer"):
             self.timer.cancel()
 
         if hasattr(self, "move_timer"):
             self.move_timer.cancel()
-        print ("[INFO] Callbacks ROS detenidos.")
-        # 2. Ahora nadie debería estar accediendo al puerto
+
+        if hasattr(self, "telemetry_timer"):
+            self.telemetry_timer.cancel()
+
+        print("[INFO] Temporizadores detenidos.")
+
+        # 2. Detener y cerrar la comunicación con Dynamixel.
+        # Se conserva el comportamiento original del controlador.
         try:
             if hasattr(self, "dynamixel") and self.dynamixel is not None:
                 self.dynamixel.shutdown()
-        except Exception as e:
-            print(f"[ERROR] Error durante shutdown Dynamixel: {e}")
 
-        # 3. Destruir nodo
+        except Exception as e:
+            print(
+                f"[ERROR] Error durante shutdown Dynamixel: {e}"
+            )
+
+        # 3. Generar los gráficos a partir de los datos almacenados.
+        # Esto ya no requiere comunicarse con los motores.
+        try:
+            self.plot_load_current()
+
+        except Exception as e:
+            print(
+                f"[ERROR] No se pudieron generar los gráficos: {e}"
+            )
+
+        # 4. Destruir el nodo ROS 2.
         super().destroy_node()
+
+        print("[INFO] Nodo cerrado.")
 
 
 def main(args=None):
