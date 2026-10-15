@@ -4,7 +4,7 @@ import rclpy
 from rclpy.node import Node
 
 import py_trees
-from mission_tree import create_tree
+from Demo_mode import create_tree_demo
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
 
     node = Node("jaime_behaviour_tree")
 
-    root = create_tree(node)
+    root = create_tree_demo(node)
 
     tree = py_trees.trees.BehaviourTree(root)
 

@@ -1,9 +1,18 @@
 import py_trees
 
+from Idle_mode import create_idle_tree
+from Demo_mode import create_tree_demo
+from Teleoperation_mode import TeleoperationMode
+from Emergency_mode import EmergencyMode
+
+
 class IsMode(py_trees.behaviour.Behaviour):
 
     def __init__(self, mode):
-        super().__init__(name=f"IsMode_{mode}")
+
+        super().__init__(
+            name=f"IsMode_{mode}"
+        )
 
         self.mode = mode
 
@@ -19,6 +28,7 @@ class IsMode(py_trees.behaviour.Behaviour):
     def update(self):
 
         if self.blackboard.mode == self.mode:
+
             return py_trees.common.Status.SUCCESS
 
         return py_trees.common.Status.FAILURE
@@ -44,7 +54,10 @@ def create_tree(node):
         access=py_trees.common.Access.WRITE
     )
 
+    #################################################
     # Estado inicial
+    #################################################
+
     blackboard.mode = "IDLE"
     blackboard.emergency = False
 
@@ -65,7 +78,7 @@ def create_tree(node):
 
     idle.add_children([
         IsMode("IDLE"),
-        IdleMode(node)
+        create_idle_tree(node)
     ])
 
     #################################################
@@ -93,7 +106,7 @@ def create_tree(node):
 
     demo.add_children([
         IsMode("DEMO"),
-        DemoMode(node)
+        create_tree_demo(node)
     ])
 
     #################################################

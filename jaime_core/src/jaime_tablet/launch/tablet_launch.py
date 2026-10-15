@@ -11,8 +11,9 @@ from launch.substitutions import PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.actions import Node
 from launch.substitutions import Command, LaunchConfiguration
+from launch.actions import TimerAction
 
-def generate_launch_description():
+"""def generate_launch_description():
 
     #package jaime_tablet
     tablet_pkg = FindPackageShare('jaime_tablet')
@@ -47,4 +48,33 @@ def generate_launch_description():
         android_cam_node,
         media_sender_node,
         file_publisher_node,
+    ])"""
+
+def generate_launch_description():
+
+    # Iniciar ADB y los servidores WebSocket/WebRTC
+    iniciar_servidores_node = Node(
+        package='jaime_tablet',
+        executable='iniciar_servidores',
+        name='iniciar_servidores',
+        output='screen'
+    )
+
+    # Cámara WebRTC: publica las imágenes en image_raw
+    webrtc_cam_node = Node(
+        package='jaime_tablet',
+        executable='webRTC_cam',
+        name='webrtc_camera',
+        output='screen'
+    )
+
+    # Esperar antes de iniciar la cámara
+    iniciar_camara = TimerAction(
+        period=3.0,
+        actions=[webrtc_cam_node]
+    )
+
+    return LaunchDescription([
+        iniciar_servidores_node,
+        iniciar_camara,
     ])

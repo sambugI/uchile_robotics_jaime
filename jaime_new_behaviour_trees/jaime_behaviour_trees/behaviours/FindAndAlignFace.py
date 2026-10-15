@@ -3,9 +3,7 @@
 import py_trees
 
 from action_msgs.msg import GoalStatus
-
 from rclpy.action import ActionClient
-
 from jaime_interfaces.action import FindFace
 
 
