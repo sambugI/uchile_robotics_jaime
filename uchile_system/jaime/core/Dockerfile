@@ -48,7 +48,11 @@ RUN apt-get update && \
         requests \
         pyserial \
         py-trees \
-        opencv-python==4.9.0.80 && \
+        opencv-python==4.9.0.80 \
+        "websockets>=14,<18" \
+        "aiohttp>=3.9,<4" \
+        "aiortc>=1.9,<2" \
+        "Pillow>=10,<13" && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 RUN curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg &&\
