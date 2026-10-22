@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import numpy as np
 from fk_solution import fk_solution
-import tf_transformations as tf
+from scipy.spatial.transform import Rotation
 
 
 def wrap_to_range(angle, min_val, max_val):
@@ -28,13 +28,23 @@ class jaime_solution():
         
     
     def update(self, joints):
-        self.joints = [joints[0],joints[2],joints[4]]
+            self.joints = [joints[0], joints[2], joints[4]]
 
-        fk = self._fk(*self.joints)  # matriz 4x4 de transformación homogénea
+            # Cinemática directa: matriz de transformación homogénea 4x4
+            fk = self._fk(*self.joints)
 
-        self.position = fk[:3, 3]
-        self.orientation = tf.quaternion_from_matrix(fk)  # [x, y, z, w]
-        self.euler = tf.euler_from_matrix(fk[:3, :3])     # (roll, pitch, yaw)
+            # Posición del efector final
+            self.position = fk[:3, 3]
+
+            # Matriz de rotación 3x3
+            rotation_matrix = fk[:3, :3]
+
+            # Convertir matriz de rotación a cuaternión [x, y, z, w]
+            rotation = Rotation.from_matrix(rotation_matrix)
+            self.orientation = rotation.as_quat()
+
+            # Convertir matriz de rotación a ángulos de Euler [roll, pitch, yaw]
+            self.euler = rotation.as_euler('xyz')
 
     def get_pose(self):
         return self.position,self.orientation,self.euler

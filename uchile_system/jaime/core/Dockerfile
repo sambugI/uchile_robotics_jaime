@@ -44,6 +44,7 @@ RUN apt-get update && \
         lsb-release \
         gnupg && \
     python3 -m pip install --break-system-packages \
+        --ignore-installed cryptography \
         imutils \
         requests \
         pyserial \

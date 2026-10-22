@@ -5,7 +5,6 @@ from std_msgs.msg import Float64MultiArray
 from sensor_msgs.msg import JointState
 from std_msgs.msg import Float64MultiArray
 from geometry_msgs.msg import PoseStamped, Point
-import tf_transformations as tf
 from utils import jaime_solution
 import numpy as np
 from scipy.spatial.transform import Rotation as R
@@ -189,7 +188,7 @@ class LocalPlanner(Node):
 
                 # Original: self.goal_velocity = [vel[0],-vel[1],0.08*vel[2]]
                 # Se cambiaron signos de todos para ver cómo cambiaba el sentido de la velocidad.
-                self.goal_velocity = [vel[0], -vel[1], -0.08*vel[2]] # Se cambió signo por dirección opuesta del primer motor.
+                self.goal_velocity = [vel[0], vel[1], -0.3*vel[2]] # Se cambió signo por dirección opuesta del primer motor.
                 print(self.goal_velocity)
         elif self.state == 1:
             if self.goal_ang is not None:

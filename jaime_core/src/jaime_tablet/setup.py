@@ -33,13 +33,13 @@ setup(
     maintainer='mari',
     description='Tablet media sender',
     license='Apache-2.0',
-    ntry_points={
-    'console_scripts': [
-        'media_sender = jaime_tablet.media_sender:main',
-        'file_publisher = jaime_tablet.file_publisher:main',
-        'android_cam = jaime_tablet.android_cam:main',
-        'iniciar_servidores = jaime_tablet.iniciar_servidores:main',
-        'webRTC_cam = jaime_tablet.webRTC_cam:main',
+    entry_points={
+        'console_scripts': [
+            'media_sender = jaime_tablet.media_sender:main',
+            'file_publisher = jaime_tablet.file_publisher:main',
+            'android_cam = jaime_tablet.android_cam:main',
+            'iniciar_servidores = jaime_tablet.iniciar_servidores:main',
+            'webRTC_cam = jaime_tablet.webRTC_cam:main',
         ],
     },
 )
