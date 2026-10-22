@@ -43,6 +43,7 @@ RUN apt-get update && \
         x11-apps \
         lsb-release \
         gnupg && \
+    printf "numpy==1.26.4\n" > /tmp/pip-constraints.txt && \
     python3 -m pip install --break-system-packages \
         --ignore-installed cryptography \
         imutils \

@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = "jaime_behaviour_trees"
+package_name = "jaime_new_behaviour_trees"
 
 setup(
     name=package_name,
