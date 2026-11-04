@@ -298,7 +298,7 @@ class DynamixelCommander:
                         self.portHandler,
                         dxl_id,
                         self.ADDR_GOAL_POS,
-                        500
+                        450
                     )
                 else:
                     self.packetHandler.write2ByteTxRx(
@@ -311,7 +311,7 @@ class DynamixelCommander:
                         self.portHandler,
                         dxl_id,
                         self.ADDR_GOAL_POS,
-                        100
+                        170
                     )
 
     def shutdown(self):
@@ -440,10 +440,9 @@ class DynamixelNode(Node):
         self.encoder_angles = None
 
         
-        #self.offsets = [-0.0, -2.08, -1.62, 0.38, -0.42]
-        self.offsets = [-0.0, -2.08, -0.73, -2.2, -0.8]
-        # self.lower_limits = [-0.12, 0.48, 0.42, -0.03, -0.34]
-        # self.upper_limits = [0.43, 0.93, 0.75, 0.31, 0.93]
+        #self.offsets = [-0.0, -2.08, -0.73, -2.2, -0.8]
+        self.offsets = [-0.0, -2.08, -0.73, -2.2, -0.2]
+
         
         print ("Límites inferiores:", self.lower_limits)
         print ("Límites superiores:", self.upper_limits)
@@ -849,24 +848,24 @@ class DynamixelNode(Node):
         # Invertir sentido del primer motor
         # +velocidad recibida -> movimiento físico hacia abajo
    
+        vel[0] = -vel[0]
+
         for i in range(3):
             if i == 0:
                 q1 = self.joints[groups[i]["joints"][0]]
                 q2 = self.joints[groups[i]["joints"][1]]
 
-                if vel[i] < 0:
+                if vel[i] > 0:
                     if q1 <= groups[i]["lower"][0] or q2 <= groups[i]["lower"][1]:
                         print(i, "limite inferior alcanzado")
                         vel[i] = 0
-                elif vel[i] > 0:
+                elif vel[i] < 0:
                     if q1 >= groups[i]["upper"][0] or q2 >= groups[i]["upper"][1]:
                         print(i, "limite superior alcanzado")
                         vel[i] = 0
-
             elif i == 1:
                 q1 = self.joints[groups[i]["joints"][0]]
                 q2 = self.joints[groups[i]["joints"][1]]
-
                 if vel[i] < 0:
                     if q1 <= groups[i]["lower"][0] or q2 <= groups[i]["lower"][1]:
                         print(i, "limite inferior alcanzado")
@@ -877,13 +876,16 @@ class DynamixelNode(Node):
                         vel[i] = 0
             else:
                 q = self.joints[4]
-                if vel[i] < 0 and q <= self.lower_limits[4]:
-                    print(i, "limite inferior alcanzado")
+
+                margin = 0.03  # Margen de seguridad en radianes
+
+                if vel[i] < 0 and q <= self.lower_limits[4] + margin:
+                    print(i, "aproximándose al límite inferior")
                     vel[i] = 0
-                elif vel[i] > 0 and q >= self.upper_limits[4]:
-                    print(i, "limite superior alcanzado")
+
+                elif vel[i] > 0 and q >= self.upper_limits[4] - margin:
+                    print(i, "aproximándose al límite superior")
                     vel[i] = 0
-        # -------------------------
         # Enviar comandos
         # -------------------------
 

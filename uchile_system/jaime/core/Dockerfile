@@ -43,7 +43,6 @@ RUN apt-get update && \
         x11-apps \
         lsb-release \
         gnupg && \
-    printf "numpy==1.26.4\n" > /tmp/pip-constraints.txt && \
     python3 -m pip install --break-system-packages \
         --ignore-installed cryptography \
         imutils \
@@ -55,6 +54,7 @@ RUN apt-get update && \
         "aiohttp>=3.9,<4" \
         "aiortc>=1.9,<2" \
         "Pillow>=10,<13" && \
+    python3 -m pip uninstall -y numpy --break-system-packages && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 RUN curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg &&\

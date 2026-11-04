@@ -16,19 +16,19 @@ from behaviours.Conversation import Conversation
 # ============================================================
 # Behaviours por desarrollar
 # ============================================================
-
+"""
 from behaviours.GetDestinationFromConversation import GetDestinationFromConversation
 from behaviours.FindAndAlignFace import FindAndAlignFace
 from behaviours.RoomConversation import RoomConversation
 from behaviours.DetectInteractionEnd import DetectInteractionEnd
 from behaviours.ReturnToInitialPose import ReturnToInitialPose
-
+"""
 
 def create_tree_demo(node):
 
     initialize_robot = InitializeRobot(node)
 
-    initial_conversation = Conversation(node)
+    #initial_conversation = Conversation(node)
     #get_destination = GetDestinationFromConversation(node)
 
     neck_search_pose = NeckSearchPose(node)
@@ -45,7 +45,7 @@ def create_tree_demo(node):
     ])
 
     neck_conversation_pose = NeckConversationPose(node)
-    find_and_align_face = FindAndAlignFace(node)
+    #find_and_align_face = FindAndAlignFace(node)
     #room_conversation = RoomConversation(node)
     #interaction_end = DetectInteractionEnd(node)
     #return_to_initial_pose = ReturnToInitialPose(node)
@@ -55,14 +55,14 @@ def create_tree_demo(node):
     )
 
     root.add_children([
-        initialize_robot,
+        #initialize_robot,
         #initial_conversation,
         #get_destination,
         neck_search_pose,
-        localization,
-        go_to_location,
+        #localization,
+        #go_to_location,
         neck_conversation_pose,
-        find_and_align_face,
+        #find_and_align_face,
         #room_conversation,
         #interaction_end,
         #return_to_initial_pose
