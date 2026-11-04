@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
+import json
+from pathlib import Path
 
 import py_trees
-import numpy as np
 
-from geometry_msgs.msg import PoseStamped, PointStamped
-from tf_transformations import quaternion_from_euler
+from geometry_msgs.msg import PoseStamped
 
 
 class ReceiveMission(py_trees.behaviour.Behaviour):
@@ -25,123 +25,62 @@ class ReceiveMission(py_trees.behaviour.Behaviour):
             access=py_trees.common.Access.WRITE
         )
 
-        # Suscripción a RViz /clicked_point
-        self.subscription = self.node.create_subscription(
-            PointStamped,
-            "/clicked_point",
-            self.clicked_point_callback,
-            10
+        # Ruta de goal_poses.json
+        self.config_path = (
+            Path(__file__).resolve().parents[1]
+            / "goal_poses.json"
         )
-
-        self.first_point = None
-        self.second_point = None
-
-    def initialise(self):
-
-        self.first_point = None
-        self.second_point = None
-
-        self.node.get_logger().info(
-            "Waiting for first click..."
-        )
-
-    def clicked_point_callback(self, msg):
-
-        point = msg.point
-
-        if self.first_point is None:
-
-            self.first_point = point
-
-            self.node.get_logger().info(
-                f"First point received: "
-                f"x={point.x:.3f}, y={point.y:.3f}"
-            )
-
-        elif self.second_point is None:
-
-            self.second_point = point
-
-            self.node.get_logger().info(
-                f"Second point received: "
-                f"x={point.x:.3f}, y={point.y:.3f}"
-            )
 
     def update(self):
 
-        # Todavía no llegó el primer click
-        if self.first_point is None:
+        try:
 
-            return py_trees.common.Status.RUNNING
+            # Cargar posiciones
+            with open(self.config_path, "r") as file:
+                poses = json.load(file)
 
-        # Llegó primer click, pero falta segundo
-        if self.second_point is None:
+            # Obtener posición de cocina
+            cocina = poses["cocina"]
 
-            return py_trees.common.Status.RUNNING
+            # Crear PoseStamped
+            pose = PoseStamped()
 
-        # ------------------------------------------------
-        # Calcular orientación
-        # ------------------------------------------------
-
-        dx = (
-            self.second_point.x -
-            self.first_point.x
-        )
-
-        dy = (
-            self.second_point.y -
-            self.first_point.y
-        )
-
-        # Evitar clicks prácticamente iguales
-        if np.hypot(dx, dy) < 0.01:
-
-            self.node.get_logger().warn(
-                "Second click is too close to first click"
+            pose.header.stamp = (
+                self.node.get_clock().now().to_msg()
             )
 
-            self.second_point = None
+            pose.header.frame_id = "map"
 
-            return py_trees.common.Status.RUNNING
+            # Posición
+            pose.pose.position.x = cocina["position"]["x"]
+            pose.pose.position.y = cocina["position"]["y"]
+            pose.pose.position.z = cocina["position"]["z"]
 
-        yaw = np.arctan2(dy, dx)
+            # Orientación
+            pose.pose.orientation.x = cocina["orientation"]["x"]
+            pose.pose.orientation.y = cocina["orientation"]["y"]
+            pose.pose.orientation.z = cocina["orientation"]["z"]
+            pose.pose.orientation.w = cocina["orientation"]["w"]
 
-        self.node.get_logger().info(
-            f"Mission yaw: {yaw:.3f} rad"
-        )
+            # Guardar misión en Blackboard
+            self.bb.goal_pose = pose
 
-        # ------------------------------------------------
-        # Convertir yaw a quaternion
-        # ------------------------------------------------
+            self.node.get_logger().info(
+                "Mission received successfully: cocina"
+            )
 
-        q = quaternion_from_euler(
-            0.0,
-            0.0,
-            yaw
-        )
+            self.node.get_logger().info(
+                f"Goal position: "
+                f"x={pose.pose.position.x:.3f}, "
+                f"y={pose.pose.position.y:.3f}"
+            )
 
-        # ------------------------------------------------
-        # Crear PoseStamped
-        # ------------------------------------------------
+            return py_trees.common.Status.SUCCESS
 
-        pose = PoseStamped()
+        except Exception as e:
 
-        pose.header.frame_id = "map"
+            self.node.get_logger().error(
+                f"Error obtaining kitchen position: {e}"
+            )
 
-        pose.pose.position.x = self.first_point.x
-        pose.pose.position.y = self.first_point.y
-        pose.pose.position.z = 0.0
-
-        pose.pose.orientation.x = q[0]
-        pose.pose.orientation.y = q[1]
-        pose.pose.orientation.z = q[2]
-        pose.pose.orientation.w = q[3]
-
-        # Guardar misión en Blackboard
-        self.bb.goal_pose = pose
-
-        self.node.get_logger().info(
-            "Mission received successfully"
-        )
-
-        return py_trees.common.Status.SUCCESS
+            return py_trees.common.Status.FAILURE
