@@ -8,6 +8,7 @@ from rclpy.action import ActionClient
 
 from nav2_msgs.action import NavigateToPose
 
+from geometry_msgs.msg import PoseStamped, PoseWithCovarianceStamped
 
 class NavigateToGoal(py_trees.behaviour.Behaviour):
 

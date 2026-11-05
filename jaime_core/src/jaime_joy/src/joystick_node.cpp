@@ -44,61 +44,60 @@ public:
 private:
   void joyCallback(const sensor_msgs::msg::Joy::SharedPtr msg)
   {
-    geometry_msgs::msg::Twist v;
+      geometry_msgs::msg::Twist v;
 
-    if (latched_) {
-      cmd_vel_pub_->publish(v);
-      if (msg->buttons.size() > 0 && msg->axes.size() > 2) {
-        if (msg->buttons[0] == 1 && msg->axes[2] < -0.9) {
-          latched_ = false;
-          RCLCPP_INFO(this->get_logger(), "latching_se detuvo");
+      if (latched_) {
+        cmd_vel_pub_->publish(v);
+        if (msg->buttons.size() > 0 && msg->axes.size() > 2) {
+          if (msg->buttons[0] == 1 && msg->axes[2] < -0.9) {
+            latched_ = false;
+            RCLCPP_INFO(this->get_logger(), "latching_se detuvo");
+          }
         }
       }
-    }
-    else if (msg->buttons.size() > 1 && msg->buttons[1] == 1) {
-      latched_ = true;
-      cmd_vel_pub_->publish(v);
-      RCLCPP_INFO(this->get_logger(), "avanzar");
-    }
-    else {
-      // Verificación del botón de seguridad (Deadman switch)
-      bool button_pressed = false;
-      if (enable_button_ >= 0 && static_cast<size_t>(enable_button_) < msg->buttons.size()) {
-        button_pressed = (msg->buttons[enable_button_] == 1);
+      else if (msg->buttons.size() > 1 && msg->buttons[1] == 1) {
+        latched_ = true;
+        cmd_vel_pub_->publish(v);
+        RCLCPP_INFO(this->get_logger(), "avanzar");
       }
-
-      if (require_enable_button_ && !button_pressed) {
-        // Velocidad 0 si no se presiona el botón de seguridad
-        v.linear.x = 0.0;
-        v.angular.z = 0.0;
-      } else {
-        if (msg->axes.size() > 1) {
-          v.linear.x  = msg->axes[1] * scale_linear_;
-          v.angular.z = msg->axes[0] * scale_angular_;
+      else {
+        // Verificación del botón de seguridad (Deadman switch)
+        bool button_pressed = false;
+        if (enable_button_ >= 0 && static_cast<size_t>(enable_button_) < msg->buttons.size()) {
+          button_pressed = (msg->buttons[enable_button_] == 1);
         }
+
+        if (require_enable_button_ && !button_pressed) {
+          // No publicar velocidades si no se presiona el botón de seguridad
+          return;
+        } else {
+          if (msg->axes.size() > 1) {
+            v.linear.x  = msg->axes[1] * scale_linear_;
+            v.angular.z = msg->axes[0] * scale_angular_;
+          }
+        }
+        cmd_vel_pub_->publish(v);
       }
-      cmd_vel_pub_->publish(v);
-    }
 
-    // Control del cuello / brazo
-    std_msgs::msg::Float64MultiArray arm_msg;
-    double vz = 0.0;
-    
-    if (msg->axes.size() > 4) {
-      vz = msg->axes[4] * scale_arm_;
-    }
+      // Control del cuello / brazo
+      std_msgs::msg::Float64MultiArray arm_msg;
+      double vz = 0.0;
+      
+      if (msg->axes.size() > 4) {
+        vz = msg->axes[4] * scale_arm_;
+      }
 
-    //if (msg->buttons.size() >= 13) {
-    //  if (msg->buttons[11] == 1) {
-    //    vz = scale_arm_;
-    //  }
-    //  else if (msg->buttons[12] == 1) {
-    //    vz = -scale_arm_;
-    //  }
-    //}
+      //if (msg->buttons.size() >= 13) {
+      //  if (msg->buttons[11] == 1) {
+      //    vz = scale_arm_;
+      //  }
+      //  else if (msg->buttons[12] == 1) {
+      //    vz = -scale_arm_;
+      //  }
+      //}
 
-    arm_msg.data = {0.0, 0.0, vz};
-    arm_cmd_pub_->publish(arm_msg);
+      arm_msg.data = {0.0, 0.0, vz};
+      arm_cmd_pub_->publish(arm_msg);
   }
 
   bool latched_;

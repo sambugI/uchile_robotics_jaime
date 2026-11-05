@@ -6,7 +6,6 @@ import py_trees
 
 from geometry_msgs.msg import PoseStamped
 
-
 class ReceiveMission(py_trees.behaviour.Behaviour):
 
     def __init__(self, node):
@@ -40,7 +39,7 @@ class ReceiveMission(py_trees.behaviour.Behaviour):
                 poses = json.load(file)
 
             # Obtener posición de goal
-            goal = poses["living"]
+            goal = poses["cocina"]
 
             # Crear PoseStamped
             pose = PoseStamped()
