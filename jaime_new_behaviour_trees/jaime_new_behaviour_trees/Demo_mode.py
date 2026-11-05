@@ -5,6 +5,7 @@ import py_trees
 # ============================================================
 
 from behaviours.InitializeRobot import InitializeRobot
+from behaviours.ReceiveMission import ReceiveMission
 from behaviours.NeckSearchPose import NeckSearchPose
 from behaviours.ObtainRobotLocalization import ObtainRobotLocalization
 from behaviours.IsAtGoal import IsAtGoal
@@ -17,7 +18,6 @@ from behaviours.Conversation import Conversation
 # Behaviours por desarrollar
 # ============================================================
 """
-from behaviours.GetDestinationFromConversation import GetDestinationFromConversation
 from behaviours.FindAndAlignFace import FindAndAlignFace
 from behaviours.RoomConversation import RoomConversation
 from behaviours.DetectInteractionEnd import DetectInteractionEnd
@@ -57,10 +57,10 @@ def create_tree_demo(node):
     root.add_children([
         #initialize_robot,
         #initial_conversation,
-        #get_destination,
+        localization,
+        ReceiveMission(node),
         neck_search_pose,
-        #localization,
-        #go_to_location,
+        go_to_location,
         neck_conversation_pose,
         #find_and_align_face,
         #room_conversation,

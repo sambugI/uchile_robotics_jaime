@@ -39,8 +39,8 @@ class ReceiveMission(py_trees.behaviour.Behaviour):
             with open(self.config_path, "r") as file:
                 poses = json.load(file)
 
-            # Obtener posición de cocina
-            cocina = poses["cocina"]
+            # Obtener posición de goal
+            goal = poses["living"]
 
             # Crear PoseStamped
             pose = PoseStamped()
@@ -52,15 +52,15 @@ class ReceiveMission(py_trees.behaviour.Behaviour):
             pose.header.frame_id = "map"
 
             # Posición
-            pose.pose.position.x = cocina["position"]["x"]
-            pose.pose.position.y = cocina["position"]["y"]
-            pose.pose.position.z = cocina["position"]["z"]
+            pose.pose.position.x = goal["position"]["x"]
+            pose.pose.position.y = goal["position"]["y"]
+            pose.pose.position.z = goal["position"]["z"]
 
             # Orientación
-            pose.pose.orientation.x = cocina["orientation"]["x"]
-            pose.pose.orientation.y = cocina["orientation"]["y"]
-            pose.pose.orientation.z = cocina["orientation"]["z"]
-            pose.pose.orientation.w = cocina["orientation"]["w"]
+            pose.pose.orientation.x = goal["orientation"]["x"]
+            pose.pose.orientation.y = goal["orientation"]["y"]
+            pose.pose.orientation.z = goal["orientation"]["z"]
+            pose.pose.orientation.w = goal["orientation"]["w"]
 
             # Guardar misión en Blackboard
             self.bb.goal_pose = pose

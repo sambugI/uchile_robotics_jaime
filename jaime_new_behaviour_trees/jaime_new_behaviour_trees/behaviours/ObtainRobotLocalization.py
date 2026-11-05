@@ -1,4 +1,4 @@
-```python
+
 import json
 from pathlib import Path
 
@@ -156,4 +156,3 @@ class ObtainRobotLocalization(py_trees.behaviour.Behaviour):
         )
 
         return py_trees.common.Status.SUCCESS
-```

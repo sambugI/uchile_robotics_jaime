@@ -28,8 +28,12 @@ class NavigateToGoal(py_trees.behaviour.Behaviour):
             access=py_trees.common.Access.READ
         )
 
+        self.goal_pub = self.node.create_publisher(
+            PoseStamped,
+            '/goal_pose',
+            10
+        )
         # Cliente de acción Nav2
-
         self.action_client = ActionClient(
             self.node,
             NavigateToPose,
@@ -92,6 +96,13 @@ class NavigateToGoal(py_trees.behaviour.Behaviour):
             goal = NavigateToPose.Goal()
 
             goal.pose = self.goal_pose
+
+            # Publicar objetivo para visualizarlo en RViz2
+            self.goal_pub.publish(self.goal_pose)
+
+            self.node.get_logger().info(
+                "Goal pose published on /goal_pose"
+            )
 
             self.node.get_logger().info(
                 "Sending navigation goal"
