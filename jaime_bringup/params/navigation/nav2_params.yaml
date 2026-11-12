@@ -122,7 +122,7 @@ controller_server:
     goal_checker:
       plugin: "nav2_controller::SimpleGoalChecker"
       xy_goal_tolerance: 0.3
-      yaw_goal_tolerance: 0.25
+      yaw_goal_tolerance: 0.35
       stateful: True
 
     # DWB controller parameters
@@ -189,7 +189,7 @@ controller_server:
       xy_goal_tolerance: 0.25
       path_length_tolerance: 1.0
 
-      trans_stopped_velocity: 0.25
+      trans_stopped_velocity: 0.05
 
       # ==========================================
       # OPCIONES
