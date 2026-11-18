@@ -40,6 +40,7 @@ setup(
             'android_cam = jaime_tablet.android_cam:main',
             'iniciar_servidores = jaime_tablet.iniciar_servidores:main',
             'webRTC_cam = jaime_tablet.webRTC_cam:main',
+            'jaime_panel = jaime_tablet.jaime_panel:main',
         ],
     },
 )
