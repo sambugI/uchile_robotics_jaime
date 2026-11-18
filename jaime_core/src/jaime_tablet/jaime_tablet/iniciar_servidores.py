@@ -9,14 +9,14 @@ from pathlib import Path
 def configurar_adb():
     """Reinicia ADB, verifica la tablet y configura los puertos reverse."""
 
-    # 1. Reiniciar el servidor ADB
+    """# 1. Reiniciar el servidor ADB
     print("\nReiniciando servidor ADB...", flush=True)
 
     subprocess.run(["adb", "kill-server"], check=True)
     time.sleep(4)
 
     subprocess.run(["adb", "start-server"], check=True)
-    time.sleep(4)
+    time.sleep(4)"""
 
     print("Servidor ADB iniciado correctamente.\n", flush=True)
 

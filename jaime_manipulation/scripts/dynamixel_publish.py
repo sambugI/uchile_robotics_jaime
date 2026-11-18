@@ -919,14 +919,14 @@ class DynamixelNode(Node):
 
         # 3. Generar los gráficos a partir de los datos almacenados.
         # Esto ya no requiere comunicarse con los motores.
-        try:
+        """try:
             self.plot_load_current()
 
         except Exception as e:
             print(
                 f"[ERROR] No se pudieron generar los gráficos: {e}"
             )
-
+        """
         # 4. Destruir el nodo ROS 2.
         super().destroy_node()
 

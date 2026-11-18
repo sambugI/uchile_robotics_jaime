@@ -135,7 +135,7 @@ controller_server:
       # VELOCIDADES
       # ==========================================
 
-      min_vel_x: -0.05
+      min_vel_x: 0.0
       min_vel_y: 0.0
 
       # Robot personalizado
@@ -161,7 +161,7 @@ controller_server:
       # DESACELERACIONES
       # ==========================================
 
-      decel_lim_x: -0.05
+      decel_lim_x: 0.0
       decel_lim_y: 0.0
       decel_lim_theta: -0.6
 
