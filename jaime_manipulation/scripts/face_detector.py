@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import cv2
+import os
 
 import rclpy
 from rclpy.node import Node
@@ -20,13 +21,23 @@ class FaceDetector(Node):
 
         self.bridge = CvBridge()
 
-        self.detector = cv2.CascadeClassifier(
-            "/usr/share/opencv4/haarcascades/haarcascade_frontalface_default.xml"
+        model_path = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "models",
+            "face_detection_yunet_2023mar.onnx"
         )
-        if self.detector.empty():
-                raise RuntimeError(
-                    "No se pudo cargar haarcascade_frontalface_default.xml"
-                )
+
+        if not os.path.exists(model_path):
+            raise FileNotFoundError(f"No se encontró el modelo YuNet: {model_path}")
+
+        self.detector = cv2.FaceDetectorYN.create(
+            model_path,
+            "",
+            (640, 480),
+            score_threshold=0.7,
+            nms_threshold=0.3,
+            top_k=5000
+        )
 
         self.create_subscription(
             Image,
@@ -56,36 +67,34 @@ class FaceDetector(Node):
             desired_encoding="bgr8"
         )
 
-        gray = cv2.cvtColor(
-            image,
-            cv2.COLOR_BGR2GRAY
-        )
+        image_h, image_w = image.shape[:2]
 
-        faces = self.detector.detectMultiScale(
-            gray,
-            scaleFactor=1.2,
-            minNeighbors=5,
-            minSize=(50, 50)
-        )
+        # Actualizar dimensiones de entrada de YuNet
+        self.detector.setInputSize((image_w, image_h))
 
-        if len(faces) == 0:
+        # Detectar rostros
+        _, faces = self.detector.detect(image)
 
+        if faces is None or len(faces) == 0:
             self.detected_pub.publish(Bool(data=False))
             return
 
-        x, y, w, h = max(
+        # Seleccionar el rostro de mayor área
+        face = max(
             faces,
             key=lambda f: f[2] * f[3]
         )
 
-        image_h, image_w = image.shape[:2]
+        x, y, w, h = face[:4].astype(int)
 
+        # Calcular centro del rostro
         cx = x + w / 2
         cy = y + h / 2
 
         error_x = (cx - image_w / 2) / (image_w / 2)
         error_y = (cy - image_h / 2) / (image_h / 2)
 
+        # Tamaño relativo del rostro
         size = w / image_w
 
         pose = Point()
@@ -95,7 +104,6 @@ class FaceDetector(Node):
 
         self.face_pub.publish(pose)
         self.detected_pub.publish(Bool(data=True))
-
 
 def main():
 
