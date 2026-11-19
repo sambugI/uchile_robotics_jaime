@@ -68,15 +68,6 @@ def generate_launch_description():
         output='screen'
     )
 
-    """jaime_panel_node = Node(
-        package='jaime_tablet',
-        executable='jaime_panel',
-        name='jaime_panel',
-        output='screen',
-        respawn=True,
-        respawn_delay=2.0
-    )"""
-
 
     # Esperar antes de iniciar la cámara
     iniciar_camara = TimerAction(
@@ -87,5 +78,4 @@ def generate_launch_description():
     return LaunchDescription([
         iniciar_servidores_node,
         iniciar_camara,
-        #jaime_panel_node,
     ])

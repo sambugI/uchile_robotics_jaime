@@ -86,6 +86,7 @@ async def recibir_baterias_robot(request):
     return web.json_response({"ok": True})
 
 
+
 async def datos(request):
     return web.json_response({
         "connected": tablet_conectada,
@@ -93,7 +94,10 @@ async def datos(request):
         "telemetry": lecturas,
         "robot_battery": baterias_robot,
         "time_ms": int(time.time() * 1000),
-    }, headers={"Cache-Control": "no-store"})
+    }, headers={
+        "Cache-Control": "no-store",
+        "Access-Control-Allow-Origin": "*",
+    })
 
 
 HTML = r'''<!doctype html>
