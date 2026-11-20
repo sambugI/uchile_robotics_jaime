@@ -180,7 +180,8 @@ class LocalPlanner(Node):
                 return
         if self.state == 0:
             if self.cmd:
-                vel = self.jaime.compute_pos_velocity_with_limits(self.cmd, self.lower_limits, self.upper_limits, margin=0.01)
+                #vel = self.jaime.compute_pos_velocity_with_limits(self.cmd, self.lower_limits, self.upper_limits, margin=0.01)
+                vel = self.compute_pos_velocity (self.cmd)
                 # Normalización
                 print ("Vel original:", vel)
                 max_val = max(abs(v) for v in vel)  # valor máximo absoluto
