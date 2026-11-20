@@ -26,6 +26,14 @@ def generate_launch_description(*args, **kwargs):
         ]
     )
 
+    kobuki_battery_cmd = Node(
+        package='jaime_battery',
+        executable='kobuki_battery',
+        name='kobuki_battery_node',
+        namespace='',
+        output='screen'
+        )
+
     tf_footprint2base_cmd = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -42,5 +50,6 @@ def generate_launch_description(*args, **kwargs):
     )
 
     ld.add_action(kobuki_cmd)
+    ld.add_action(kobuki_battery_cmd)
 
     return ld

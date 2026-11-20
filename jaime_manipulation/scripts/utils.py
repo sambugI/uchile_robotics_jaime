@@ -175,15 +175,11 @@ class jaime_solution():
 
         print("Velocidad cinemática:", qdot)
 
-        # ---------------------------------------
-        # Convertir a velocidades de motor
-        # ---------------------------------------
-        # Los motores 2 y 3 tienen direccciones invertidas en local planner.
-        # Por eso se invierten los signos de las velocidades de estos motores para considerar los límites.
+
         motor_qdot = np.array([
             qdot[0],
-            -qdot[1],
-            -qdot[2]
+            qdot[1],
+            qdot[2]
         ])
 
         print("Velocidad motor:", motor_qdot)
@@ -221,6 +217,8 @@ class jaime_solution():
 
         if len(free_joints) == 0:
             return np.zeros(3)
+        if len (free_joints) == 3:
+            return qdot
 
         J_free = J[:, free_joints]
 

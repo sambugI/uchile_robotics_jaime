@@ -180,15 +180,16 @@ class LocalPlanner(Node):
                 return
         if self.state == 0:
             if self.cmd:
-                vel = self.jaime.compute_pos_velocity (self.cmd)
+                vel = self.jaime.compute_pos_velocity_with_limits(self.cmd, self.lower_limits, self.upper_limits, margin=0.01)
                 # Normalización
+                print ("Vel original:", vel)
                 max_val = max(abs(v) for v in vel)  # valor máximo absoluto
                 if max_val > 1.0:                   # solo normaliza si es necesario
                     vel = [2*(v / max_val) for v in vel]
 
-                # Original: self.goal_velocity = [vel[0],-vel[1],0.08*vel[2]]
+                # Original: self.goal_velocity = [vel[0], vel[1], -0.3*vel[2]]
                 # Se cambiaron signos de todos para ver cómo cambiaba el sentido de la velocidad.
-                self.goal_velocity = [vel[0], vel[1], -0.3*vel[2]] # Se cambió signo por dirección opuesta del primer motor.
+                self.goal_velocity = [2*vel[0], vel[1], -0.3*vel[2]] # Se cambió signo por dirección opuesta del primer motor.
                 print(self.goal_velocity)
         elif self.state == 1:
             if self.goal_ang is not None:

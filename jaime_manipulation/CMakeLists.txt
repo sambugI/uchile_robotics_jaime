@@ -19,17 +19,14 @@ find_package(jaime_interfaces REQUIRED)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
 
-  # the following line skips the linter which checks for copyrights
   set(ament_cmake_copyright_FOUND TRUE)
-
-  # the following line skips cpplint
   set(ament_cmake_cpplint_FOUND TRUE)
 
   ament_lint_auto_find_test_dependencies()
 endif()
 
 # ------------------------------------------------------------------------------
-# Install
+# Install directories
 # ------------------------------------------------------------------------------
 
 install(
@@ -37,9 +34,14 @@ install(
     launch
     scripts
     config
+    models
   DESTINATION
     share/${PROJECT_NAME}
 )
+
+# ------------------------------------------------------------------------------
+# Install executable scripts
+# ------------------------------------------------------------------------------
 
 install(
   PROGRAMS
@@ -50,9 +52,9 @@ install(
     scripts/sim_node.py
     scripts/face_detector.py
     scripts/face_follower.py
+    scripts/person_detector.py
     scripts/utils.py
     scripts/fk_solution.py
-    scripts/__init__.py
   DESTINATION
     lib/${PROJECT_NAME}
 )

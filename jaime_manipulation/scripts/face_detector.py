@@ -11,6 +11,7 @@ from geometry_msgs.msg import Point
 from std_msgs.msg import Bool
 
 from cv_bridge import CvBridge
+from ament_index_python.packages import get_package_share_directory
 
 
 class FaceDetector(Node):
@@ -21,14 +22,17 @@ class FaceDetector(Node):
 
         self.bridge = CvBridge()
 
-        model_path = os.path.join(
-            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-            "models",
-            "face_detection_yunet_2023mar.onnx"
-        )
+        PACKAGE_SHARE_DIR = get_package_share_directory('jaime_manipulation')
 
-        if not os.path.exists(model_path):
-            raise FileNotFoundError(f"No se encontró el modelo YuNet: {model_path}")
+        model_path = os.path.join(
+            PACKAGE_SHARE_DIR,
+            'models',
+            'face_detection_yunet_2023mar.onnx'
+            )
+        if not os.path.isfile(model_path):
+            raise FileNotFoundError(
+                f"No se encontró el modelo YuNet: {model_path}"
+            )
 
         self.detector = cv2.FaceDetectorYN.create(
             model_path,

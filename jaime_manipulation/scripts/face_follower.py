@@ -265,7 +265,7 @@ class FaceFollower(Node):
 
             msg.linear.x = 0.0
             msg.angular.z = 0.0
-
+        print (f"Yaw PID | Error X: {error_x:.4f} | Control Yaw: {control_yaw:.4f}")
         self.cmd_vel_pub.publish(msg)
 
         self.get_logger().info(
@@ -321,13 +321,12 @@ class FaceFollower(Node):
         )
 
         msg = Float64MultiArray()
-
         msg.data = [
             0.0,
             0.0,
-            -float(control_y) / 3
+            -float(control_y)
         ]
-
+        print (f"Pitch PD | Error Y: {self.error_y:.4f} | Control Y: {msg.data [2]:.4f}")
         self.cmd_pub.publish(msg)
 
     #################################################
